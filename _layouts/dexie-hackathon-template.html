@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dexie Global Hackathon 25</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="The easiest way to use IndexedDB. A lightweight, minimalistic wrapper that provides a straightforward API for developers using IndexedDB."
+  />
+  <meta
+    name="google-site-verification"
+    content="bFdw7dX5NwJCo_bf9zjRqrunuZ6aHBpIEpBX3oy3ItM"
+  />
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/assets/css/prism-vscode-dark.css" rel="stylesheet" />
+  <link href="/assets/css/stylesheet.css" rel="stylesheet" />
+  <link rel="shortcut icon" href="/assets/images/favicon-yuri.png" />
+  <script src="/assets/js/lazyload.min.js"></script>
+  <script src="/assets/js/offline-switch.js"></script>
+  <script src="/assets/js/prism-highlight.js"></script>
+  <style>
+	.navbar
+	{
+		 background-color: rgba(100, 100, 140, 0.5) !important;
+	}
+	body.hackathon-page
+	{
+		font-size: 16px;
+	}
+  </style>
+</head>
+
+<body class="language-javascript hackathon-page">
+  {% include navbar.html %}
+
+  <!-- Jumbotron / Parallax Section -->
+  <div class="jumbotron" id="parallax" style="min-height: 100vh;">
+    <div class="parallax-wrap" style="min-height: 100vh;">
+      <div class="layer" data-depth=".3">
+        <img src="/assets/images/hackathon/hackathon-hero.jpg" alt="Dexie background" />
+      </div>
+    </div>
+    {% include github-star-btn.html %}
+    <div class="container" style="display: flex; flex-direction: column; justify-content: center; height: 90vh;">
+      <h1>Dexie Global Hackathon 25</h1>
+      <p id="hackathon-date-info"></p>
+      <p style="font-size: 1.2em;">
+        <span id="hackathon-countdown" style="font-weight: bold;"></span>
+      </p>
+      <!-- <span class="size-details">Join our hackathon and win prizes!</span>
+      <br /> -->
+      <div style="display: inline-flex;">
+        <div style="flex: 1; padding: 0 2px 0 0;">
+			<a 
+				href="#join-hackathon"
+				class="getstarted btn btn-primary btn-lg"
+				role="button"
+          	>
+            <span class="glyphicon glyphicon-star"></span>&nbsp;
+            <span class="widescreen">Join Hackathon!</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Intro / Invitation -->
+    <h1>Welcome to Dexie Global Hackathon 25</h1>
+    <p>
+      A global event spanning eight weeks, from <strong>January 31 to March 28, 2025</strong>. 
+      The Dexie Global Hackathon 25 celebrates the thriving Dexie.js and Dexie Cloud community, 
+      fostering innovation and driving the development of next-generation offline-first applications.
+    </p>
+
+    <p>
+      Dexie.js is a <strong>battle-tested IndexedDB wrapper library</strong> that developers 
+      have trusted for years. With over <strong>12,000 stars on GitHub</strong>, 
+      <strong>500,000 weekly downloads on npm</strong>, and adoption in 
+      <strong>over 27,000 GitHub repositories</strong>, it has become 
+      a cornerstone for building robust offline-first solutions. Leading applications like 
+      <em>WhatsApp, GitHub, Microsoft To-Do, Wire, and Flightradar24</em> rely on Dexie.js, 
+      affirming its standard-setting approach to offline-first technology.
+    </p>
+
+    <p>
+      Building on this strong foundation, <strong>Dexie Cloud</strong> elevates offline-first 
+      applications to the next level by enabling seamless multi-user synchronization with minimal 
+      configuration. Integrate Dexie Cloud into your existing Dexie.js setup, and your app 
+      can sync data across devices and users in minutes. With features like built-in authentication, 
+      advanced access control, and consistent data synchronization, Dexie Cloud empowers developers 
+      to create some of the world’s most innovative solutions.
+    </p>
+
+    <p>
+      During this hackathon, participants will showcase the power of Dexie.js and Dexie Cloud 
+      by building applications that combine offline-first functionality, real-time synchronization, 
+      and unparalleled user experiences. Join us in exploring how Dexie Cloud can help you create 
+      amazing solutions, seamlessly bridging the gap between offline and online. 
+      Push the boundaries of offline-first technology and become part of this incredible community 
+      at the <strong>Dexie Global Hackathon 25</strong>!
+    </p>
+
+    <hr />
+
+    <!-- Additional Hackathon Info -->
+    <h2>Hackathon Highlights</h2>
+    <p>
+      Dexie Global Hackathon 25 is not your typical hackathon. We’re running for 
+      <strong>eight full weeks</strong>, giving you the time and resources to dive deeper, 
+      collaborate, and build truly innovative applications. Whether you’re an independent developer 
+      or a small team, we invite you to bring your creativity and join us in showing the world 
+      what Dexie.js and Dexie Cloud can do.
+    </p>
+
+    <h3>Why Participate?</h3>
+    <ul>
+      <li><strong>Grow Your Skills:</strong> Master offline-first and real-time technologies</li>
+      <li><strong>Boost Your Portfolio:</strong> Build and showcase innovative projects</li>
+      <li><strong>Expand Your Network:</strong> Connect with a global community of developers</li>
+      <li><strong>Earn Prizes & Recognition:</strong> Win licenses, highlight your work, and gain exposure</li>
+    </ul>
+
+    <h3>Key Dates & Rules</h3>
+    <ul>
+      <li>
+        <strong>Start:</strong> January 31, 2025, at 00:01 GMT
+      </li>
+      <li>
+        <strong>End:</strong> March 28, 2025, at 23:59 GMT
+      </li>
+      <li>
+        <em>Total Duration:</em> 8 weeks
+      </li>
+    </ul>
+    <p>
+      The rules are straightforward: 
+      <ul>
+        <li>Your project must use Dexie.js and Dexie Cloud as core components.</li>
+        <li>Code must be hosted on GitHub and include a live demo url.</li>
+        <li>Both solo and team entries (up to four people) are welcome.</li>
+      </ul>
+      Participation is <strong>free</strong> for everyone.
+    </p>
+
+    <h3>Judging & Prizes</h3>
+    <p>
+      Submissions will be judged on <strong>innovation, technical execution, usability, and presentation</strong>. 
+      Categories include Best Collaboration App, Most Innovative Solution, Best User Experience, Rookie Award, 
+      Trickiest Bug, and more.
+    </p>
+    <p>
+      <strong>First-place winners</strong> will receive an On-Prem Gold license plus a featured spot on 
+      the Dexie website. Additional prizes include Dexie Cloud seat licenses, community recognition, 
+      and more. Stay tuned for further announcements on 
+      <a href="https://dexie.org/hackathon" target="_blank">dexie.org/hackathon</a>.
+    </p>
+
+    <h3>Hackathon Timeline</h3>
+    <ul>
+      <li><strong>Before the Hackathon:</strong> Preparations, marketing, and publishing resources</li>
+      <li><strong>During the Hackathon (Jan 31 – Mar 28):</strong> Build your apps, attend online workshops, 
+          and get support through our Discord channel</li>
+      <li><strong>After the Hackathon:</strong> Jury review, award announcements, and project showcases</li>
+    </ul>
+
+    <hr />
+
+    <!-- Sign-Up Section -->
+
+	<div class="container" style="text-align: center;">
+		<a name="join-hackathon"></a>
+	  	<h2 style="font-size: 50pt; margin: 60px;" id="live-queries">Sign Up</h1>
+	</div>
+
+	<div class="container" style="text-align: left;">
+		<div class="row">
+			  <h3>
+				(Optional) Download Dexie Starter
+			  </h3>
+			  <p>For a quick start, you can clone our Dexie Starter. This Next.js/TypeScript & MUI–based project comes preconfigured with Dexie Cloud, custom login, sharable spaces, user management, and more—letting you launch a fully functional application in just minutes.</p>
+			  
+			  <pre class="command-line language-bash" data-prompt="~/my-web-app $"><code id="cli-whitelist" style="margin:0;">git clone https://github.com/dexie/dexie-starter.git</code></pre>
+			  <small id="emailHelp" class="form-text text-muted">Note: If you already have your own project structure or prefer a different tech stack, simply skip this step.</small>
+		</div>
+		<div class="row">
+			<h3>
+			  Step 1: Create Your Hackathon Database
+			</h3>
+			<p>To ensure your project is recognized as part of the official hackathon, add the <span style="color: #757575; background-color: rgb(0, 0, 0, 0.1); font-size: 12px; padding: 3px;">--hackathon</span> flag when creating your Dexie Cloud database:
+			<pre class="command-line language-bash" data-prompt="~/my-web-app $" data-filter-output="(out)"><code id="dexie-cloud-create" style="margin:0;">npx dexie-cloud create --hackathon</code></pre>
+		</div>
+		<div class="row">
+				<h3>Step 2. Whitelist your app origin(s)</h3>
+				<p>Whitelist the domains or ports where your application will run. During local development, for example:</p>
+				<pre class="command-line language-bash" data-prompt="~/my-web-app $"><code id="cli-whitelist" style="margin:0;">npx dexie-cloud whitelist http://localhost:3000</code></pre>
+				<small id="emailHelp" class="form-text text-muted">Later on, you can whitelist your production URL as well.</small>
+		</div>
+		<div class="row">
+				<h3>Step 3. Upgrade Dexie & Install dexie-cloud-addon</h3>
+				<p>Make sure you’re on the latest Dexie version and install the Cloud addon:</p>
+				<pre class="command-line language-bash" data-prompt="~/my-web-app $"><code style="margin:0;">npm install dexie@latest
+npm install dexie-cloud-addon</code></pre>
+		</div>
+		<div class="row">
+			<h3>4. Update Your Database Declaration</h3>
+			<p>Configure Dexie to use Dexie Cloud by updating your initialization code:</p>
+			<pre><code class="language-javascript" style="margin:0;" >import Dexie from "dexie";
+import dexieCloud from "dexie-cloud-addon";
+
+const db = new Dexie('MySyncedDB', {addons: [dexieCloud]});
+
+db.version(1).stores({
+	friends: '++id, name, age' // '++' = auto-incremented ID
+	friends: '@id, name, age' // '@' = auto-generated global ID
+});
+
+db.cloud.configure({
+	databaseUrl: "https://&lt;yourdatabase&gt;.dexie.cloud",
+	requireAuth: true // (optional. Block DB until authenticated)
+});</code><script>
+prismHighlight('update-db-declaration', [
+'import dexieCloud from "dexie-cloud-addon";',
+"{addons: [dexieCloud]}",
+{text: "friends: '++id, name, age' // '++' = auto-incremented ID", action: 'strikethrough'},
+"friends: '@id, name, age' // '@' = auto-generated global ID",
+///(\/\/.*)/g, // line comments
+/db\.cloud\.configure\(\{(.|\n)*\}\)\;/g
+]);
+prismHighlight('dexie-cloud-create', ['npx dexie-cloud create']);
+prismHighlight('cli-whitelist', ['npx dexie-cloud whitelist http://localhost:3000']);
+prismHighlight('npm-install-dexie-cloud-addon', ['npm install dexie-cloud-addon'])
+		</script></pre>
+			<small id="emailHelp" class="form-text text-muted">Read more about authentication, access control and consistency in the <a href="/cloud/">Dexie Cloud documentation</a>.</small>
+		</div>
+	</div>
+
+	  <h2>How to submit </h2>
+	  <p>
+		Fill out the submission form posted at 
+		<a href="https://dexie.org/hackathon/submit" target="_blank">https://dexie.org/hackathon/submit</a> 
+		That’s it!
+	  </p>
+    <h2>FAQ & Contact</h2>
+    <ul>
+      <li><strong>Do I need prior experience with Dexie.js?</strong> Not necessarily! We have starter templates 
+          and documentation to help you get up to speed quickly.</li>
+      <li><strong>Can I start coding before January 31?</strong> You can plan, design, and prepare, 
+          but official hackathon coding should primarily happen during the event.</li>
+      <li><strong>How do I get help or ask questions?</strong> Join our 
+          <a href="https://discord.com/channels/1328303736363421747/1328306429844787241" target="_blank">Discord channel</a> 
+          for Q&A, updates, and networking.</li>
+    </ul>
+
+  </div>
+
+  <div class="container" id="callouts">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Join now folks!</h2>
+			<p>Go out there and create something amazing – the worst that can happen is that you learn how to build the world's best offline-first applications.</p>
+		</div>
+	</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="container">
+    <footer>
+      <p style="font-size:21px; color:black;">
+        Browser testing via
+        <a href="https://www.lambdatest.com/" target="_blank">
+          <img
+            src="https://www.lambdatest.com/support/img/logo.svg"
+            style="vertical-align: middle; margin-left: 5px;"
+            width="147"
+            height="26"
+            alt="LambdaTest logo"
+          />
+        </a>
+      </p>
+      <br />
+      <p>&copy; 2014–2024 Dexie.js is created by David Fahlander and managed by Awarica AB.</p>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/prism-2020.js"></script>
+  <script src="/assets/js/prism-svelte.js"></script>
+  <script src="/assets/js/parallax.min.js"></script>
+  <script src="/assets/js/anime.min.js"></script>
+  <script src="/assets/js/shoutouts.js"></script>
+  <script>
+    // Parallax effect for jumbotron background
+    new Parallax(document.getElementById("parallax"));
+
+    // LazyLoad instance
+    var lazyLoadInstance = new LazyLoad({});
+    document.addEventListener("DOMContentLoaded", prismHighlight.highlight);
+
+    // --- Hackathon Countdown & Status ---
+    const hackathonStart = new Date("January 31, 2025 00:01:00 GMT");
+    const hackathonEnd = new Date("March 28, 2025 23:59:00 GMT");
+
+    function updateHackathonInfo() {
+      const now = new Date();
+      const timeToStart = hackathonStart - now;
+      const timeToEnd = hackathonEnd - now;
+
+      const dateInfoEl = document.getElementById("hackathon-date-info");
+      const countdownEl = document.getElementById("hackathon-countdown");
+
+      // Converts milliseconds to days, ensuring no negative values
+      function msToDays(ms) {
+        return Math.max(0, Math.floor(ms / (1000 * 60 * 60 * 24)));
+      }
+
+      if (timeToStart > 0) {
+        // Upcoming
+        const daysLeft = msToDays(timeToStart);
+        dateInfoEl.textContent = "The Hackathon begins on January 31, 2025!";
+        countdownEl.textContent = daysLeft + " days left until the start.";
+      } else if (timeToEnd > 0) {
+        // Ongoing
+        const daysLeft = msToDays(timeToEnd);
+        dateInfoEl.textContent = "The Hackathon is ongoing (Jan 31 – Mar 28, 2025).";
+        countdownEl.textContent = daysLeft + " days left until it ends!";
+      } else {
+        // Finished (optional)
+        dateInfoEl.textContent = "The Hackathon has ended.";
+        countdownEl.textContent = "";
+      }
+    }
+
+    updateHackathonInfo();
+    // If desired, update periodically (e.g., every hour):
+    // setInterval(updateHackathonInfo, 3600000);
+  </script>
+  <script src="/assets/js/scroll-to-anchor.js"></script>
+  {% include google-analytics.html %}
+  <script async defer src="//unpkg.com/dexie"></script>
+</body>
+</html>
