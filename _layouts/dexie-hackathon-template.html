@@ -17,19 +17,38 @@
   <link href="/assets/css/prism-vscode-dark.css" rel="stylesheet" />
   <link href="/assets/css/stylesheet.css" rel="stylesheet" />
   <link rel="shortcut icon" href="/assets/images/favicon-yuri.png" />
+  
+  <!-- Scripts (include jQuery and other dependencies) -->
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/prism-highlight.js"></script>
   <script src="/assets/js/lazyload.min.js"></script>
   <script src="/assets/js/offline-switch.js"></script>
-  <script src="/assets/js/prism-highlight.js"></script>
+  
+  <!-- Additional CSS -->
   <style>
     .navbar {
-      background-color: rgba(100, 100, 140, 0.5) !important;
+      background-color: rgba(100, 100, 140, 0.0) !important;
     }
     body.hackathon-page {
       font-size: 16px;
     }
-	h2 {
-		margin-top: 50px;
-	}
+    h2 {
+      margin-top: 50px;
+    }
+
+    /* Matrix Canvas at full screen behind everything */
+    #q {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1; /* Make sure it's behind other content */
+    }
+    .parallax-wrap {
+      min-height: 100vh;
+      /* remove the image or comment it out completely if you want no fallback */
+    }
   </style>
 </head>
 
@@ -37,12 +56,14 @@
   {% include navbar.html %}
 
   <!-- Jumbotron / Parallax Section -->
-  <div class="jumbotron" id="parallax" style="min-height: 100vh;">
+  <div class="jumbotron" id="parallax" style="min-height: 100vh; background-color: black;">
     <div class="parallax-wrap" style="min-height: 100vh;">
-      <div class="layer" data-depth=".3">
-        <img src="/assets/images/hackathon/hackathon-hero.jpg" alt="Dexie background" />
-      </div>
-    </div>
+		<!-- Remove or comment out the hero image -->
+		<!-- <img src="/assets/images/hackathon/hackathon-hero.jpg" alt="Dexie background" /> -->
+  
+		<!-- Matrix Canvas -->
+		<canvas id="q"></canvas>
+	  </div>
     {% include github-star-btn.html %}
     <div class="container" style="display: flex; flex-direction: column; justify-content: center; height: 90vh;">
       <h1>Dexie Global Hackathon 25</h1>
@@ -173,7 +194,7 @@
       <li><strong>Initial Screening:</strong> After the submission deadline, we verify all entries meet the basic requirements (Dexie.js + Dexie Cloud, working demo, etc.).</li>
       <li><strong>Jury Evaluation:</strong> Each valid entry is scored by members of the jury according to the criteria above. An average score determines the ranking.</li>
       <li><strong>Finalists:</strong> The top-ranked projects in each category advance as finalists.</li>
-      <li><strong>Announcement of Winners:</strong> Winners are announced on our website, social media, and newsletter within 1–2 weeks after the deadline. The jury’s decision is final.</li>
+      <li><strong>Announcement of Winners:</strong> Winners are announced on our website, and newsletter within 1–2 weeks after the deadline. The jury’s decision is final.</li>
     </ol>
 
     <h3>The Jury</h3>
@@ -190,7 +211,7 @@
 	</p>
 	<ul style="list-style-type: none; padding-left: 0;">
 		<li style="margin-bottom: 20px;">
-			<strong>1st Place:</strong> One On-Prem Gold license + exposure on Dexie’s website & social media  
+			<strong>1st Place:</strong> One On-Prem Gold license + exposure on Dexie’s website & newsletter  
 			<br/>
 			<em>Value:</em> $7,995.  
 			This license includes full source code, five years of software updates, one year of 
@@ -255,7 +276,7 @@
 
     <div class="container" style="text-align: left;">
       <div class="row">
-        <h3>(Optional) Download Dexie Starter</h3>
+        <h3><span style="color: rgba(0, 0, 0, 0.3)">(Optional)</span> Download Dexie Starter</h3>
         <p>
           For a quick start, you can clone our Dexie Starter. This Next.js/TypeScript & MUI–based project 
           comes preconfigured with Dexie Cloud, custom login, sharable spaces, user management, and more—letting you launch a fully functional application in just minutes.
@@ -332,7 +353,7 @@ db.cloud.configure({
         </pre>
         <small id="emailHelp" class="form-text text-muted">
           Read more about authentication, access control, and consistency in the 
-          <a href="/cloud/">Dexie Cloud documentation</a>.
+          <a href="/cloud/" target="_blank">Dexie Cloud documentation</a>.
         </small>
       </div>
     </div>
@@ -386,16 +407,14 @@ db.cloud.configure({
     </footer>
   </div>
 
-  <!-- Scripts -->
-  <script src="/assets/js/jquery.min.js"></script>
-  <script src="/assets/js/bootstrap.min.js"></script>
+  <!-- Script for Matrix Animation + Hackathon Countdown -->
   <script src="/assets/js/prism-2020.js"></script>
   <script src="/assets/js/prism-svelte.js"></script>
   <script src="/assets/js/parallax.min.js"></script>
   <script src="/assets/js/anime.min.js"></script>
   <script src="/assets/js/shoutouts.js"></script>
   <script>
-    // Parallax effect for jumbotron background
+    // Parallax effect for jumbotron background (optional if you want it)
     new Parallax(document.getElementById("parallax"));
 
     // LazyLoad instance
@@ -404,12 +423,12 @@ db.cloud.configure({
 
     // --- Hackathon Countdown & Status ---
     const hackathonStart = new Date("January 31, 2025 00:01:00 GMT");
-    const hackathonEnd = new Date("March 28, 2025 23:59:00 GMT");
+    const hackathonEnd   = new Date("March 28, 2025 23:59:00 GMT");
 
     function updateHackathonInfo() {
       const now = new Date();
       const timeToStart = hackathonStart - now;
-      const timeToEnd = hackathonEnd - now;
+      const timeToEnd   = hackathonEnd - now;
 
       const dateInfoEl = document.getElementById("hackathon-date-info");
       const countdownEl = document.getElementById("hackathon-countdown");
@@ -437,9 +456,70 @@ db.cloud.configure({
     }
 
     updateHackathonInfo();
-    // If desired, update periodically (e.g., every hour):
-    // setInterval(updateHackathonInfo, 3600000);
+    // setInterval(updateHackathonInfo, 3600000); // If you want periodic updates
   </script>
+
+  <!-- Immediate Matrix Animation -->
+  <!-- Start the multi-colored matrix animation -->
+  <script>
+    $(document).ready(() => {
+      const q = document.getElementById('q');
+      if (!q) return;
+
+      // Full screen sizing
+      const s = window.screen;
+      const w = q.width = s.width;
+      const h = q.height = s.height;
+      const ctx = q.getContext("2d");
+      
+      // A color palette reminiscent of your polygon background.
+      // Adjust or expand as you like!
+      const colors = [
+        "#F72585", // bright magenta/pink
+        "#B5179E", // deeper pink/purple
+        "#7209B7", // purple
+        "#560BAD", // deeper purple
+        "#480CA8", // violet
+        "#3A0CA3", // violet/blue
+        "#F15BB5", // pinkish
+        "#FEE440", // bright yellow
+        "#FF6B6B", // bright coral
+        "#FFA600"  // orange
+      ];
+
+      // Initialize columns
+      const columns = 256;
+      let drops = [];
+      for (let i = 0; i < columns; i++) {
+        drops[i] = 1;
+      }
+      const randomChar = () => String.fromCharCode(0x3000 + Math.random() * 33);
+
+      // Animation loop ~30fps
+      setInterval(() => {
+        // Slight black overlay to fade older text
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, w, h);
+
+        // For each column
+        for (let i = 0; i < drops.length; i++) {
+          // Pick a random color from the array
+          const colorIndex = Math.floor(Math.random() * colors.length);
+          ctx.fillStyle = colors[colorIndex];
+
+          // Draw a random character
+          ctx.fillText(randomChar(), i * 10, drops[i] * 10);
+
+          // Once the drop is off the screen, reset it to near the top
+          if (drops[i] * 10 > h && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }, 33);
+    });
+  </script>
+
   <script src="/assets/js/scroll-to-anchor.js"></script>
   {% include google-analytics.html %}
   <script async defer src="//unpkg.com/dexie"></script>
