@@ -21,13 +21,14 @@
   <script src="/assets/js/offline-switch.js"></script>
   <script src="/assets/js/prism-highlight.js"></script>
   <style>
-	.navbar
-	{
-		 background-color: rgba(100, 100, 140, 0.5) !important;
-	}
-	body.hackathon-page
-	{
-		font-size: 16px;
+    .navbar {
+      background-color: rgba(100, 100, 140, 0.5) !important;
+    }
+    body.hackathon-page {
+      font-size: 16px;
+    }
+	h2 {
+		margin-top: 50px;
 	}
   </style>
 </head>
@@ -49,15 +50,13 @@
       <p style="font-size: 1.2em;">
         <span id="hackathon-countdown" style="font-weight: bold;"></span>
       </p>
-      <!-- <span class="size-details">Join our hackathon and win prizes!</span>
-      <br /> -->
       <div style="display: inline-flex;">
         <div style="flex: 1; padding: 0 2px 0 0;">
-			<a 
-				href="#join-hackathon"
-				class="getstarted btn btn-primary btn-lg"
-				role="button"
-          	>
+          <a 
+            href="#join-hackathon"
+            class="getstarted btn btn-primary btn-lg"
+            role="button"
+          >
             <span class="glyphicon glyphicon-star"></span>&nbsp;
             <span class="widescreen">Join Hackathon!</span>
           </a>
@@ -104,7 +103,6 @@
       at the <strong>Dexie Global Hackathon 25</strong>!
     </p>
 
-    <hr />
 
     <!-- Additional Hackathon Info -->
     <h2>Hackathon Highlights</h2>
@@ -140,113 +138,215 @@
       The rules are straightforward: 
       <ul>
         <li>Your project must use Dexie.js and Dexie Cloud as core components.</li>
-        <li>Code must be hosted on GitHub and include a live demo url.</li>
+        <li>Code must be hosted on GitHub and include a live demo URL.</li>
         <li>Both solo and team entries (up to four people) are welcome.</li>
       </ul>
       Participation is <strong>free</strong> for everyone.
     </p>
 
-    <h3>Judging & Prizes</h3>
+    <!-- Categories & Judging -->
+    <h2>Categories & Judging</h2>
     <p>
-      Submissions will be judged on <strong>innovation, technical execution, usability, and presentation</strong>. 
-      Categories include Best Collaboration App, Most Innovative Solution, Best User Experience, Rookie Award, 
-      Trickiest Bug, and more.
+      We want to recognize exceptional work in different areas. Your submission can qualify for one (or more) of the following categories:
     </p>
-    <p>
-      <strong>First-place winners</strong> will receive an On-Prem Gold license plus a featured spot on 
-      the Dexie website. Additional prizes include Dexie Cloud seat licenses, community recognition, 
-      and more. Stay tuned for further announcements on 
-      <a href="https://dexie.org/hackathon" target="_blank">dexie.org/hackathon</a>.
-    </p>
-
-    <h3>Hackathon Timeline</h3>
     <ul>
-      <li><strong>Before the Hackathon:</strong> Preparations, marketing, and publishing resources</li>
-      <li><strong>During the Hackathon (Jan 31 – Mar 28):</strong> Build your apps, attend online workshops, 
-          and get support through our Discord channel</li>
-      <li><strong>After the Hackathon:</strong> Jury review, award announcements, and project showcases</li>
+      <li><strong>Best Collaboration App:</strong> Real-time collaboration features (e.g., Yjs integration)</li>
+      <li><strong>Most Innovative Solution:</strong> Novel or unique use of Dexie Cloud</li>
+      <li><strong>Best User Experience:</strong> Outstanding design, UX/UI</li>
+      <li><strong>Rookie Award:</strong> Best entry by a newcomer building their first Dexie-powered app</li>
+      <li><strong>Trickiest Bug:</strong> Most interesting or elusive bug reported in Dexie Cloud (helping us improve the product!)</li>
     </ul>
 
-    <hr />
+    <h3>Judging Criteria</h3>
+    <p>
+      Our jury will evaluate submissions based on:
+    </p>
+    <ul>
+      <li><strong>Innovation (30%):</strong> Uniqueness, creativity, originality</li>
+      <li><strong>Technical Execution (30%):</strong> Integration of Dexie.js & Dexie Cloud, code quality, stability</li>
+      <li><strong>Usability (20%):</strong> UI/UX design, overall user experience</li>
+      <li><strong>Presentation (20%):</strong> Clarity, documentation, demo quality, and project description</li>
+    </ul>
+
+    <h3>Judging Process</h3>
+    <ol>
+      <li><strong>Initial Screening:</strong> After the submission deadline, we verify all entries meet the basic requirements (Dexie.js + Dexie Cloud, working demo, etc.).</li>
+      <li><strong>Jury Evaluation:</strong> Each valid entry is scored by members of the jury according to the criteria above. An average score determines the ranking.</li>
+      <li><strong>Finalists:</strong> The top-ranked projects in each category advance as finalists.</li>
+      <li><strong>Announcement of Winners:</strong> Winners are announced on our website, social media, and newsletter within 1–2 weeks after the deadline. The jury’s decision is final.</li>
+    </ol>
+
+    <h3>The Jury</h3>
+    <p>
+      Submissions are assessed by a panel from the Dexie development team, internal product owners, and invited external experts with experience in offline-first technologies and real-time applications.
+    </p>
+
+    <!-- Prizes Section -->
+	<h2>Prizes</h2>
+	<p>
+	The Dexie Global Hackathon 25 offers valuable awards that go beyond recognition—these prizes deliver 
+	tangible benefits through Dexie Cloud services and licenses. Here’s an overview based on current 
+	pricing at <a href="https://dexie.org/cloud" target="_blank">dexie.org/cloud</a>:
+	</p>
+	<ul style="list-style-type: none; padding-left: 0;">
+		<li style="margin-bottom: 20px;">
+			<strong>1st Place:</strong> One On-Prem Gold license + exposure on Dexie’s website & social media  
+			<br/>
+			<em>Value:</em> $7,995.  
+			This license includes full source code, five years of software updates, one year of 
+			<a href="https://dexie.org/cloud/pricing#gold-support" target="_blank">Gold Support</a>, 
+			and no recurring costs. Perfect for teams that need complete control over their data 
+			and deeper integration with Dexie Cloud.
+		</li>
+
+		<li style="margin-bottom: 20px;">
+			<strong>2nd Place:</strong> 1,000 Dexie Cloud seats for 12 months + exposure  
+			<br/>
+			<em>Value:</em> $1,440.  
+			Ideal for scaling your production environment without added cost. Great for real-time 
+			collaboration apps with a large user base.
+		</li>
+
+		<li style="margin-bottom: 20px;">
+			<strong>3rd Place & Rookie Award:</strong> 100 Dexie Cloud seats for 12 months + exposure  
+			<br/>
+			<em>Value:</em> $144.  
+			A significant boost for smaller-scale or first-time Dexie Cloud applications.
+		</li>
+
+		<li style="margin-bottom: 20px;">
+			<strong>Trickiest Bug:</strong> 100 Dexie Cloud seats for 12 months + exposure  
+			<br/>
+			<em>Value:</em> $144.  
+			Rewarding those who help improve Dexie Cloud by identifying and reporting challenging bugs.
+		</li>
+
+		<li style="margin-bottom: 20px;">
+			<strong>Biggest Security Hole:</strong> 100 Dexie Cloud seats for 12 months + exposure  
+			<br/>
+			<em>Value:</em> $144.  
+			A thank-you for proactively uncovering security vulnerabilities that keep Dexie Cloud safe.
+		</li>
+
+		<li style="margin-bottom: 20px;">
+			<strong>Community Vote:</strong> 100 Dexie Cloud seats for 12 months + exposure  
+			<br/>
+			<em>Value:</em> $144.  
+			An opportunity to earn Dexie Cloud capacity based on popular vote and show off your project’s 
+			community appeal.
+		</li>
+	</ul>
+
+	<h4 style="font-style: italic;">At the end of the day, everyone who takes part in Dexie Global Hackathon 25 is a winner—because you’ll walk away with the skills to build powerful offline-first applications using Dexie.js and Dexie Cloud.</h4>
+
+	<small id="emailHelp" class="form-text text-muted">
+		For the latest information on Dexie Cloud pricing, including any updates or promotional rates, 
+		please see 
+		<a href="https://dexie.org/cloud" target="_blank">dexie.org/cloud</a>. 
+		We can’t wait to see what you build!
+	</small>
+	
 
     <!-- Sign-Up Section -->
+    <div class="container" style="text-align: center;">
+      <a name="join-hackathon"></a>
+      <h2 style="font-size: 50pt; margin: 60px;" id="live-queries">Sign Up</h2>
+    </div>
 
-	<div class="container" style="text-align: center;">
-		<a name="join-hackathon"></a>
-	  	<h2 style="font-size: 50pt; margin: 60px;" id="live-queries">Sign Up</h1>
-	</div>
+    <div class="container" style="text-align: left;">
+      <div class="row">
+        <h3>(Optional) Download Dexie Starter</h3>
+        <p>
+          For a quick start, you can clone our Dexie Starter. This Next.js/TypeScript & MUI–based project 
+          comes preconfigured with Dexie Cloud, custom login, sharable spaces, user management, and more—letting you launch a fully functional application in just minutes.
+        </p>
+        <pre class="command-line language-bash" data-prompt="~/my-web-app $"><code style="margin:0;">git clone https://github.com/dexie/dexie-starter.git</code></pre>
+        <small id="emailHelp" class="form-text text-muted">
+          Note: If you already have your own project structure or prefer a different tech stack, simply skip this step.
+        </small>
+      </div>
 
-	<div class="container" style="text-align: left;">
-		<div class="row">
-			  <h3>
-				(Optional) Download Dexie Starter
-			  </h3>
-			  <p>For a quick start, you can clone our Dexie Starter. This Next.js/TypeScript & MUI–based project comes preconfigured with Dexie Cloud, custom login, sharable spaces, user management, and more—letting you launch a fully functional application in just minutes.</p>
-			  
-			  <pre class="command-line language-bash" data-prompt="~/my-web-app $"><code id="cli-whitelist" style="margin:0;">git clone https://github.com/dexie/dexie-starter.git</code></pre>
-			  <small id="emailHelp" class="form-text text-muted">Note: If you already have your own project structure or prefer a different tech stack, simply skip this step.</small>
-		</div>
-		<div class="row">
-			<h3>
-			  Step 1: Create Your Hackathon Database
-			</h3>
-			<p>To ensure your project is recognized as part of the official hackathon, add the <span style="color: #757575; background-color: rgb(0, 0, 0, 0.1); font-size: 12px; padding: 3px;">--hackathon</span> flag when creating your Dexie Cloud database:
-			<pre class="command-line language-bash" data-prompt="~/my-web-app $" data-filter-output="(out)"><code id="dexie-cloud-create" style="margin:0;">npx dexie-cloud create --hackathon</code></pre>
-		</div>
-		<div class="row">
-				<h3>Step 2. Whitelist your app origin(s)</h3>
-				<p>Whitelist the domains or ports where your application will run. During local development, for example:</p>
-				<pre class="command-line language-bash" data-prompt="~/my-web-app $"><code id="cli-whitelist" style="margin:0;">npx dexie-cloud whitelist http://localhost:3000</code></pre>
-				<small id="emailHelp" class="form-text text-muted">Later on, you can whitelist your production URL as well.</small>
-		</div>
-		<div class="row">
-				<h3>Step 3. Upgrade Dexie & Install dexie-cloud-addon</h3>
-				<p>Make sure you’re on the latest Dexie version and install the Cloud addon:</p>
-				<pre class="command-line language-bash" data-prompt="~/my-web-app $"><code style="margin:0;">npm install dexie@latest
-npm install dexie-cloud-addon</code></pre>
-		</div>
-		<div class="row">
-			<h3>4. Update Your Database Declaration</h3>
-			<p>Configure Dexie to use Dexie Cloud by updating your initialization code:</p>
-			<pre><code class="language-javascript" style="margin:0;" >import Dexie from "dexie";
+      <div class="row">
+        <h3>Step 1: Create Your Hackathon Database</h3>
+        <p>
+          To ensure your project is recognized as part of the official hackathon, add the
+          <span style="color: #757575; background-color: rgb(0, 0, 0, 0.1); font-size: 12px; padding: 3px;">
+            --hackathon
+          </span>
+          flag when creating your Dexie Cloud database:
+        </p>
+        <pre class="command-line language-bash" data-prompt="~/my-web-app $" data-filter-output="(out)"><code  style="margin:0;">npx dexie-cloud create --hackathon</code></pre>
+      </div>
+
+      <div class="row">
+        <h3>Step 2: Whitelist Your App Origin(s)</h3>
+        <p>Whitelist the domains or ports where your application will run. For local development, for example:</p>
+        <pre class="command-line language-bash" data-prompt="~/my-web-app $"><code style="margin:0;">npx dexie-cloud whitelist http://localhost:3000</code></pre>
+        <small id="emailHelp" class="form-text text-muted">
+          You can whitelist your production URL later as well.
+        </small>
+      </div>
+
+      <div class="row">
+        <h3>Step 3: Upgrade Dexie & Install dexie-cloud-addon</h3>
+        <p>Make sure you’re on the latest Dexie version and install the Cloud addon:</p>
+        <pre class="command-line language-bash" data-prompt="~/my-web-app $"><code style="margin:0;">npm install dexie@latest
+npm install dexie-cloud-addon</code>
+        </pre>
+      </div>
+
+      <div class="row">
+        <h3>Step 4: Update Your Database Declaration</h3>
+        <p>
+          Configure Dexie to use Dexie Cloud by updating your initialization code:
+        </p>
+        <pre>
+          <code class="language-javascript" style="margin:0;" >import Dexie from "dexie";
 import dexieCloud from "dexie-cloud-addon";
 
-const db = new Dexie('MySyncedDB', {addons: [dexieCloud]});
+const db = new Dexie('MySyncedDB', { addons: [dexieCloud] });
 
 db.version(1).stores({
-	friends: '++id, name, age' // '++' = auto-incremented ID
-	friends: '@id, name, age' // '@' = auto-generated global ID
+  friends: '++id, name, age' // '++' = auto-incremented ID
+  friends: '@id, name, age' // '@' = auto-generated global ID
 });
 
 db.cloud.configure({
-	databaseUrl: "https://&lt;yourdatabase&gt;.dexie.cloud",
-	requireAuth: true // (optional. Block DB until authenticated)
-});</code><script>
-prismHighlight('update-db-declaration', [
-'import dexieCloud from "dexie-cloud-addon";',
-"{addons: [dexieCloud]}",
-{text: "friends: '++id, name, age' // '++' = auto-incremented ID", action: 'strikethrough'},
-"friends: '@id, name, age' // '@' = auto-generated global ID",
-///(\/\/.*)/g, // line comments
-/db\.cloud\.configure\(\{(.|\n)*\}\)\;/g
-]);
-prismHighlight('dexie-cloud-create', ['npx dexie-cloud create']);
-prismHighlight('cli-whitelist', ['npx dexie-cloud whitelist http://localhost:3000']);
-prismHighlight('npm-install-dexie-cloud-addon', ['npm install dexie-cloud-addon'])
-		</script></pre>
-			<small id="emailHelp" class="form-text text-muted">Read more about authentication, access control and consistency in the <a href="/cloud/">Dexie Cloud documentation</a>.</small>
-		</div>
-	</div>
+  databaseUrl: "https://<yourdatabase>.dexie.cloud",
+  requireAuth: true // (optional. Block DB until authenticated)
+});
+          </code>
+          <script>
+            prismHighlight('update-db-declaration', [
+              'import dexieCloud from "dexie-cloud-addon";',
+              "{addons: [dexieCloud]}",
+              {text: "friends: '++id, name, age' // '++' = auto-incremented ID", action: 'strikethrough'},
+              "friends: '@id, name, age' // '@' = auto-generated global ID",
+              ///(\/\/.*)/g,
+              /db\.cloud\.configure\(\{(.|\n)*\}\)\;/g
+            ]);
+            prismHighlight('dexie-cloud-create', ['npx dexie-cloud create']);
+            prismHighlight('cli-whitelist', ['npx dexie-cloud whitelist http://localhost:3000']);
+            prismHighlight('npm-install-dexie-cloud-addon', ['npm install dexie-cloud-addon']);
+          </script>
+        </pre>
+        <small id="emailHelp" class="form-text text-muted">
+          Read more about authentication, access control, and consistency in the 
+          <a href="/cloud/">Dexie Cloud documentation</a>.
+        </small>
+      </div>
+    </div>
 
-	  <h2>How to submit </h2>
-	  <p>
-		Fill out the submission form posted at 
-		<a href="https://dexie.org/hackathon/submit" target="_blank">https://dexie.org/hackathon/submit</a> 
-		That’s it!
-	  </p>
+    <h2>How to Submit</h2>
+    <p>
+      Once your project is ready, simply fill out the submission form at
+      <a href="https://dexie.org/hackathon/submit" target="_blank">https://dexie.org/hackathon/submit</a>.
+      Make sure to include a link to your GitHub repo and your working demo or live preview. That’s it!
+    </p>
+
     <h2>FAQ & Contact</h2>
     <ul>
-      <li><strong>Do I need prior experience with Dexie.js?</strong> Not necessarily! We have starter templates 
+      <li><strong>Do I need prior experience with Dexie.js?</strong> Not necessarily! We offer starter templates 
           and documentation to help you get up to speed quickly.</li>
       <li><strong>Can I start coding before January 31?</strong> You can plan, design, and prepare, 
           but official hackathon coding should primarily happen during the event.</li>
@@ -258,12 +358,12 @@ prismHighlight('npm-install-dexie-cloud-addon', ['npm install dexie-cloud-addon'
   </div>
 
   <div class="container" id="callouts">
-	<div class="row">
-		<div class="col-md-12">
-			<h2>Join now folks!</h2>
-			<p>Go out there and create something amazing – the worst that can happen is that you learn how to build the world's best offline-first applications.</p>
-		</div>
-	</div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Join now, folks!</h2>
+        <p>Go out there and create something amazing – the worst that can happen is that you learn how to build some of the world’s best offline-first applications.</p>
+      </div>
+    </div>
   </div>
 
   <!-- Footer -->
