@@ -127,7 +127,11 @@
   </div>	
 </div>	
 
-<div style="background-color: rgb(0, 0, 0, 0.05); padding: 20px; margin: 20px 0px;">
+<div style="
+background: linear-gradient(rgba(255, 239, 254, 0.9), rgba(255, 239, 254, 0.9)), url(/assets/images/hackathon/hackathon-section-bg.jpg); 
+background-size: cover; 
+padding: 20px; 
+margin: 20px 0px;">
   <div class="container" >
 	<div class="row">
 		<!-- Additional Hackathon Info -->
@@ -208,14 +212,89 @@
       <li><strong>Announcement of Winners:</strong> Winners are announced on our website, and newsletter within 1–2 weeks after the deadline. The jury’s decision is final.</li>
     </ol>
 
-    <h3>The Jury</h3>
-    <p>
-      Submissions are assessed by a panel from the Dexie development team, internal product owners, and invited external experts with experience in offline-first technologies and real-time applications.
+	<h3>The Jury</h3>
+<p>
+  Submissions are assessed by a panel from the Dexie development team, internal product owners,
+  and invited external experts with extensive experience in offline-first technologies 
+  and real-time applications. Together, they form a broad and well-rounded jury to ensure 
+  fair and professional evaluations of all submissions.
+</p>
+
+<!-- Jury Member: David Fahlander -->
+<div style="margin-top: 40px; display: flex; align-items: flex-start;">
+  <img 
+    src="https://github.com/dfahlander.png?size=120" 
+    alt="Avatar of David Fahlander" 
+    style="border-radius: 50%; margin-right: 15px;" 
+  />
+  <div>
+    <h4 style="margin-top: 0;">David Fahlander 
+      (<a href="https://github.com/dfahlander" target="_blank">dfahlander on GitHub</a>)
+    </h4>
+    <p style="margin-bottom: 0;">
+      David is the founder and lead developer behind Dexie.js and the driving force 
+      behind Dexie Cloud. With a deep background in IndexedDB, offline-first strategies, 
+      and performance optimizations, David brings critical domain knowledge that 
+      helps the jury evaluate architectural, scalability, and technical aspects 
+      of participants’ projects. His extensive experience ensures a thorough 
+      assessment of how well teams leverage Dexie’s offline capabilities and 
+      real-time synchronization.
     </p>
+  </div>
+</div>
+
+<!-- Jury Member: Bennie Forss -->
+<div style="margin-top: 40px; display: flex; align-items: flex-start;">
+  <img 
+    src="https://github.com/bennieforss.png?size=120" 
+    alt="Avatar of Bennie Forss" 
+    style="border-radius: 50%; margin-right: 15px;" 
+  />
+  <div>
+    <h4 style="margin-top: 0;">Bennie Forss 
+      (<a href="https://github.com/bennieforss" target="_blank">bennieforss on GitHub</a>)
+    </h4>
+    <p style="margin-bottom: 0;">
+      Bennie is the founder of Zenta AB and creator of <a href="https://totodo.app" target="_blank">totodo.app</a>,” an application 
+      showcasing practical offline-first and real-time collaboration strategies with Dexie.js and Dexie Cloud.
+      His hands-on approach to building user-centric apps ensures the jury 
+      maintains a strong focus on usability, seamless synchronization flows, 
+      and overall project feasibility. Bennie’s insights help gauge whether 
+      participants deliver solutions that excel in design, innovation, and 
+      real-world applicability.
+    </p>
+  </div>
+</div>
+
+<!-- Jury Member: Jesper Tullberg -->
+<div style="margin-top: 40px; display: flex; align-items: flex-start;">
+  <img 
+    src="https://github.com/GGAlanSmithee.png?size=120" 
+    alt="Avatar of Jesper Tullberg" 
+    style="border-radius: 50%; margin-right: 15px; width: 120px;" 
+  />
+  <div>
+    <h4 style="margin-top: 0;">Jesper Tullberg 
+      (<a href="https://github.com/GGAlanSmithee" target="_blank">GGAlanSmithee on GitHub</a>)
+    </h4>
+    <p style="margin-bottom: 0;">
+      Jesper is a software engineer with a proven track record in open-source projects 
+      related to Dexie.js. His expertise in distributed data handling, debugging, 
+      and innovative web functionalities brings a meticulous perspective to the jury. 
+      Jesper’s sharp eye for performance and code quality ensures that hackathon 
+      submissions are thoroughly evaluated for technical excellence, robustness, 
+      and overall developer craftsmanship.
+    </p>
+  </div>
+</div>
+	
 	</div>	
   </div>	
-  <div style="background-color: rgb(0, 0, 0, 0.05); padding: 20px; margin: 20px 0px;">
-
+  <div style="
+  background: linear-gradient(rgba(252, 255, 228, 0.9), rgba(252, 255, 228, 0.9)), url(/assets/images/hackathon/hackathon-section-bg.jpg); 
+  background-size: cover; 
+  padding: 20px; 
+  margin: 20px 0px;">
   <div class="container">
 	<div class="row">
 
@@ -377,8 +456,11 @@ db.cloud.configure({
       </div>
     </div>
 
-	<div style="background-color: rgb(0, 0, 0, 0.05); padding: 20px; margin: 20px 0px;">
-
+	<div style="
+	background: linear-gradient(rgba(255, 223, 223, 0.9), rgba(255, 223, 223, 0.9)), url(/assets/images/hackathon/hackathon-section-bg.jpg); 
+	background-size: cover; 
+	padding: 20px; 
+	margin: 20px 0px;">
     <div class="container" style="text-align: left;">
 		<div class="row">
 		<h2>How to Submit</h2>
@@ -487,60 +569,67 @@ db.cloud.configure({
   <!-- Start the multi-colored matrix animation -->
   <script>
     $(document).ready(() => {
-      const q = document.getElementById('q');
-      if (!q) return;
+		// for each loop in array of ids like q, w, e
+		['q', 'w', 'e'].forEach(id => {
+			console.log(id);
 
-      // Full screen sizing
-      const s = window.screen;
-      const w = q.width = s.width;
-      const h = q.height = s.height;
-      const ctx = q.getContext("2d");
-      
-      // A color palette reminiscent of your polygon background.
-      // Adjust or expand as you like!
-      const colors = [
-        "#F72585", // bright magenta/pink
-        "#B5179E", // deeper pink/purple
-        "#7209B7", // purple
-        "#560BAD", // deeper purple
-        "#480CA8", // violet
-        "#3A0CA3", // violet/blue
-        "#F15BB5", // pinkish
-        "#FEE440", // bright yellow
-        "#FF6B6B", // bright coral
-        "#FFA600"  // orange
-      ];
+			const q = document.getElementById(id);
+			if (!q) return;
 
-      // Initialize columns
-      const columns = 256;
-      let drops = [];
-      for (let i = 0; i < columns; i++) {
-        drops[i] = 1;
-      }
-      const randomChar = () => String.fromCharCode(0x3000 + Math.random() * 33);
+			// Full screen sizing
+			const s = window.screen;
+			const w = q.width = s.width;
+			const h = q.height = s.height;
+			const ctx = q.getContext("2d");
+			
+			// A color palette reminiscent of your polygon background.
+			// Adjust or expand as you like!
+			const colors = [
+				"#F72585", // bright magenta/pink
+				"#B5179E", // deeper pink/purple
+				"#7209B7", // purple
+				"#560BAD", // deeper purple
+				"#480CA8", // violet
+				"#3A0CA3", // violet/blue
+				"#F15BB5", // pinkish
+				"#FEE440", // bright yellow
+				"#FF6B6B", // bright coral
+				"#FFA600"  // orange
+			];
 
-      // Animation loop ~30fps
-      setInterval(() => {
-        // Slight black overlay to fade older text
-        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-        ctx.fillRect(0, 0, w, h);
+			// Initialize columns
+			const columns = 256;
+			let drops = [];
+			for (let i = 0; i < columns; i++) {
+				drops[i] = 1;
+			}
+			const randomChar = () => String.fromCharCode(0x3000 + Math.random() * 33);
 
-        // For each column
-        for (let i = 0; i < drops.length; i++) {
-          // Pick a random color from the array
-          const colorIndex = Math.floor(Math.random() * colors.length);
-          ctx.fillStyle = colors[colorIndex];
+			// Animation loop ~30fps
+			setInterval(() => {
+				// Slight black overlay to fade older text
+				ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+				ctx.fillRect(0, 0, w, h);
 
-          // Draw a random character
-          ctx.fillText(randomChar(), i * 10, drops[i] * 10);
+				// For each column
+				for (let i = 0; i < drops.length; i++) {
+				// Pick a random color from the array
+				const colorIndex = Math.floor(Math.random() * colors.length);
+				ctx.fillStyle = colors[colorIndex];
 
-          // Once the drop is off the screen, reset it to near the top
-          if (drops[i] * 10 > h && Math.random() > 0.975) {
-            drops[i] = 0;
-          }
-          drops[i]++;
-        }
-      }, 33);
+				// Draw a random character
+				ctx.fillText(randomChar(), i * 10, drops[i] * 10);
+
+				// Once the drop is off the screen, reset it to near the top
+				if (drops[i] * 10 > h && Math.random() > 0.975) {
+					drops[i] = 0;
+				}
+				drops[i]++;
+				}
+			}, 33);
+		});
+
+		
     });
   </script>
 
