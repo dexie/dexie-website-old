@@ -75,11 +75,11 @@
         <div style="flex: 1; padding: 0 2px 0 0;">
           <a 
             href="#join-hackathon"
-            class="getstarted btn btn-primary btn-lg"
+            class="btn btn-lg text-white getstarted" 
             role="button"
-          >
-            <span class="glyphicon glyphicon-star"></span>&nbsp;
-            <span class="widescreen">Join Hackathon!</span>
+            style="background-color: #000; border: 2px solid #d400ff; color: #d400ff; border-radius: 10px; text-shadow: 0 0 5px #d400ff, 0 0 10px #d400ff; padding: 10px 20px; text-decoration: none; display: inline-block; transition: transform 0.2s;">
+              <span class="glyphicon glyphicon-star"></span>&nbsp;
+              <span class="widescreen">Join Hackathon!</span>
           </a>
         </div>
       </div>
@@ -379,7 +379,7 @@ margin: 20px 0px;">
           For a quick start, you can clone our Dexie Starter. This Next.js/TypeScript & MUI–based project 
           comes preconfigured with Dexie Cloud, custom login, sharable spaces, user management, and more—letting you launch a fully functional application in just minutes.
         </p>
-        <pre class="command-line language-bash" data-prompt="~/my-web-app $"><code style="margin:0;">git clone https://github.com/dexie/dexie-starter.git</code></pre>
+        <pre class="command-line language-bash" data-prompt="~/my-project $"><code style="margin:0;">git clone https://github.com/dexie/dexie-starter.git</code></pre>
         <small id="emailHelp" class="form-text text-muted">
           Note: If you already have your own project structure or prefer a different tech stack, simply skip this step.
         </small>
@@ -392,30 +392,22 @@ margin: 20px 0px;">
           <span style="color: #757575; background-color: rgb(0, 0, 0, 0.1); font-size: 12px; padding: 3px;">
             --hackathon
           </span>
-          flag when creating your Dexie Cloud database:
+          &nbsp;flag when creating your Dexie Cloud database:
         </p>
-        <pre class="command-line language-bash" data-prompt="~/my-web-app $" data-filter-output="(out)"><code  style="margin:0;">npx dexie-cloud create --hackathon</code></pre>
+        <pre class="command-line language-bash" data-prompt="~/my-project $" data-filter-output="(out)"><code  style="margin:0;">npx dexie-cloud create --hackathon</code></pre>
       </div>
 
       <div class="row">
         <h3>Step 2: Whitelist Your App Origin(s)</h3>
         <p>Whitelist the domains or ports where your application will run. For local development, for example:</p>
-        <pre class="command-line language-bash" data-prompt="~/my-web-app $"><code style="margin:0;">npx dexie-cloud whitelist http://localhost:3000</code></pre>
+        <pre class="command-line language-bash" data-prompt="~/my-project $"><code style="margin:0;">npx dexie-cloud whitelist http://localhost:3000</code></pre>
         <small id="emailHelp" class="form-text text-muted">
           You can whitelist your production URL later as well.
         </small>
       </div>
 
       <div class="row">
-        <h3>Step 3: Upgrade Dexie & Install dexie-cloud-addon</h3>
-        <p>Make sure you’re on the latest Dexie version and install the Cloud addon:</p>
-        <pre class="command-line language-bash" data-prompt="~/my-web-app $"><code style="margin:0;">npm install dexie@latest
-npm install dexie-cloud-addon</code>
-        </pre>
-      </div>
-
-      <div class="row">
-        <h3>Step 4: Update Your Database Declaration</h3>
+        <h3>Step 3: Update Your Database Declaration</h3>
         <p>
           Configure Dexie to use Dexie Cloud by updating your initialization code:
         </p>
@@ -457,7 +449,7 @@ db.cloud.configure({
     </div>
 
 	<div style="
-	background: linear-gradient(rgba(255, 223, 223, 0.9), rgba(255, 223, 223, 0.9)), url(/assets/images/hackathon/hackathon-section-bg.jpg); 
+	background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(/assets/images/hackathon/hackathon-section-bg.jpg); 
 	background-size: cover; 
 	padding: 20px; 
 	margin: 20px 0px;">
@@ -481,20 +473,120 @@ db.cloud.configure({
 			for Q&A, updates, and networking.</li>
 		</ul>
 	</div>
+  <div class="row">
+    <h2>Official Disclaimers</h2>
+
+    <h4 style="margin-top: 30px;">Eligibility & Age Requirements</h4>
+    <p>
+      The Dexie Global Hackathon (“Hackathon”) is open to individuals at least 18 years old. 
+      Entrants must have internet access, a GitHub account, and the ability to host or demonstrate 
+      their application online. This Hackathon is globally available unless local laws prohibit 
+      participation. Organizers reserve the right to verify age and eligibility before awarding prizes.
+    </p>
+
+    <h4 style="margin-top: 30px;">Intellectual Property Ownership</h4>
+    <p>
+      All submissions remain the intellectual property of the participants. By submitting an entry, 
+      you warrant that you own or have permission to use all content in your project. You also grant 
+      Dexie the right to display your project name, description, screenshots, and demo links for 
+      promotional purposes.
+    </p>
+
+    <h4 style="margin-top: 30px;">Privacy</h4>
+    <p>
+      Dexie collects participant data (e.g., name, email) only for Hackathon administration and 
+      communication. We do not sell or share personal data outside Dexie’s scope of operations. By 
+      signing up, you consent to receive Hackathon-related emails, including updates and winner 
+      announcements. Participants from regions with data protection laws (e.g., GDPR) have 
+      the right to request data deletion or exercise other data rights.
+    </p>
+
+    <h4 style="margin-top: 30px;">Limitations of Liability</h4>
+    <p>
+      The Hackathon is provided “as is,” without warranty of any kind. Dexie is not liable for 
+      technical failures, lost data, or similar issues that may affect participation or scoring. 
+      By entering, you release Dexie from any claims arising from the Hackathon, including 
+      but not limited to personal injury, property damage, or data loss.
+    </p>
   </div>
 
 
-  <div class="container" id="callouts">
-    <div class="row">
-        <h2>Join now, folks!</h2>
-        <p>Go out there and create something amazing – the worst that can happen is that you learn how to build some of the world’s best offline-first applications.</p>
-    </div>
+  <div class="row">
+    <h2>Code of Conduct</h2>
+    <p>
+      We aim to create a safe, respectful, and inclusive environment. By participating in 
+      Dexie Global Hackathon, you agree to follow these guidelines:
+    </p>
+
+    <h4 style="margin-top: 30px;">Expected Behavior</h4>
+    <ul>
+      <li><strong>Respect Others:</strong> Treat participants, mentors, and organizers with courtesy.</li>
+      <li><strong>Be Inclusive:</strong> Support an environment welcoming to all backgrounds and skill levels.</li>
+      <li><strong>Collaborate:</strong> Provide constructive feedback, share knowledge, and encourage diverse ideas.</li>
+    </ul>
+
+    <h4 style="margin-top: 30px;">Unacceptable Behavior</h4>
+    <ul>
+      <li><strong>Harassment or Discrimination:</strong> Offensive comments or intimidation based on personal characteristics.</li>
+      <li><strong>Trolling or Abuse:</strong> Personal attacks, disrespectful language, or deliberate disruption.</li>
+      <li><strong>Unwanted Contact:</strong> Stalking, excessive messaging, or making someone feel unsafe.</li>
+      <li><strong>Plagiarism or IP Violations:</strong> Submitting code, media, or other assets without permission.</li>
+    </ul>
+
+    <h4 style="margin-top: 30px;">Reporting & Consequences</h4>
+    <p>
+      If you witness or experience misconduct, contact us at <a href="mailto:privsupport@dexie.org">privsupport@dexie.org</a>
+      or reach out via our official Discord. Organizers may issue warnings, remove participants 
+      from communication channels, or disqualify submissions if this Code of Conduct is violated.
+    </p>
   </div>
+  </div>
+
+
+
+
   </div>
 </div>
 
+  <div class="container" style="text-align: center; margin-top: 60px; margin-bottom: 200px;">
+    <a name="join-hackathon"></a>
+    <h2 style="font-size: 50pt; margin-top: 60px;" id="join-hackathon">Join now, folks</h2>
+    <p>Go out there and create something amazing – the worst that can happen is that you learn how to build some of the world’s best offline-first applications.</p>
+
+    <div style="flex: 1; padding: 0 2px 0 0; margin-top: 30px;">
+      <a 
+        href="#join-hackathon"
+        class="btn btn-lg text-white getstarted" 
+        role="button"
+        style="background-color: #000; border: 2px solid #d400ff; color: #d400ff; border-radius: 10px; text-shadow: 0 0 5px #d400ff, 0 0 10px #d400ff; padding: 10px 20px; text-decoration: none; display: inline-block; transition: transform 0.2s;">
+          <span class="glyphicon glyphicon-star"></span>&nbsp;
+          <span class="widescreen">Join Hackathon!</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 				"#F72585", // bright magenta/pink
+				"#B5179E", // deeper pink/purple
+				"#7209B7", // purple
+				"#560BAD", // deeper purple
+				"#480CA8", // violet
+				"#3A0CA3", // violet/blue
+				"#F15BB5", // pinkish
+				"#FEE440", // bright yellow
+				"#FF6B6B", // bright coral
+				"#FFA600"  // orange -->
+
+  <!-- ============ OFFICIAL DISCLAIMERS & CODE OF CONDUCT ============ -->
+  <div class="container" style="margin-top: 40px; color: rgba(0, 0, 0, 0.5); font-size: 75%;">
+    
+  </div>
+  <!-- ============ END OFFICIAL DISCLAIMERS & CODE OF CONDUCT ============ -->
+
+
   <!-- Footer -->
-  <div class="container">
+  <div class="container" style="margin-top: 40px;">
+    <div class="row">
+
     <footer>
       <p style="font-size:21px; color:black;">
         Browser testing via
@@ -511,6 +603,7 @@ db.cloud.configure({
       <br />
       <p>&copy; 2014–2024 Dexie.js is created by David Fahlander and managed by Awarica AB.</p>
     </footer>
+    </div>  
   </div>
 
   <!-- Script for Matrix Animation + Hackathon Countdown -->
