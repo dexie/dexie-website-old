@@ -409,8 +409,20 @@ background-size: cover;
         </small>
       </div>
 
+
       <div class="row">
-        <h3>Step 3: Update Your Database Declaration</h3>
+        <h3>Step 3: Upgrade Dexie & Install dexie-cloud-addon</h3>
+        <p>Make sure you’re on the latest Dexie version and install the Cloud addon:</p>
+        <pre class="command-line language-bash" data-prompt="~/my-web-app $"><code style="margin:0;">npm install dexie@next
+npm install dexie-cloud-addon@next</code>
+        </pre>
+        <small id="emailHelp" class="form-text text-muted">
+          If you are using React please run <code style="margin:0;">npm install dexie-react-hooks@next</code>
+        </small>        
+      </div>
+
+      <div class="row">
+        <h3>Step 4: Update Your Database Declaration</h3>
         <p>
           Configure Dexie to use Dexie Cloud by updating your initialization code:
         </p>
