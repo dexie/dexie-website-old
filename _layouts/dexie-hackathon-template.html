@@ -95,7 +95,7 @@
     <!-- Intro / Invitation -->
     <h1>Welcome to Dexie Global Hackathon 25</h1>
     <p>
-      A global event spanning eight weeks, from <strong>February 14 to April 11, 2025</strong>. 
+      A global event spanning eight weeks, from <strong>February 14 to April 13, 2025</strong>. 
       The Dexie Global Hackathon 25 celebrates the thriving Dexie.js and Dexie Cloud community, 
       fostering innovation and driving the development of next-generation offline-first applications.
     </p>
@@ -161,7 +161,7 @@ margin: 20px 0px;">
         <strong>Start:</strong> February 14, 2025, at 00:01 GMT
       </li>
       <li>
-        <strong>End:</strong> April 11, 2025, at 23:59 GMT
+        <strong>End:</strong> April 13, 2025, at 23:59 GMT
       </li>
       <li>
         <em>Total Duration:</em> 8 weeks
@@ -212,7 +212,7 @@ margin: 20px 0px;">
       <li><strong>Initial Screening:</strong> After the submission deadline, we verify all entries meet the basic requirements (Dexie.js + Dexie Cloud, working demo, etc.).</li>
       <li><strong>Jury Evaluation:</strong> Each valid entry is scored by members of the jury according to the criteria above. An average score determines the ranking.</li>
       <li><strong>Finalists:</strong> The top-ranked projects in each category advance as finalists.</li>
-      <li><strong>Announcement of Winners:</strong> Winners are announced on our website, and newsletter within 1–2 weeks after the deadline. The jury’s decision is final.</li>
+      <li><strong>Announcement of Winners:</strong> Winners are announced on our website, and newsletter within 2–3 weeks after the deadline. The jury’s decision is final.</li>
     </ol>
 
 	<h3>The Jury</h3>
@@ -686,7 +686,7 @@ color: white;">
 
     // --- Hackathon Countdown & Status ---
     const hackathonStart = new Date("February 14, 2025 00:01:00 GMT");
-    const hackathonEnd   = new Date("April 11, 2025 23:59:00 GMT");
+    const hackathonEnd   = new Date("April 13, 2025 23:59:00 GMT");
 
     function updateHackathonInfo() {
       const now = new Date();
@@ -709,7 +709,7 @@ color: white;">
       } else if (timeToEnd > 0) {
         // Ongoing
         const daysLeft = msToDays(timeToEnd);
-        dateInfoEl.textContent = "The Hackathon is ongoing (Feb 14 – Apr 11, 2025).";
+        dateInfoEl.textContent = "The Hackathon is ongoing (Feb 14 – Apr 13, 2025).";
         countdownEl.textContent = daysLeft + " days left until it ends!";
       } else {
         // Finished (optional)
