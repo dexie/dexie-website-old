@@ -322,7 +322,7 @@ background-size: cover;
 		<li style="margin-bottom: 20px;">
 			<strong>2nd Place:</strong> 1,000 Dexie Cloud seats for 12 months + exposure  
 			<br/>
-			<em>Value:</em> $1,440.  
+			<em>Value:</em> $1,320.  
 			Ideal for scaling your production environment without added cost. Great for real-time 
 			collaboration apps with a large user base.
 		</li>
@@ -330,21 +330,21 @@ background-size: cover;
 		<li style="margin-bottom: 20px;">
 			<strong>3rd Place & Rookie Award:</strong> 100 Dexie Cloud seats for 12 months + exposure  
 			<br/>
-			<em>Value:</em> $144.  
+			<em>Value:</em> $132.  
 			A significant boost for smaller-scale or first-time Dexie Cloud applications.
 		</li>
 
 		<li style="margin-bottom: 20px;">
 			<strong>Trickiest Bug:</strong> 100 Dexie Cloud seats for 12 months + exposure  
 			<br/>
-			<em>Value:</em> $144.  
+			<em>Value:</em> $132.  
 			Rewarding those who help improve Dexie Cloud by identifying and reporting challenging bugs.
 		</li>
 
 		<li style="margin-bottom: 20px;">
 			<strong>Biggest Security Hole:</strong> 100 Dexie Cloud seats for 12 months + exposure  
 			<br/>
-			<em>Value:</em> $144.  
+			<em>Value:</em> $132.  
 			A thank-you for proactively uncovering security vulnerabilities that keep Dexie Cloud safe.
 		</li>
 
@@ -411,18 +411,17 @@ background-size: cover;
 
 
       <div class="row">
-        <h3>Step 3: Upgrade Dexie & Install dexie-cloud-addon</h3>
-        <p>Make sure you’re on the latest Dexie version and install the Cloud addon:</p>
+        <h3>Step 3: Install Dexie & dexie-cloud-addon</h3>
+        <p>Make sure you have the next version of dexie and dexie-cloud-addon <i>(ensuring all latest features are available)</i>.</p>
         <pre class="command-line language-bash" data-prompt="~/my-web-app $"><code style="margin:0;">npm install dexie@next
-npm install dexie-cloud-addon@next</code>
-        </pre>
+npm install dexie-cloud-addon@next</code></pre>
         <small id="emailHelp" class="form-text text-muted">
           If you are using React please run <code style="margin:0;">npm install dexie-react-hooks@next</code>
         </small>        
       </div>
 
       <div class="row">
-        <h3>Step 4: Update Your Database Declaration</h3>
+        <h3>Step 4: Declare your Dexie instance</h3>
         <p>
           Configure Dexie to use Dexie Cloud by updating your initialization code:
         </p>
@@ -433,12 +432,11 @@ import dexieCloud from "dexie-cloud-addon";
 const db = new Dexie('MySyncedDB', { addons: [dexieCloud] });
 
 db.version(1).stores({
-  friends: '++id, name, age' // '++' = auto-incremented ID
-  friends: '@id, name, age' // '@' = auto-generated global ID
+  yourTable: '@id, ...indexes' // '@' = auto-generated global ID (optional but recommended)
 });
 
 db.cloud.configure({
-  databaseUrl: "https://<yourdatabase>.dexie.cloud",
+  databaseUrl: "https://&lt;yourdatabase&gt;.dexie.cloud",
   requireAuth: true // (optional. Block DB until authenticated)
 });
           </code>
@@ -458,7 +456,7 @@ db.cloud.configure({
         </pre>
         <small id="emailHelp" class="form-text text-muted">
           Read more about authentication, access control, and consistency in the 
-          <a href="/cloud/" target="_blank">Dexie Cloud documentation</a>.
+          <a href="/cloud/docs/" target="_blank">Dexie Cloud documentation</a>.
         </small>
       </div>
     </div>
@@ -474,6 +472,7 @@ background-size: cover;
   <div class="row">
 		<h2>How to Submit</h2>
 		<p>
+    We will provided a submission form here on this page during the hackathon.
 		Once your project is ready, simply fill out the submission form. 
 		Make sure to include a link to your GitHub repo and your working demo or live preview. That’s it!
 		</p>
@@ -584,7 +583,7 @@ background-size: cover;
     
         <h4 style="margin-top: 30px;">Reporting & Consequences</h4>
         <p>
-          If you witness or experience misconduct, contact us at <a href="mailto:privsupport@dexie.org">privsupport@dexie.org</a>
+          If you witness or experience misconduct, contact us at <a href="mailto:hackathon@dexie.org">hackathon@dexie.org</a>
           or reach out via our official Discord. Organizers may issue warnings, remove participants 
           from communication channels, or disqualify submissions if this Code of Conduct is violated.
         </p>
