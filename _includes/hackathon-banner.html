@@ -1,0 +1,109 @@
+<div class='container'>
+    <!-- BYT UT din tidigare jumbotron mot denna hackathon-jumbotron -->
+    <div class="jumbotron" id="parallax" style="min-height: 300px; background-color: black; position: relative; padding: 40px;">
+    <div class="parallax-wrap" style="min-height: 300px;">
+        <!-- Matrix Canvas -->
+        <canvas id="q"></canvas>
+    </div>
+    <div class="container" style="display: flex; flex-direction: column; justify-content: center; height: 200px;">
+        <h1>Dexie Global Hackathon 25</h1>
+        <p id="hackathon-date-info"></p>
+        <p style="font-size: 1.2em;">
+        <span id="hackathon-countdown" style="font-weight: bold;"></span>
+        </p>
+        <div style="display: inline-flex;">
+        <div style="flex: 1; padding: 0 2px 0 0;">
+            <a 
+            href="/hackathon"
+            class="btn btn-lg text-white getstarted" 
+            role="button"
+            style="border-radius: 40px !important; background-color: rgba(0, 0, 0, 0.6); border: 2px solid #d400ff; color: #d400ff; border-radius: 10px; text-shadow: 0 0 5px #d400ff, 0 0 10px #d400ff; padding: 10px 20px; text-decoration: none; display: inline-block; transition: transform 0.2s;">
+                <span class="widescreen">JOIN NOW</span>
+            </a>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script>
+  // Aktivera parallax på jumbotronen
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof Parallax === "function") {
+      new Parallax(document.getElementById("parallax"));
+    }
+  });
+
+
+  // Hackathon start- och slutdatum
+  const hackathonStart = new Date("February 14, 2025 00:01:00 GMT");
+  const hackathonEnd   = new Date("April 13, 2025 23:59:00 GMT");
+
+  function updateHackathonInfo() {
+    const now = new Date();
+    const timeToStart = hackathonStart - now;
+    const timeToEnd   = hackathonEnd - now;
+
+    const dateInfoEl = document.getElementById("hackathon-date-info");
+    const countdownEl = document.getElementById("hackathon-countdown");
+
+    // Hjälpfunktion för att konvertera ms till dagar (aldrig negativt)
+    function msToDays(ms) {
+      return Math.max(0, Math.floor(ms / (1000 * 60 * 60 * 24)));
+    }
+
+    if (timeToStart > 0) {
+      // Kommande hackathon
+      const daysLeft = msToDays(timeToStart);
+      dateInfoEl.textContent = "The Hackathon begins on February 14, 2025!";
+      countdownEl.textContent = daysLeft + " days left until the start.";
+    } else if (timeToEnd > 0) {
+      // Pågående hackathon
+      const daysLeft = msToDays(timeToEnd);
+      dateInfoEl.textContent = "The Hackathon is ongoing (Feb 14 – Apr 13, 2025).";
+      countdownEl.textContent = daysLeft + " days left until it ends!";
+    } else {
+      // Avslutat hackathon
+      dateInfoEl.textContent = "The Hackathon has ended.";
+      countdownEl.textContent = "";
+    }
+  }
+  updateHackathonInfo();
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const q = document.getElementById("q");
+    if (!q) return;
+
+    // Fullskärm
+    const s = window.screen;
+    const w = q.width = s.width;
+    const h = q.height = s.height;
+    const ctx = q.getContext("2d");
+
+    // Färgpalett
+    const colors = [
+      "#F72585","#B5179E","#7209B7","#560BAD","#480CA8","#3A0CA3",
+      "#F15BB5","#FEE440","#FF6B6B","#FFA600"
+    ];
+
+    const columns = 256;
+    let drops = [];
+    for (let i = 0; i < columns; i++) drops[i] = 1;
+    const randomChar = () => String.fromCharCode(0x3000 + Math.random() * 33);
+
+    setInterval(() => {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, w, h);
+
+      for (let i = 0; i < drops.length; i++) {
+        ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+        ctx.fillText(randomChar(), i * 10, drops[i] * 10);
+
+        if (drops[i] * 10 > h && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }, 33);
+  });
+</script>

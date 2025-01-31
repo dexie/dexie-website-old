@@ -1,3 +1,22 @@
+<style>
+  .wave-text {
+    border-radius: 5px;
+    width: 100%; 
+    color: #fff;
+    position: relative;
+    background: linear-gradient(90deg, #ff6a00, #ffffff, #23a6d5, #23d5ab);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: colorWave 3s ease-in-out infinite;
+  }
+
+  @keyframes colorWave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+  }
+</style>
 <nav class="navbar navbar-default" style="z-index: 10;">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -69,6 +88,9 @@
         {% endif %}
         <li><a href="https://github.com/dexie/Dexie.js/releases">Releases </a></li>
         <li><a href="/roadmap/">Road Map</a></li>
+        <li><a href="/hackathon/">
+          <span class="wave-text">Global Hackathon 25</span>
+        </a></li>
         <li><a href="https://medium.com/dexie-js" target="dexie-blog">Blog </a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
