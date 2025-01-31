@@ -1,0 +1,413 @@
+---
+layout: dexie-hackathon-template
+---
+<div class='container' id='callouts'>
+	<div class='row'>
+		<div class='col-md-4'>
+			<h2>Reactive123</h2>
+      <p>
+        Dexie 3.2 integrates better with front-end frameworks.
+        Query the db without boilerplate and let your components mirror the database in real time.
+      <!-- </p>
+			<p>Dexie's ability to <b><a href="/docs/liveQuery()">turn async functions into Observables</a></b> makes it possible to reuse and compose promise based queries and monitor their results in realtime.</p>-->
+			<p><a class='btn btn-success' href="#live-queries" role='button'>Show me &raquo;</a></p>
+		</div>
+		<div class='col-md-4'>
+			<h2>Easy to learn</h2>
+			<p>Dexie was written to be straightforward and easy to learn. If you've ever had to work with native IndexedDB then you'll certainly appreciate Dexie's concise API.</p>
+			<p><a class='btn btn-success' href='/docs/Tutorial/' role='button'>Dive right in &raquo;</a></p>
+		</div>
+		<div class='col-md-4'>
+			<h2>Easy to sync</h2>
+			<p>With only a few lines of extra code, you can build a consistent, authenticated and access controlled local-first app!</p>
+			<p><a class='btn btn-success' href='#sync' role='button'>Add sync &raquo;</a></p>
+		</div>
+	</div>
+</div>
+
+<div class='container'>
+	<hr/>
+</div>
+
+<div class='container'>
+	<h2>Basic examples</h2>
+	<div class='row'>
+		<div class='col-md-6'>
+			<pre><code class="language-javascript">
+	/*
+	|----------------------------|
+	| Declare your database      |
+	|----------------------------|
+	*/
+
+	const db = new Dexie('MyDatabase');
+
+	// Declare tables, IDs and indexes
+	db.version(1).stores({
+		friends: '++id, name, age'
+	});
+
+
+
+
+
+
+					</code></pre>
+							</div>
+							<div class='col-md-6'>
+								<pre><code class="language-javascript">
+	/*
+	|-----------------------|
+	| Then run some queries |
+	|-----------------------|
+	*/
+
+	// Find some old friends
+	const oldFriends = await db.friends
+		.where('age').above(75)
+		.toArray();
+
+	// or make a new one
+	await db.friends.add({
+		name: 'Camilla',
+		age: 25,
+		street: 'East 13:th Street',
+		picture: await getBlob('camilla.png')
+	});
+								</code></pre>
+					</div>
+	</div>
+  <br/>
+  <a class='getstarted btn btn-success btn-lg' href='#sync' role='button'>
+    <span class='glyphicon glyphicon-flash'></span>
+    <span class='widescreen'>Getting started with Sync</span>
+    <span class='slimscreen'>Add Sync</span>
+  </a>
+
+</div>
+
+<div class="container" style="text-align: center;">
+	<hr>
+  <h1 style="font-size: 50pt; margin: 60px;" id="live-queries">Live Queries</h1>
+</div>
+
+<div class='container'>
+	<div class='row'>
+<div class='col-md-6'>
+  <div class="framework-logo react-logo">
+
+    <img src="assets/images/React-icon.svg" />
+    React
+
+  </div>
+
+  <pre><code class="language-jsx">  import { useLiveQuery } from "dexie-react-hooks";
+  import { db } from "./db";
+
+  export function FriendList () {
+    const friends = useLiveQuery(async () => {
+      //
+      // Query the DB using our promise based API.
+      // The end result will magically become
+      // observable.
+      //
+      return await db.friends
+        .where("age")
+        .between(18, 65)
+        .toArray();
+    });
+
+    return &lt;>
+      &lt;h2>Friends&lt;/h2>
+      &lt;ul&gt;
+        {
+          friends?.map(friend =>
+            &lt;li key={friend.id}&gt;
+              {friend.name}, {friend.age}
+            &lt;/li&gt;
+          )
+        }
+      &lt;/ul&gt;
+    &lt;/>;
+  }</code></pre>
+  <p>
+    <a class='btn btn-success' href="/docs/Tutorial/React">Get started with Dexie in React &raquo;</a>
+  </p>
+  <p>
+    <a target="dexiereact" href="https://stackblitz.com/edit/dexie-todo-list?file=components%2FTodoListView.tsx">
+      Play with Dexie.js and React on Stackblitz
+    </a>
+  </p>
+  <!-- <p>
+    <a class='btn btn-success' href="/docs/dexie-react-hooks/useLiveQuery()">Learn about useLiveQuery() &raquo;</a>
+  </p> -->
+
+      </div>
+    <div class='col-md-6'>
+      <div class="framework-logo">
+
+        <img src="assets/images/Svelte_Logo.svg" />
+        Svelte
+
+      </div>
+      <pre><code class="language-svelte">  &lt;script>
+    import { liveQuery } from "dexie";
+    import { db } from "./db";
+    
+    let friends = liveQuery(async () => {
+      //
+      // Query the DB using our promise based API.
+      // The end result will magically become
+      // observable.
+      //
+      return await db.friends
+        .where("age")
+        .between(18, 65)
+        .toArray();
+    });
+  &lt;/script>
+
+  &lt;div>
+    &lt;h2>Friends&lt;/h2>
+    &lt;ul&gt;
+    {#each ($friends || []) as friend (friend.id)}
+      &lt;li&gt;{friend.name}, {friend.age}&lt;/li&gt;
+    {/each}
+    &lt;/ul&gt;
+  &lt;/div>
+
+
+
+
+</code></pre>
+  <p>
+    <a class='btn btn-success' href="/docs/Tutorial/Svelte">Get started with Dexie in Svelte &raquo;</a>
+  </p>
+  <p>
+    <a target="dexiesvelte" href="https://codesandbox.io/s/svelte-with-dexie-livequery-2n8bd?file=/App.svelte">
+    Play with Dexie.js and Svelte in Codesandbox
+  </a>
+</p>
+<!-- <p>
+  <a class='btn btn-success' href="/docs/liveQuery()">Learn about liveQuery() &raquo;</a>
+</p> -->
+</div>
+</div>
+
+
+<div class='row'>
+  <div class='col-md-6'>
+    <div class="framework-logo">
+
+      <img src="assets/images/vue.svg" />
+      Vue
+
+    </div>
+    <pre><code class="language-html">  &lt;template>
+    &lt;h2>Friends&lt;/h2>
+    &lt;ul>
+      &lt;li v-for="friend in friends" :key="friend.id">
+        &#x7B;&#x7B; friend.name }}, &#x7B;&#x7B; friend.age }}
+      &lt;/li>
+    &lt;/ul>  
+  &lt;/template>
+  &lt;script>
+    import { liveQuery } from "dexie";
+    import { db } from "../db";
+    import { useObservable } from "@vueuse/rxjs";
+    
+    export default {
+      name: "FriendList",
+      setup() {
+        return {
+          friends: useObservable(
+            liveQuery(async () => {
+              //
+              // Query the DB using our promise based API.
+              // The end result will magically become
+              // observable.
+              //
+              return await db.friends
+                .where("age")
+                .between(18, 65)
+                .toArray();      
+            })
+          )
+        };
+      }
+    };
+  &lt;/script></code></pre>
+<p>
+  <a class='btn btn-success' href="/docs/Tutorial/Vue">Get started with Dexie in Vue &raquo;</a>
+</p>
+<p>
+  <a target="dexievue" href="https://codesandbox.io/s/vue-dexie-livequery-87exj?file=/src/components/DBItems.vue">
+    Play with Dexie.js and Vue in Codesandbox
+  </a>
+</p>
+</div>
+<div class='col-md-6'>
+<div class="framework-logo react-logo">
+
+  <img src="assets/images/angular.svg" />
+  Angular
+
+</div>
+
+<pre><code class="language-typescript">  import { Component } from '@angular/core';
+  import { liveQuery } from 'dexie';
+  import { db } from '../db';
+  
+  @Component({
+    selector: 'friendlist',
+    template: `
+      &lt;h2>Friends&lt;/h2>
+      &lt;ul>
+        &lt;li *ngFor="let friend of friends$ | async">
+          &#x7B;&#x7B; friend.name }}, &#x7B;&#x7B; friend.age }}
+        &lt;/li>
+      &lt;/ul>
+    `
+  })
+  export class FriendsComponent {
+    friends$ = liveQuery(() => listFriends());
+  }
+
+  async function listFriends() {
+    //
+    // Query the DB using our promise based API.
+    // The end result will magically become
+    // observable.
+    //
+    return await db.friends
+      .where("age")
+      .between(18, 65)
+      .toArray();
+  }
+
+
+  
+
+</code></pre>
+<p>
+  <a class='btn btn-success' href="/docs/Tutorial/Angular">Get started with Dexie in Angular &raquo;</a>
+</p>
+<p>
+  <a target="dexieng" href="https://stackblitz.com/edit/angular-ivy-4666q1?file=src%2Fapp%2Fitemlist.component.ts">
+    Play with Dexie.js in Angular on Stackblitz
+  </a>
+</p>
+
+    </div>
+</div>
+</div>
+</div>
+
+
+<div class='container'>
+  <hr>
+</div>
+
+<div class='container'>
+  <div style="margin: 60px 0 60px 0; text-align: center;">
+  <h1 id="sync" style="font-size: 50pt;">
+    Sync
+  </h1>
+</div>
+<div class='container'>
+  <p style="font-size: 18pt">
+    Turn on sync with a few simple steps:
+  </p>
+</div>
+<div class='container white-text' style="position: relative;">  
+  <div class="video-parent" style="border-radius: 14px; box-shadow: 0 0 2px 4px #64b;">
+    <video
+      class="lazy banner-video"
+      preload="none"
+      autoplay
+      muted
+      loop
+      playsinline
+      >
+      <source
+        data-src="https://dexie.blob.core.windows.net/dexie/Galaxy.mp4"
+        type="video/mp4">
+    </video>
+  </div>
+  <br/>
+  <div class='row white-text'>
+    <div class='col-md-6'>
+      <h3 class="widescreen">1. Create your database in the cloud</h3>
+      <h3 class="slimscreen">1. Create your db in the cloud</h3>
+      <pre class="command-line language-bash" data-prompt="~/my-web-app $" data-filter-output="(out)"><code id="dexie-cloud-create" style="margin:0;">npx dexie-cloud create</code></pre>
+      <!-- <p style="color:#ddd"><i>The command is for a terminal/console window on any system with
+        <a href="https://nodejs.org/en/download/current">Node.js</a>
+        installed.</i></p>-->
+      <h3>2. Whitelist your app origin(s)</h3>
+      <pre class="command-line language-bash" data-prompt="~/my-web-app $"><code id="cli-whitelist" style="margin:0;">npx dexie-cloud whitelist http://localhost:3000</code></pre>
+      <!-- <p style="color:#ddd"><i>localhost:3000 is just while developing. When app is published, whitelist the public URL.</i></p>-->
+      <h3>3. Upgrade dexie + install dexie-cloud-addon</h3>
+      <pre class="command-line language-bash" data-prompt="~/my-web-app $"><code style="margin:0;">npm install dexie@latest
+npm install dexie-cloud-addon</code></pre>
+    </div>
+    <div class='col-md-6'>
+      <h3>4. Update your DB declaration</h3>
+      <!-- <p><b><i><span style="padding: 4px 6px; background-color: #3b2c48; border-radius: 4px; text-shadow: rgb(255, 255, 255) 0px 0px 15px">highlighted</span> parts represents changes needed to activate sync:</i></b></p> -->
+      <pre><code class="language-javascript" style="margin:0;" id="update-db-declaration">  import Dexie from "dexie";
+  import dexieCloud from "dexie-cloud-addon";
+
+  const db = new Dexie('MySyncedDB', {addons: [dexieCloud]});
+
+  db.version(1).stores({
+    friends: '++id, name, age' // '++' = auto-incremented ID
+    friends: '@id, name, age' // '@' = auto-generated global ID
+  });
+
+  db.cloud.configure({
+    databaseUrl: "https://&lt;yourdatabase&gt;.dexie.cloud",
+    requireAuth: true // (optional. Block DB until authenticated)
+  });</code><script>
+    prismHighlight('update-db-declaration', [
+      'import dexieCloud from "dexie-cloud-addon";',
+      "{addons: [dexieCloud]}",
+      {text: "friends: '++id, name, age' // '++' = auto-incremented ID", action: 'strikethrough'},
+      "friends: '@id, name, age' // '@' = auto-generated global ID",
+      ///(\/\/.*)/g, // line comments
+      /db\.cloud\.configure\(\{(.|\n)*\}\)\;/g
+    ]);
+    prismHighlight('dexie-cloud-create', ['npx dexie-cloud create']);
+    prismHighlight('cli-whitelist', ['npx dexie-cloud whitelist http://localhost:3000']);
+    prismHighlight('npm-install-dexie-cloud-addon', ['npm install dexie-cloud-addon'])
+  </script></pre>
+    <p>Read more about authentication,
+      access control and consistency in the <a href="/cloud/">Dexie Cloud documentation</a>.</p>
+    </p>
+    </div>
+
+</div>
+<p>
+  <a class='btn btn-success' id="land-sync-read-more-btn" href="/cloud/">Read more &raquo;</a>
+  <!-- <a class='btn btn-primary' id="land-sync-pricing-btn" href="/cloud/pricing">Pricing &raquo;</a>
+  <button style="width: fit-content" id="sign-up-beta-btn" class='sign-up-beta-btn getstarted btn btn-success' href='/cloud/#getting-started' role='button'>
+    <span class='glyphicon glyphicon-flash'></span>
+    <span>Try it now!</span>
+  </button>
+  -->
+</p>
+<br/>
+</div>
+
+{% include signup-forms.html %}
+
+<div class='container'>
+	<hr/>
+</div>
+
+<div class='container' id='callouts'>
+	<div class='row'>
+		<div class='col-md-12'>
+			<h2>That's all folks!</h2>
+			<p>Now go make something awesome.</p>
+		</div>
+	</div>
+</div>
