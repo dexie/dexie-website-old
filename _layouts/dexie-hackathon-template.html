@@ -95,7 +95,7 @@
     <!-- Intro / Invitation -->
     <h1>Welcome to Dexie Global Hackathon 25</h1>
     <p>
-      A global event spanning eight weeks, from <strong>January 31 to March 28, 2025</strong>. 
+      A global event spanning eight weeks, from <strong>February 14 to April 11, 2025</strong>. 
       The Dexie Global Hackathon 25 celebrates the thriving Dexie.js and Dexie Cloud community, 
       fostering innovation and driving the development of next-generation offline-first applications.
     </p>
@@ -158,10 +158,10 @@ margin: 20px 0px;">
     <h3>Key Dates & Rules</h3>
     <ul>
       <li>
-        <strong>Start:</strong> January 31, 2025, at 00:01 GMT
+        <strong>Start:</strong> February 14, 2025, at 00:01 GMT
       </li>
       <li>
-        <strong>End:</strong> March 28, 2025, at 23:59 GMT
+        <strong>End:</strong> April 11, 2025, at 23:59 GMT
       </li>
       <li>
         <em>Total Duration:</em> 8 weeks
@@ -376,8 +376,8 @@ background-size: cover;
 
 
     <div class="container" style="text-align: left; margin-bottom: 20px;">
-      <div class="row">
-        <h3><span style="color: rgba(0, 0, 0, 0.3)">(Optional)</span> Download Dexie Starter</h3>
+      <div class="row" style="display: none;">
+        <h3><span style="color: rgba(0, 0, 0, 0.3)">(Optional)</span> Dexie Cloud Starter</h3>
         <p>
           For a quick start, you can clone our Dexie Starter. This Next.js/TypeScript & MUI–based project 
           comes preconfigured with Dexie Cloud, custom login, sharable spaces, user management, and more—letting you launch a fully functional application in just minutes.
@@ -472,8 +472,7 @@ background-size: cover;
 		<div class="row">
 		<h2>How to Submit</h2>
 		<p>
-		Once your project is ready, simply fill out the submission form at
-		<a href="https://dexie.org/hackathon/submit" target="_blank">https://dexie.org/hackathon/submit</a>.
+		Once your project is ready, simply fill out the submission form. 
 		Make sure to include a link to your GitHub repo and your working demo or live preview. That’s it!
 		</p>
 
@@ -481,7 +480,7 @@ background-size: cover;
 		<ul>
 		<li><strong>Do I need prior experience with Dexie.js?</strong> Not necessarily! We offer starter templates 
 			and documentation to help you get up to speed quickly.</li>
-		<li><strong>Can I start coding before January 31?</strong> You can plan, design, and prepare, 
+		<li><strong>Can I start coding before February 14?</strong> You can plan, design, and prepare, 
 			but official hackathon coding should primarily happen during the event.</li>
 		<li><strong>How do I get help or ask questions?</strong> Join our 
 			<a href="https://discord.com/channels/1328303736363421747/1328306429844787241" target="_blank">Discord channel</a> 
@@ -612,8 +611,8 @@ color: white;">
     document.addEventListener("DOMContentLoaded", prismHighlight.highlight);
 
     // --- Hackathon Countdown & Status ---
-    const hackathonStart = new Date("January 31, 2025 00:01:00 GMT");
-    const hackathonEnd   = new Date("March 28, 2025 23:59:00 GMT");
+    const hackathonStart = new Date("February 14, 2025 00:01:00 GMT");
+    const hackathonEnd   = new Date("April 11, 2025 23:59:00 GMT");
 
     function updateHackathonInfo() {
       const now = new Date();
@@ -631,12 +630,12 @@ color: white;">
       if (timeToStart > 0) {
         // Upcoming
         const daysLeft = msToDays(timeToStart);
-        dateInfoEl.textContent = "The Hackathon begins on January 31, 2025!";
+        dateInfoEl.textContent = "The Hackathon begins on February 14, 2025!";
         countdownEl.textContent = daysLeft + " days left until the start.";
       } else if (timeToEnd > 0) {
         // Ongoing
         const daysLeft = msToDays(timeToEnd);
-        dateInfoEl.textContent = "The Hackathon is ongoing (Jan 31 – Mar 28, 2025).";
+        dateInfoEl.textContent = "The Hackathon is ongoing (Feb 14 – Apr 11, 2025).";
         countdownEl.textContent = daysLeft + " days left until it ends!";
       } else {
         // Finished (optional)
