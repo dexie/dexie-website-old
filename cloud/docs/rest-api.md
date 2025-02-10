@@ -1,6 +1,6 @@
 ---
 layout: docs-dexie-cloud
-title: "Dexie Cloud REST API"
+title: 'Dexie Cloud REST API'
 ---
 
 This page documents the REST API that every database in Dexie Cloud has.
@@ -46,7 +46,7 @@ A client must be given the "IMPERSONATE" scope in order to supply `claims` prope
 
 You can only request a subset of the scopes that your client has. The default client of a database have all the scopes available. Additional clients are created using `npx dexie-cloud authorize` where the scopes can be configured.
 
-For REST calls described here, you could either act on behalf of an end-user and use the /my/... endpoint to request and modify data. Or you can act with global database access and use the /all/... endpoint. The /public/... endpoint require no authorization whatsoever for GET requests, but require GLOBAL_WRITE in order to POST or DELETE objects.
+For REST calls described here, you could either act on behalf of an end-user and use the /my/... endpoint to request and modify data. Or you can act with global database access and use the /all/... endpoint. The /public/... endpoint require no authorization whatsoever for GET requests, but require GLOBAL_READ and GLOBAL_WRITE in order to POST or DELETE objects.
 
 ##### Get a token on behalf of an end-user
 
@@ -95,21 +95,21 @@ The response body from POST /token can be described by the following interface:
 
 ```ts
 export interface TokenFinalResponse {
-  type: "tokens"
+  type: 'tokens'
   claims: {
     sub: string
-    license?: "ok" | "expired" | "deactivated"
+    license?: 'ok' | 'expired' | 'deactivated'
     [claimName: string]: any
   }
   accessToken: string
   accessTokenExpiration: number
   refreshToken?: string
   refreshTokenExpiration?: number | null
-  userType: "demo" | "eval" | "prod" | "client"
+  userType: 'demo' | 'eval' | 'prod' | 'client'
   evalDaysLeft?: number
   userValidUntil?: number
   alerts?: {
-    type: "warning" | "info"
+    type: 'warning' | 'info'
     messageCode: string
     message: string
     messageParams?: { [param: string]: string }
@@ -262,7 +262,7 @@ If an object already exists with the given primary key, it will be replaced, oth
 ```http
 POST /all/<table> HTTP/1.1
 Host: xxxx.dexie.cloud
-Authorization: Bearer <token from /token endpoint (with GLOBAL_WRITE and ACCESS_DB scopes)>
+Authorization: Bearer <token from /token endpoint (with GLOBAL_READ, GLOBAL_WRITE and ACCESS_DB scopes)>
 Content-Type: application/json
 
 [{
@@ -297,7 +297,7 @@ Content-Type: application/json
 ```http
 POST /all/<table> HTTP/1.1
 Host: xxxx.dexie.cloud
-Authorization: Bearer <token from /token endpoint (with GLOBAL_WRITE and ACCESS_DB scopes)>
+Authorization: Bearer <token from /token endpoint (with GLOBAL_READ, GLOBAL_WRITE and ACCESS_DB scopes)>
 Content-Type: application/json
 
 [{
@@ -314,14 +314,14 @@ If primary key is [compound](/docs/Compound-Index#compound-primary-key), the JSO
 ```http
 DELETE /all/<table>/<primaryKey> HTTP/1.1
 Host: xxxx.dexie.cloud
-Authorization: Bearer <token from /token endpoint (with GLOBAL_WRITE and ACCESS_DB scopes)>
+Authorization: Bearer <token from /token endpoint (with GLOBAL_READ, GLOBAL_WRITE and ACCESS_DB scopes)>
 
 ```
 
 ```http
 DELETE /public/<table>/<primaryKey> HTTP/1.1
 Host: xxxx.dexie.cloud
-Authorization: Bearer <token from /token endpoint (with GLOBAL_WRITE and ACCESS_DB scopes)>
+Authorization: Bearer <token from /token endpoint (with GLOBAL_READ, GLOBAL_WRITE and ACCESS_DB scopes)>
 
 ```
 
@@ -344,7 +344,7 @@ Delete a todoItem
 ```
 DELETE /all/todoItems/tdi0Oma0cOxZhnmTbCQTMxP3Xetcal HTTP/1.1
 Host: z0lesejpr.dexie.cloud
-Authorization: Bearer <token from /token endpoint (with GLOBAL_WRITE and ACCESS_DB scopes)>
+Authorization: Bearer <token from /token endpoint (with GLOBAL_READ, GLOBAL_WRITE and ACCESS_DB scopes)>
 
 ```
 
@@ -353,7 +353,7 @@ Delete a compound key (array key `["Bob",42]`)
 ```
 DELETE /all/compoundTable/%5B%22Bob%22%2C42%5D HTTP/1.1
 Host: xxxx.dexie.cloud
-Authorization: Bearer <token from /token endpoint (with GLOBAL_WRITE and ACCESS_DB scopes)>
+Authorization: Bearer <token from /token endpoint (with GLOBAL_READ, GLOBAL_WRITE and ACCESS_DB scopes)>
 ```
 
 ...where `%5B%22Bob%22%2C42%5D` is the URI encoded representation of JSON `["Bob",42]`.
@@ -579,7 +579,7 @@ Host: xxxx.dexie.cloud
 Authorization: Bearer XXX...
 ```
 
-To delete any other user than your own account, you need the GLOBAL_WRITE and ACCESS_DB scopes in your Bearer token. Any user have the permission to delete themselves. The permission to delete own user is for GDPR compliance.
+To delete any other user than your own account, you need the GLOBAL_READ, GLOBAL_WRITE and ACCESS_DB scopes in your Bearer token. Any user have the permission to delete themselves. The permission to delete own user is for GDPR compliance.
 
 Deleting a user will make the system erase everything associated with the user including private data that the user has created. If the user has shared data with other users, the user will be removed from the realm in question but the data will be kept and stay available for the other users.
 
