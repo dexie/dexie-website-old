@@ -41,27 +41,75 @@ Price (basic level): $3,495/yr
 
 For more details, check out [this blog post](https://medium.com/dexie-js/dexie-cloud-subscription-model-cbf9a709ce7).
 
-|                                                                   | Free (SaaS)               | Production (SaaS)                              | On-prem Silver / Gold                                       |
-| ----------------------------------------------------------------- | ------------------------- | ---------------------------------------------- | ----------------------------------------------------------- |
-| Easy setup: **[npx dexie-cloud create](/cloud/#getting-started)** | ✔                         | ✔                                              | See [these docs](docs/premium-software)                     |
-| All main features included                                        | ✔                         | ✔                                              | ✔                                                           |
-| [Customizable authentication](#customizable-authentication)       | ✔                         | ✔                                              | ✔                                                           |
-| [Replaceable authentication](#replaceable-authentication)         | ✔                         | ✔                                              | ✔                                                           |
-| [Custom email templates](/cloud/docs/custom-emails)               | -                         | ✔                                              | ✔                                                           |
-| Vertically scalable                                               | -                         | ✔                                              | ✔                                                           |
-| Horizontally scalable                                             | -                         | ✔                                              | ✔                                                           |
-| Max Number of databases                                           | Unlimited, free of charge | Unlimited, free of charge                      | Unlimited                                                   |
-| [Evaluation users](#evaluation-users) (your end users)            | Unlimited, free of charge | Unlimited, free of charge                      | Unlimited                                                   |
-| [Demo accounts](#demo-accounts) (for showcasing app)              | Unlimited, free of charge | Unlimited, free of charge                      | Unlimited                                                   |
-| [Production users](#production-users) (your end users)            | 3 seats, free of charge   | USD $3/mo per 25 seats                         | Unlimited                                                   |
-| Storage                                                           | 100 MB                    | 100 GB / 100 users. Extendable for $0.05 / GB. | Unlimited                                                   |
-| Simultanous Client Connections                                    | 10                        | 200 per 100 users                              | Unlimited                                                   |
-| Sync rate-limits                                                  | 50 per 5 mins per user    | 200 per 5 minutes per user                     | Configurable                                                |
-| Software updates (client)                                         | ✔ (via npm)               | ✔ (via npm)                                    | ✔ (via npm)                                                 |
-| Software updates (server)                                         | N/A                       | N/A                                            | ✔ (via git, npm or download)                                |
-| Full source code                                                  | -                         | -                                              | [On-Prem Gold](#gold-edition)                               |
-| Access to private Git repo                                        | -                         | -                                              | [On-Prem Gold](#gold-edition)                               |
-| Support options                                                   | Github or Stackoverflow   | Email / chat                                   | [Silver](#silver-support)- or [Gold](#gold-support) Support |
+|                                                                   | Free (SaaS)               | Production (SaaS)                     | On-prem Silver / Gold                                       |
+| ----------------------------------------------------------------- | ------------------------- | ------------------------------------- | ----------------------------------------------------------- |
+| Easy setup: **[npx dexie-cloud create](/cloud/#getting-started)** | ✔                         | ✔                                     | See [these docs](docs/premium-software)                     |
+| All main features included                                        | ✔                         | ✔                                     | ✔                                                           |
+| [Customizable authentication](#customizable-authentication)       | ✔                         | ✔                                     | ✔                                                           |
+| [Replaceable authentication](#replaceable-authentication)         | ✔                         | ✔                                     | ✔                                                           |
+| [Custom email templates](/cloud/docs/custom-emails)               | -                         | ✔                                     | ✔                                                           |
+| Vertically scalable                                               | -                         | ✔                                     | ✔                                                           |
+| Horizontally scalable                                             | -                         | ✔                                     | ✔                                                           |
+| Max Number of databases                                           | Unlimited, free of charge | Unlimited, free of charge             | Unlimited                                                   |
+| [Evaluation users](#evaluation-users) (your end users)            | Unlimited, free of charge | Unlimited, free of charge             | Unlimited                                                   |
+| [Demo accounts](#demo-accounts) (for showcasing app)              | Unlimited, free of charge | Unlimited, free of charge             | Unlimited                                                   |
+| [Production users](#production-users) (your end users)            | 3 seats, free of charge   | USD $3/mo per 25 seats                | Unlimited                                                   |
+| Storage                                                           | 100 MB                    | See [storage limits](#storage-limits) | Unlimited                                                   |
+| Simultanous Client Connections                                    | 10                        | 200 per 100 users                     | Unlimited                                                   |
+| Sync rate-limits                                                  | 50 per 5 mins per user    | 200 per 5 minutes per user            | Configurable                                                |
+| Software updates (client)                                         | ✔ (via npm)               | ✔ (via npm)                           | ✔ (via npm)                                                 |
+| Software updates (server)                                         | N/A                       | N/A                                   | ✔ (via git, npm or download)                                |
+| Full source code                                                  | -                         | -                                     | [On-Prem Gold](#gold-edition)                               |
+| Access to private Git repo                                        | -                         | -                                     | [On-Prem Gold](#gold-edition)                               |
+| Support options                                                   | Github or Stackoverflow   | Email / chat                          | [Silver](#silver-support)- or [Gold](#gold-support) Support |
+
+## Storage Limits
+
+Dexie Cloud Production includes storage in relation to the number of seats purchased. The storage limit is computed on the sum of storage and not per individual user. If additional storage would be needed, it can be added to the subscription for a separate storage fee (see second table below).
+
+Storage limits are differentiated between blob- and object data. Normal object data (strings, numbers, arrays, Date, etc) reside in object storage in PostgeSQL while blob data (Blobs stored in object properties) are synced to a blob storage.
+
+| Seats&nbsp;  | Included Object storage&nbsp; | Included Blob storage&nbsp; | Included Blob write operations |
+| ------------ | ----------------------------- | --------------------------- | ------------------------------ |
+| Free edition | 25 MB                         | 75 MB                       | 1,000 / mo                     |
+| 25           | 1 GB                          | 20 GB                       | 50,000 / mo                    |
+| 50           | 2 GB                          | 40 GB                       | 100,000 / mo                   |
+| 75           | 3 GB                          | 60 GB                       | 150,000 / mo                   |
+| 100          | 4 GB                          | 80 GB                       | 200,000 / mo                   |
+| ...          | ...                           | ...                         | ...                            |
+| 1000         | 20 GB                         | 800 GB                      | 2,000,000 / mo                 |
+| 10 000       | 200 GB                        | 8 TB                        | 20,000,000 / mo                |
+| 100 000      | 2 TB                          | 80 TB                       | 200,000,000 / mo               |
+| ...          | ...                           | ...                         |
+
+The storage limit is specified on the total subscription and does not have to be distributed equally between the users. Normally the majority of users might not come close to the limit, which will allow the more active users to take more - without having to purchase additional storage for the subscription.
+
+A Blob write operation is counted when a blob is created or updated (replaced).
+
+### Additional Storage
+
+If more storage or write frequency than what's already included in the price would be requested, a subscription can be extended with additional storage and write operations:
+
+| Storage Type   | Storage Cost              | Sync costs                                      |
+| -------------- | ------------------------- | ----------------------------------------------- |
+| Blob Storage   | USD $0.05 / extra GB / mo | USD $0.5 per 10,000 additional write operations |
+| Object Storage | USD $2 / extra GB / mo    |                                                 |
+
+### Blob- vs Object Storage
+
+To make use of the cheaper Blob storage, save large binary data such as images, songs, videos etc in Blobs rather than base64 encoded strings or UInt8Arrays. The storage type can be affected already at the client side by using the [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) datatype in Dexie.js. The rest is handled by dexie-cloud:
+
+```ts
+async function addMp3Song(title: string, genre: string, mp3Blob: Blob) {
+  await db.songs.add({
+    title, // goes into object storage at sync time
+    genre, // goes into object storage at sync time
+    songData: mp3Blob // goes into blob storage at sync time
+  });
+}
+```
+
+Note however, that unlike object storage, blob storage has a limit / cost associated with write operations. Every time a blob is added or replaced is considered a write operation.
 
 ## Free
 
@@ -71,7 +119,7 @@ This edition is hosted and forever free. Let your app accept unlimited number of
 
 ## Production
 
-This edition is hosted and starts at USD $12 per month for 100 seats. It works similarly to the [Free](#free) edition but with more seats and auto-scaling. Continue enjoying free evaluation users on top of the 100 production seats. You control which users occupy production seats via the Dexie Cloud Management app or REST API. Integrate this REST API with the web hooks of your payment gateway (e.g., Stripe, Paypal) to manage seats based on your subscription with customers. When the number of production end users reaches 100, you can manually purchase more seat-packs or let the subscription automatically upgrade or downgrade as needed.
+This edition is hosted and starts at USD $3 per month for 25 seats. It works similarly to the [Free](#free) edition but with more seats, storage and more generous API rate limits. Continue enjoying free evaluation users on top of the 100 production seats. You control which users occupy production seats via the Dexie Cloud Management app or REST API. Integrate this REST API with the web hooks of your payment gateway (e.g., Stripe, Paypal) to manage seats based on your subscription with customers. When the number of production end users reaches 100, you can manually purchase more seat-packs or let the subscription automatically upgrade or downgrade as needed.
 
 <a class='btn btn-success' href='https://buy.stripe.com/14k9CEgSne5D1BS8ww' role='button'>Buy now &raquo;</a>
 
