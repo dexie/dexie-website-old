@@ -34,11 +34,11 @@ Email: [sales@awarica.com](mailto:sales@awarica.com)
 
 ## Ask Question
 
-[Ask Dexie question on stackoverflow](http://stackoverflow.com/questions/ask?tags=dexie)
+<a href="http://stackoverflow.com/questions/ask?tags=dexie" target="stackoverflow">Ask Dexie question on stackoverflow</a>
 
-[Ask Dexie Cloud question on GitHub](https://github.com/dexie/Dexie.js/issues/new?labels=cloud,question)
+<a href="https://github.com/dexie/Dexie.js/issues/new?labels=cloud,question" target="github">Ask Dexie Cloud question on GitHub</a>
 
-[Chat on Discord](https://discord.gg/huhre7MHBF)
+<a href="https://discord.com/channels/1328303736363421747/1339957860657926204" target="discord">Chat on Discord</a>
 
 ## File Issue
 
