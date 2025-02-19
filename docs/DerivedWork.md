@@ -15,6 +15,7 @@ Did you write something based on Dexie? Feel free to list it here.
 
 ## Products That Use Dexie (what we know of...)
 
+- [ChatGPT](https://chatgpt.com/) - OpenAI's famous AI chat!
 - [WhatsApp](https://www.whatsapp.com) - The market leader chat app use Dexie for storage in its KaiOs and Web clients.
 - [To-ToDo](https://totodo.app) - The best To-Do app ever - Based on Dexie and Dexie Cloud
 - [Microsoft TODO](https://todo.microsoft.com) - The new app to replace the popular Microsoft-aquired [Wunderlist](https://www.wunderlist.com).
@@ -24,7 +25,7 @@ Did you write something based on Dexie? Feel free to list it here.
 - [Wire](https://wire.com) - An end-to-end encrypted chat application.
 - [Medical Physics Quality Assurance Tool](http://electrons.simonbiggs.net/) -- Built with Typescript2, Angular2, Dexie2, Bokehjs, on GitHub Pages (Client) and Heroku (RestAPI). [Source Code](https://github.com/SimonBiggs/electroninserts-webapp).
 - [Memex](https://worldbrain.io) - Open source browser extension providing full-text search on bookmarks and history.
-- [more than 8000 other repos on GitHub](https://github.com/dexie/Dexie.js/network/dependents?package_id=UGFja2FnZS0xMzg0ODIyOQ%3D%3D)...
+- [more than 20,000 other repos on GitHub](https://github.com/dexie/Dexie.js/network/dependents?package_id=UGFja2FnZS0xMzg0ODIyOQ%3D%3D)...
 
 ## Known Addons
 
