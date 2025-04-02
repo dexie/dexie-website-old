@@ -525,9 +525,9 @@ npx dexie-cloud templates push
 
 If you are unable to push the templates, make sure to commit them to your git repository to secure them until a subscription and SMTP settings are in place.
 
-To configure SMTP settings, click the database in [Dexie Cloud Manager](https://magager.dexie.cloud) and scroll down to Email Settings. Check the `Use custom Email settings` checkbox and fill in the SMTP details from your SMTP provider. Test-send an email directly from the management app before saving your changes.
+To configure SMTP settings, click the database in [Dexie Cloud Manager](https://manager.dexie.cloud) and scroll down to Email Settings. Check the `Use custom Email settings` checkbox and fill in the SMTP details from your SMTP provider. Test-send an email directly from the management app before saving your changes.
 
-To purchase a subscription, login to [Dexie Cloud Manager](https://magager.dexie.cloud) using the same email that you used for creating your database. Click the upgrade badge next to your database and then the Buy button.
+To purchase a subscription, login to [Dexie Cloud Manager](https://manager.dexie.cloud) using the same email that you used for creating your database. Click the upgrade badge next to your database and then the Buy button.
 
 ### See also
 
