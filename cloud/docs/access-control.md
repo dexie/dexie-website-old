@@ -106,13 +106,13 @@ db.version(2).stores({
 })
 ```
 
-_Access Control tables needs to be spelled exactly as in this sample and their primary keys needs to be spelled exactly the same. On top of that, you are free to index those properties you will need to query. The properties of objects in these tables are documented under each table below._
+_Access Control tables need to be spelled exactly as in this sample and their primary keys needs to be spelled exactly the same. On top of that, you are free to index those properties you will need to query. The properties of objects in these tables are documented under each table below._
 
 We will walk through how to use these tables to share objects to others.
 
 ### Table "realms"
 
-Access Control are defined using realms. Each object you create belongs to a realm even if realm is not specified. Every user has its own private realm. Users can create new realms and invite other users to them. The id of a realm needs to be a globally unique string.
+Access Control are defined using realms. Each object you create belongs to a realm even if the realm is not specified. Every user has its own private realm. Users can create new realms and invite other users to them. The id of a realm needs to be a globally unique string.
 
 | Table Name | "realms" |
 | Primary key | realmId |
@@ -330,19 +330,19 @@ See [Permissions](#permissions)
 This is the typical flow for the non-enterprise use case in applications with a similar model as Slack, GitHub and ToDo list applications.
 
 1. Client side: Add new object to the 'members' table with {invite: true}.
-2. The changes are synced onto Dexie Cloud backend who will send an invite email to the added member.
+2. The changes are synced onto Dexie Cloud backend which will send an invite email to the added member.
 3. User clicks link in email to accept the invitation.
 4. User gains access: Next sync request from a device belonging to the user will start downloading data connected to the newly accepted realm.
 
 #### Enterprise membership
 
-If your app is targeting enterprise customers, a realm can represent an enterprise department or organisation and you might want to offer your customer to define access using their existing directory rather than having to invite all the employees manually.
+If your app is targeting enterprise customers, a realm can represent an enterprise department or organisation. You might want to offer your customer access using their existing directory rather than having to invite all the employees manually.
 
 Using the Dexie Cloud REST API, it is also possible to manage realms and members from a cloud function or service and by-pass the invite step and set the userId property of members directly.
 
 ### Table "roles"
 
-Contains roles for each realm with predefined permissions. Users can then be assigned to roles and gain the permissions that comes with them.
+Contains roles for each realm with predefined permissions. Users can then be assigned to roles and gain the permissions that come with them.
 
 | Table Name | "roles" |
 | Primary key | [realmId+name] |
@@ -497,7 +497,7 @@ _The sample uses roles, which need to be imported using the `dexie-cloud` comman
 
 ## The Public Realm
 
-As mentioned before, realms can be created any time, but there are also one "built-in" realm per user, representing the user's private data. Those realms have the same ID as the user's ID. There is also another built-in realm with the id "rlm-public". All users, also unauthenicated users, have visibility / sync access to it. By default, only the owner of the database has permissions to mutate data in the public realm but everyone have access to see and access its data online or offline.
+As mentioned before, realms can be created any time, but there is also one "built-in" realm per user, representing the user's private data. This realm has the same ID as the user's ID. There is also another built-in realm with the id "rlm-public". All users, also unauthenicated users, have visibility / sync access to it. By default, only the owner of the database has permissions to mutate data in the public realm but everyone have access to see and access its data online or offline.
 
 Public data can be populated using the REST API.
 
@@ -511,7 +511,7 @@ Permissions can be set on members and / or roles. Here we explain their syntax a
 
 **add**
 
-Permission to add new objects to given set of tables. Note that [object ownership](#object-ownership) imply full permissions of an object. So unless a user specifies `{owner: null}` when adding an object, the user will keep control of the object and be able to delete it or update any field of it no matter not having any other permission than the **add** permission.
+Permission to add new objects to given set of tables. Note that [object ownership](#object-ownership) implies full permissions of an object. So unless a user specifies `{owner: null}` when adding an object, the user will keep control of the object and be able to delete it or update any field within it, no matter that user's other existing permissions.
 
 Example
 
@@ -521,11 +521,11 @@ Example
 }
 ```
 
-The **add** permission also grants the user move an object of the given types (tables) into this realm (by changing the realmId property). Note though that the same user also needs to either be owner of the object in the source realm, or to have **manage** permission in the source realm.
+The **add** permission also grants the user the ability to move an object of the given types (tables) into this realm (by changing the realmId property). Note though that the same user also needs to either be owner of the object in the source realm, or to have **manage** permission in the source realm.
 
 **update**
 
-Permission to update given set of properties in given set of tables. Allowing "\*" will allow updating all non-reserver properties (all properties but `realmId` and `owner`).
+Permission to update a given set of properties in given set of tables. Allowing "\*" will allow updating all non-reserved properties (all properties but `realmId` and `owner`).
 
 Example
 
@@ -574,7 +574,7 @@ See [typescript interface DBPermissionSet](DBPermissionSet)
 
 The ownership of objects are defined by the `owner` reserved property name of any object. The content of that property is the userId of the owner.
 
-An owner have full permissions on an object. This applies even if the object is connected to a realm where the user has limited permissions.
+An owner has full permissions on an object. This applies even if the object is connected to a realm where the user has limited permissions.
 
 For example if you have permissions `{add: ["comments"]}` within a realm but not `update` or `manage` permissions you can add new comments but also update or delete your own comments tied to that realm. You will not be able to update or delete other users' comments though.
 
