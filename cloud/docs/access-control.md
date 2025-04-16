@@ -28,7 +28,7 @@ The server endpoint of Dexie Cloud controls access to data for every sync reques
 
 The whole idea with Dexie Cloud is to create applications that work as identically as possible no matter if user is offline or online. This means that the application logic needs to be fully executable on the client. A ToDo app must be able to add items while offline, a barcode scanner app must work offline and store scanned codes in the offline database.
 
-Dexie Cloud comes with an access control model that has the same security benefits as a server side app, but the creation of the objects that control access happens in your client side app. How is this possible? **It must all start with a user creating a realm**. Any user can do that. A realm does not give any new access or affect other users just yet. The realm owner can invite members to the realm and connect the application model objects to the realm (or several different objects to the same realm). Then, users that accepts the invitations will gain the access that the realm owner has given and the model continues to work with water-proof isolation between users and between customers.
+Dexie Cloud comes with an access control model that has the same security benefits as a server side app, but the creation of the objects that control access happens in your client side app. How is this possible? **It must all start with a user creating a realm**. Any user can do that. A realm does not give any new access or affect other users just yet. The realm owner can invite members to the realm and connect the application model objects to the realm (or several different objects to the same realm). Then, users that accept the invitations will gain access that the realm owner has given and the model continues to work with water-proof isolation between users and between customers.
 
 The invitation step is important in non-enterprise use cases because it protects other users from unwillingly starting to see new data showing up in their app without their acceptance - data that could potentially confuse them or delude them to mix it up with authentic data.
 
@@ -38,13 +38,13 @@ For enterprise use cases, Dexie Cloud also has a server side REST API that enabl
 
 A realm represents an access controlled partition of data. All objects in your database are connected to a realm via the `realmId` property also when that property isn't explicitly set. The realmId property of any object will implicitly be set to the private realmId of the object creator. Every user has its own unique realmId that is private for that user only.
 
-New realms can be created by anyone but they are of little use unless that user invites members and the members accepts the invitation.
+New realms can be created by anyone but they are of little use unless that user invites members and the members accept the invitation.
 
 Realms are managed in the `db.realms` table. A given user will only have the realms they are member of visible for them and synced for offline access. When a realm is shared with new users, those users will get an invitation to join the realm and when users accept the invitation, they will get the realm in their next sync request together with objects that are connected to that realm. Invitations are created using the `db.members` table. Invited members can be given full, limited or no permission to mutate objects connected to the realm.
 
 ## Members
 
-Realms have members. A member connected to a realm will have the realm and all objects connected to it synced locally if the member have accepted the membership. Each member can be given **permissions** to mutate objects connected to the realm. Zero permissions means readonly access. Member can also be given roles.
+Realms have members. A member connected to a realm will have the realm and all objects connected to it synced locally if the member has accepted the membership. Each member can be given **permissions** to mutate objects connected to the realm. Zero permissions means readonly access. Members can also be given roles.
 
 ## Roles
 
@@ -59,13 +59,13 @@ In all custom application tables, there are two reserved property names that aff
 
 ## Default Access Control
 
-In the simplest setup of Dexie Cloud, you do not need to specify anything related to access control. All data that one user creates will be private. It will sync to the cloud but not visible for any other user. This is still a valid use case since the data is continuously backed up and possible to access from different devices for the same user.
+In the simplest setup of Dexie Cloud, you do not need to specify anything related to access control. All data that one user creates will be private. It will sync to the cloud but not be visible for any other user. This is still a valid use case since the data is continuously backed up and therefore accessible from different devices for the same user.
 
 ### Example: Zero config Access Control
 
 Let's say you write a ToDo app where you don't care at all about collaboration. You just want each user to get their IndexedDB synced with the cloud so that they can have their same ToDo list on multiple devices and have them in sync. No user should access another user's ToDo list - they are 100% private for each user.
 
-The sample I'm gonna show you is almost identical to how you would declare it in a plain Dexie.js app. The difference is just that you've enabled the dexieCloud addon, connect it to a database and use the '@' sign to get generated universal IDs.
+The sample below is almost identical to how it would be declared in a plain Dexie.js app. The differences are simply that the dexieCloud addon has been enabled, it has connected to a Dexie Cloud database, and it uses the '@' sign to generate universal IDs.
 
 ```js
 import Dexie from 'dexie'
