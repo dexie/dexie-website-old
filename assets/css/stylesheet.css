@@ -580,10 +580,14 @@ div.react-logo img {
   width: 44px;
 }
 
-a[target]:after {
+a[target]:no-target-icon {
   /** Add an icon to links that open in a new window */
   content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
   margin: 0 3px 0 3px;
+}
+
+a[target].no-target-icon:after {
+  content: none;
 }
 
 .nav.navbar-nav a[target]:after {
