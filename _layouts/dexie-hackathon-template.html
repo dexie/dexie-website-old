@@ -74,33 +74,23 @@
 	  </div>
     {% include github-star-btn.html %}
     <div class="container" style="display: flex; flex-direction: column; justify-content: center; height: 90vh;">
-      <h1>Dexie Global Hackathon 25</h1>
+      <h1>Winners of Dexie Global Hackathon 25</h1>
       <p style="font-size: 1.2em;">
         After eight inspiring weeks of innovation, collaboration, and creativity, we're thrilled to announce the outstanding winners who pushed the boundaries of what's possible with Dexie.js and Dexie Cloud!
       </p>
-      <div style="display: inline-flex;">
-        <div style="flex: 1; padding: 0 2px 0 0;">
-          <a 
-            href="#hackathon-winners"
-            class="btn btn-lg text-white getstarted" 
-            role="button"
-            style="border-radius: 40px !important; background-color: rgba(0, 0, 0, 0.6); border: 2px solid #d400ff; color: #d400ff; border-radius: 10px; text-shadow: 0 0 5px #d400ff, 0 0 10px #d400ff; padding: 10px 20px; text-decoration: none; display: inline-block; transition: transform 0.2s;">
-              <span>The winners!</span>
-          </a>
-        </div>
-      </div>
+      
     </div>
   </div>
 
   <!-- Winner Cards -->
-  <div class="container winners-cards" style="margin-top: -20px; margin-bottom: 60px;">
+  <div class="container winners-cards" style="margin-top: -250px; margin-bottom: 60px;">
     <!-- First Place -->
     <a name="hackathon-winners"></a>
 
     <div class="row" style="position: relative;">
       <div class="col-md-12">
-        <div class="card" style="border-radius: 10px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-          <div class="card-header" style="background: #cdcdcd; color: black; padding: 15px 20px;">
+        <div class="card" style="border-radius: 10px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 -10px 30px rgba(0,0,0,0.1); background-color: white;">
+          <div class="card-header" style="background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C); color: black; padding: 15px 20px;">
             <h3 style="margin: 0; display: flex; align-items: center;">
               <span style="font-size: 32px; margin-right: 15px;">🥇</span> First Place: lkalma
             </h3>
@@ -116,7 +106,7 @@
               </div>
               <div class="col-md-6" style="padding: 25px;">
                 <p style="margin-top: 10px; font-style: italic; color: #666;">
-                  lkalma showcases the full power of Dexie Cloud, perfectly embodying the principle of "Build in a weekend and scale to millions." The project highlights how rapidly developers can prototype robust, scalable, and offline-first applications that seamlessly compete with leading online collaboration tools like Excalidraw. By leveraging real-time updates using Yjs documents alongside tldraw and Dexie Cloud, lkalma demonstrates a highly efficient architecture for collaborative and resilient applications. Its intuitive interface, powerful offline capabilities, and advanced AI integration make it an excellent example of how Dexie Cloud enables modern, responsive, and highly scalable solutions with minimal effort.
+                  lkalma showcases the full power of Dexie Cloud, perfectly embodying the principle of "Build fast, scale big." The project highlights how rapidly developers can prototype robust, scalable, and offline-first applications that seamlessly compete with leading online collaboration tools like Excalidraw. By leveraging real-time updates using Yjs documents alongside tldraw and Dexie Cloud, lkalma demonstrates a highly efficient architecture for collaborative and resilient applications. Its intuitive interface, powerful offline capabilities, and advanced AI integration make it an excellent example of how Dexie Cloud enables modern, responsive, and highly scalable solutions with minimal effort.
                 </p>
                 <p style="margin: 0;">
                   <strong>Award:</strong> One On-Prem Gold license + Exposure on Dexie's website & newsletter (Value: $7,995)
@@ -156,8 +146,9 @@
     <!-- Second Place -->
     <div class="row">
       <div class="col-md-12">
-        <div class="card" style="border-radius: 10px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-          <div class="card-header" style="background: #B5179E; color: white; padding: 15px 20px;">
+        <div class="card" style="border-radius: 10px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 -10px 30px rgba(0,0,0,0.1);">
+          <div class="card-header" style="background: linear-gradient(to right, #A8A8A8, #F8F8F8, #D0D0D0, #FFFFFF, #A8A8A8);
+ color: black; padding: 15px 20px;">
             <h3 style="margin: 0; display: flex; align-items: center;">
               <span style="font-size: 32px; margin-right: 15px;">🥈</span> Second Place: Workflows
             </h3>
@@ -165,40 +156,46 @@
           <div class="card-body" style="padding: 0;">
             <div class="row">
               <div class="col-md-6">
-                <div class="embed-responsive embed-responsive-16by9" style="border-right: 1px solid #eee;">
-                  <!-- Video or Image placeholder -->
-                  <img src="/assets/images/hackathon/winners/workflows-preview.jpg" class="img-fluid lazy" alt="Workflows Preview" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;"
-                       data-toggle="modal" data-target="#workflowsModal"/>
+                <div style="border-right: 1px solid #eee;">
+                  <a href="https://workflows-svelte.statichost.eu" target="_blank">
+                    <!-- Video or Image placeholder -->
+                    <img src="/assets/images/hackathon/winners/workflows-preview.png" class="img-fluid lazy" alt="Workflows Preview" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;"
+                        />
+                  </a>
                 </div>
               </div>
               <div class="col-md-6" style="padding: 25px;">
-                <h4 style="color: #333; margin-bottom: 15px;">Structured Activity Improvement Tool</h4>
-                <p>
-                  An innovative tool aimed at refining and improving repeatable activities, such as habits, recipes, or professional processes.
+                <p style="margin-top: 10px; font-style: italic; color: #666;">
+                  Instead of relying on large existing packages like tldraw.dev, Workflows demonstrates how developers can quickly build their own lightweight and scalable applications with Dexie Cloud at the core. The project highlights how easily you can create bespoke tools that include offline-first features and real-time synchronization, offering users a seamless and reliable experience across devices. Workflows exemplifies how you can start simple, iterate rapidly, and scale efficiently without unnecessary complexity—empowering developers to own and optimize their solutions fully.
                 </p>
-                <p>
-                  <strong>Key Features:</strong>
+                <p style="margin: 0;">
+                  <strong>Award:</strong> 1,000 Dexie Cloud seats for 12 months + Exposure (Value: $1,320)
                 </p>
-                <ul>
-                  <li>Customizable workflow templates</li>
-                  <li>Offline functionality for constant access</li>
-                  <li>Detailed tracking of activities and outcomes</li>
-                  <li>Seamless synchronization across devices</li>
-                </ul>
-                <div class="mt-3">
-                  <a href="#" class="btn btn-sm btn-primary">GitHub Repo</a>
-                  <a href="#" class="btn btn-sm btn-success">Live Demo</a>
-                  <a href="#" class="btn btn-sm btn-info">Watch Video</a>
-                </div>
               </div>
             </div>
             <div class="card-footer" style="background: #f9f9f9; padding: 15px 25px;">
-              <p style="margin: 0;">
-                <strong>Award:</strong> 1,000 Dexie Cloud seats for 12 months + Exposure (Value: $1,320)
-              </p>
-              <p style="margin-top: 10px; font-style: italic; color: #666;">
-                "Workflows demonstrates how developers can quickly build their own lightweight and scalable applications with Dexie Cloud at the core, creating bespoke tools that include offline-first features and real-time synchronization."
-              </p>
+              <div class="row">
+                <div class="col-md-6">
+                  <h4 style="color: #333; margin-bottom: 15px;">Structured Activity Improvement Tool</h4>
+                  <p>
+                    An innovative tool aimed at refining and improving repeatable activities, such as habits, recipes, or professional processes.
+                  </p>
+                </div>
+                <div class="col-md-6" style="position: relative;">
+                  <p>
+                    <strong>Key Features:</strong>
+                  </p>
+                  <ul>
+                    <li>Customizable workflow templates</li>
+                    <li>Offline functionality for constant access</li>
+                    <li>Detailed tracking of activities and outcomes</li>
+                    <li>Seamless synchronization across devices</li>
+                  </ul>
+                  <div style="position: absolute; bottom: -15px; right: -10px;">
+                    <a href="https://workflows-svelte.statichost.eu" target="_blank" class="btn btn-sm btn-success no-target-icon" style="border-radius: 0px;">Live Demo</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -209,68 +206,89 @@
     <div class="row">
       <!-- Third Place -->
       <div class="col-md-6">
-        <div class="card" style="border-radius: 10px; overflow: hidden; margin-bottom: 40px; height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-          <div class="card-header" style="background: #7209B7; color: white; padding: 15px 20px;">
+        <div class="card" style="border-radius: 10px; overflow: hidden; margin-bottom: 40px; height: 100%; box-shadow: 0 -10px 30px rgba(0,0,0,0.1);">
+          <div class="card-header" style="background: linear-gradient(to right, #804A00, #E6B873, #A05C00, #F1C27D, #804A00);
+ color: white; padding: 15px 20px;">
             <h3 style="margin: 0; display: flex; align-items: center;">
               <span style="font-size: 32px; margin-right: 15px;">🥉</span> Third Place: CoTaskAI
             </h3>
           </div>
           <div class="card-body" style="padding: 20px;">
-            <div class="text-center mb-3">
-              <!-- Video or Image placeholder -->
-              <img src="/assets/images/hackathon/winners/cotaskai-preview.jpg" class="img-fluid lazy" style="max-height: 200px; width: auto; border-radius: 5px; cursor: pointer;"
-                   data-toggle="modal" data-target="#cotaskaiModal" alt="CoTaskAI Preview"/>
+            <div class="text-center mb-3" style="margin-bottom: 20px;">
+              <div style="position: relative; width: 100%; padding-bottom: 56.25%; margin: 0 auto;">
+                <iframe src="https://drive.google.com/file/d/1tPkse49qIm241F7AplDe9ZpOdZOV0ZxX/preview" 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
+                        allow="autoplay"></iframe>
+              </div>
             </div>
+            <p style="font-style: italic; color: #666;">
+              Building Chrome extensions often presents challenges around data persistence and synchronization across devices. CoTaskAI demonstrates how Dexie Cloud can elegantly overcome these limitations by enabling efficient storage of user settings and synced data even within a browser extension environment. This approach not only simplifies development but also offers a scalable model: users can start using the extension for free and opt into affordable synchronization as they need it.
+            </p>
             <h4 style="color: #333; margin-bottom: 15px;">AI-Powered Browser Extension</h4>
             <p>
               A powerful Chrome extension leveraging advanced natural language AI to analyze web pages and PDF documents directly from your browser.
             </p>
             <p>
-              <strong>Key Features:</strong> Instant analysis, context-aware insights, privacy-focused design
+              <strong>Key Features:</strong>
             </p>
-            <div class="mt-3">
-              <a href="#" class="btn btn-sm btn-primary">GitHub Repo</a>
-              <a href="#" class="btn btn-sm btn-info">Watch Demo</a>
-            </div>
+            <ul>
+              <li>Instant analysis with context-aware insights</li>
+              <li>Advanced multi-model AI integration</li>
+              <li>Offline capabilities with Dexie.js</li>
+              <li>Privacy-focused design</li>
+            </ul>
           </div>
-          <div class="card-footer" style="background: #f9f9f9; padding: 15px 25px;">
-            <p style="margin: 0;">
-              <strong>Award:</strong> 100 Dexie Cloud seats for 12 months + Exposure (Value: $132)
+          <div class="card-footer" style="background: #f9f9f9; padding: 15px 25px; position: relative;">
+            <p style="margin: 0; padding-right: 50px;">
+              <strong>Award:</strong>100 Dexie Cloud seats for 12 months + Exposure (Value: $132)
             </p>
+            <div style="position: absolute; bottom: 0px; right: 0px;">
+              <a href="https://chrome.google.com/webstore/detail/hifbaagbmobldofjdhnpgkpjgkjeamio" target="_blank" class="btn btn-sm btn-success no-target-icon" style="border-radius: 0px;">Install</a>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Fourth Place -->
       <div class="col-md-6">
-        <div class="card" style="border-radius: 10px; overflow: hidden; margin-bottom: 40px; height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-          <div class="card-header" style="background: #560BAD; color: white; padding: 15px 20px;">
+        <div class="card" style="border-radius: 10px; overflow: hidden; margin-bottom: 40px; height: 100%; box-shadow: 0 -10px 30px rgba(0,0,0,0.1);">
+          <div class="card-header" style="background: linear-gradient(to right, #6E7F91, #D3E0EA, #8EA2B2, #E1EAF1, #6E7F91);
+ color: white; padding: 15px 20px;">
             <h3 style="margin: 0; display: flex; align-items: center;">
               <span style="font-size: 32px; margin-right: 15px;">🎖️</span> Fourth Place: Startup ToolKit
             </h3>
           </div>
           <div class="card-body" style="padding: 20px;">
-            <div class="text-center mb-3">
-              <!-- Video or Image placeholder -->
-              <img src="/assets/images/hackathon/winners/startup-toolkit-preview.jpg" class="img-fluid lazy" style="max-height: 200px; width: auto; border-radius: 5px; cursor: pointer;"
-                   data-toggle="modal" data-target="#startupToolkitModal" alt="Startup ToolKit Preview"/>
+            <div class="text-center mb-3" style="margin-bottom: 20px;">
+              <a href="https://startuptk.com/" target="_blank">
+              <img src="/assets/images/hackathon/winners/startup-toolkit-preview.png" class="img-fluid lazy" style="width: 100%; border-radius: 5px; cursor: pointer;"
+                    alt="Startup ToolKit Preview"/>
+                    </a>  
             </div>
+            <p style="font-style: italic; color: #666;">
+              Startup ToolKit exemplifies the strategic use of Dexie.js and Dexie Cloud for building cost-efficient, scalable applications. By adopting an offline-first architecture with static hosting, it offers free usage for individuals, and a smart one-time payment model for collaboration, ensuring sustainable customer acquisition even in the challenging early startup phase.
+            </p>
             <h4 style="color: #333; margin-bottom: 15px;">Essential Tools for Early-Stage Startups</h4>
             <p>
               Comprehensive set of essential tools for startups with limited budgets—including CRM, KPIs tracking, and roadmap management.
             </p>
             <p>
-              <strong>Key Features:</strong> Free for single-device usage, offline-first design, minimal cloud dependency
+              <strong>Key Features:</strong>
             </p>
-            <div class="mt-3">
-              <a href="#" class="btn btn-sm btn-primary">GitHub Repo</a>
-              <a href="#" class="btn btn-sm btn-info">Watch Demo</a>
-            </div>
+            <ul>
+              <li>Free for single-device usage</li>
+              <li>Offline-first design with minimal cloud dependency</li>
+              <li>Comprehensive suite of essential business tools</li>
+              <li>Extremely low operational costs</li>
+            </ul>
           </div>
-          <div class="card-footer" style="background: #f9f9f9; padding: 15px 25px;">
-            <p style="margin: 0;">
-              <strong>Award:</strong> 100 Dexie Cloud seats for 12 months + Exposure (Value: $144)
+          <div class="card-footer" style="background: #f9f9f9; padding: 15px 25px; position: relative;">
+            <p style="margin: 0; padding-right: 50px;">
+              <strong>Award:</strong> 100 Dexie Cloud seats for 12 months + Exposure (Value: $132)
             </p>
+            <div style="position: absolute; bottom: 0px; right: 0px;">
+              <a href="https://startuptk.com/" target="_blank" class="btn btn-sm btn-success no-target-icon" style="border-radius: 0px;">Live Demo</a>
+            </div>
           </div>
         </div>
       </div>
@@ -279,8 +297,9 @@
     <!-- Special Mentions -->
     <div class="row">
       <div class="col-md-12">
-        <div class="card" style="border-radius: 10px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-          <div class="card-header" style="background: #3A0CA3; color: white; padding: 15px 20px;">
+        <div class="card" style="border-radius: 10px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 -10px 30px rgba(0,0,0,0.1);">
+          <div class="card-header" style="background: linear-gradient(to right, #3F9B93, #B9F2ED, #2F8079, #C5F7F2, #3F9B93);
+ color: white; padding: 15px 20px;">
             <h3 style="margin: 0;">Special Mentions</h3>
           </div>
           <div class="card-body" style="padding: 25px;">
@@ -293,6 +312,12 @@
               <p style="font-style: italic; margin-bottom: 0;">
                 Congratulations to all participants for their inspiring work and dedication! You've demonstrated the incredible potential of Dexie.js and Dexie Cloud in creating the next generation of offline-first applications.
               </p>
+              <p style="font-style: italic; margin-top: 10px; margin-bottom: 0;">
+                We would also like to extend our heartfelt thanks to everyone who participated but couldn't complete their projects within the timeframe. Your ideas and efforts are incredibly valuable, and we hope you continue developing and refining your projects with Dexie.
+              </p>
+              <p style="font-style: italic; margin-top: 10px; margin-bottom: 0;">
+                Dexie Global Hackathon 25 is officially over and we are looking forward to the next one!
+              </p>
             </div>
           </div>
         </div>
@@ -300,6 +325,18 @@
     </div>
   </div>
 
+  <div style="background: url('/assets/images/hackathon/hackathon-bg.png'); background-size: cover; padding: 40px 20px; text-align: center; color: white; margin: 0;">
+    <h2>For more adventure, join our Discord Server!</h2>
+    <p>
+      Get the latest updates, ask your questions, and connect with our vibrant community.
+    </p>
+    <a href="https://discord.gg/huhre7MHBF" target="_blank" 
+       style="display: inline-block; padding: 15px 30px; background: white; color: #7289DA; font-weight: bold; text-decoration: none; border-radius: 5px;">
+      Join Now
+    </a>
+  </div>
+
+  <div class="hackathon-container" style="opacity: 0.3;">
   <div style="padding: 20px;">
   <!-- Main Content -->
   <div class="container">
@@ -571,7 +608,7 @@ background-size: cover;
 			<strong>Biggest Security Hole:</strong> 100 Dexie Cloud seats for 12 months + exposure  
 			<br/>
 			<em>Value:</em> $132.  
-			A thank-you for proactively uncovering security vulnerabilities that keep Dexie Cloud safe.
+			Thank you for proactively uncovering security vulnerabilities that keep Dexie Cloud safe.
 		</li>
 
 		<li style="margin-bottom: 20px;">
@@ -732,44 +769,6 @@ background-size: cover;
 	</div>
 
 
-  <!-- Video Modals -->
-  <div class="modal fade" id="lkalmaModal" tabindex="-1" role="dialog" aria-labelledby="lkalmaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="lkalmaModalLabel">lkalma: Collaborative Whiteboard</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="embed-responsive embed-responsive-16by9">
-            <!-- Replace with actual video embed code -->
-            <iframe class="embed-responsive-item" src="about:blank" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="workflowsModal" tabindex="-1" role="dialog" aria-labelledby="workflowsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="workflowsModalLabel">Workflows: Structured Activity Tool</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="embed-responsive embed-responsive-16by9">
-            <!-- Replace with actual video embed code -->
-            <iframe class="embed-responsive-item" src="about:blank" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <div class="row">
     <h2>
@@ -921,7 +920,7 @@ background-size: cover;
 
   </div>
 </div>
-
+</div>
 
 <!-- <div style="
 background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/assets/images/hackathon/hackathon-section-bg.jpg); 
