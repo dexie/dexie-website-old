@@ -1,7 +1,7 @@
 <style>
   .wave-text {
     border-radius: 5px;
-    width: 100%; 
+    width: 100%;
     color: #fff;
     position: relative;
     background: linear-gradient(90deg, #ff6a00, #ffffff, #23a6d5, #23d5ab);
@@ -12,101 +12,255 @@
   }
 
   @keyframes colorWave {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 </style>
-<nav class="navbar navbar-default" style="z-index: 10;">
+<nav class="navbar navbar-default" style="z-index: 10">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button
+        type="button"
+        class="navbar-toggle collapsed"
+        data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1"
+        aria-expanded="false"
+      >
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
       <!-- <a class="navbar-brand" href="/" style="background-image: url('/assets/images/dexie-logo-icon-menu-dark-bkgimg.svg'); background-repeat: no-repeat; background-position: 7px 8px;">Dexie.js</a> -->
-      <a class="navbar-brand" href="/stop-the-war" style="white-space: nowrap;"><img alt="Support Ukraine!" src="/assets/images/ukraine-flag.png" style="
-        float: left;
-        height: 16px;
-        width: 16px;
-        margin: 2px 4px 0 0;
-    "> </a>
+      <a class="navbar-brand" href="/stop-the-war" style="white-space: nowrap"
+        ><img
+          alt="Support Ukraine!"
+          src="/assets/images/ukraine-flag.png"
+          style="float: left; height: 16px; width: 16px; margin: 2px 4px 0 0"
+        />
+      </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/"><img alt="" src="/assets/images/dexie-logo-icon-menu-dark-img.svg" class="dexie-logo-icon-menu" />Dexie.js</a></li>
-        <li><a href="/cloud/"><img alt="" src="/assets/images/dexie-logo-icon-menu-dark-img.svg" class="dexie-logo-icon-menu" />Dexie Cloud</a></li>
+        <li>
+          <a href="/"
+            ><img
+              alt=""
+              src="/assets/images/dexie-logo-icon-menu-dark-img.svg"
+              class="dexie-logo-icon-menu"
+            />Dexie.js</a
+          >
+        </li>
+        <li>
+          <a href="/cloud/"
+            ><img
+              alt=""
+              src="/assets/images/dexie-logo-icon-menu-dark-img.svg"
+              class="dexie-logo-icon-menu"
+            />Dexie Cloud</a
+          >
+        </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docs <span class="caret"></span></a>
+          <a
+            href="#"
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >Docs <span class="caret"></span
+          ></a>
           <ul class="dropdown-menu">
-            <li><a href="/docs/Tutorial/Getting-started">Getting Started</a></li>
+            <li>
+              <a href="/docs/Tutorial/Getting-started">Getting Started</a>
+            </li>
             <li><a href="/docs/Samples">Dexie.js Samples</a></li>
             <li><a href="/docs/">Dexie.js Docs</a></li>
-            <li><a href="/docs/API-Reference#quick-reference">Dexie.js Cheat Sheet</a></li>
+            <li>
+              <a href="/docs/API-Reference#quick-reference"
+                >Dexie.js Cheat Sheet</a
+              >
+            </li>
             <li role="separator" class="divider"></li>
             <li><a href="/cloud/docs/">Dexie Cloud Docs</a></li>
             <li><a href="/cloud/docs/cli">Dexie Cloud CLI</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+          <a
+            href="#"
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >Support <span class="caret"></span
+          ></a>
           <ul class="dropdown-menu">
-            <li><a href="http://stackoverflow.com/questions/tagged/dexie">Dexie Questions on StackOverflow</a></li>
-            <li><a href="https://github.com/dexie/Dexie.js/issues?q=label%3AQ%26A%20">Q & A on Github</a></li>
+            <li>
+              <a href="http://stackoverflow.com/questions/tagged/dexie"
+                >Dexie Questions on StackOverflow</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/dexie/Dexie.js/issues?q=label%3AQ%26A%20"
+                >Q & A on Github</a
+              >
+            </li>
             <li role="separator" class="divider"></li>
-            <li><a href="http://stackoverflow.com/questions/ask?tags=dexie">Ask Dexie question on Stackoverflow (best chance for a reply)</a></li>
-            <li><a href="https://github.com/dexie/Dexie.js/issues/new?labels=cloud,question">Ask Dexie Cloud question on GitHub</a></li>
-            <li><a href="https://github.com/dexie/Dexie.js/issues/new">File a GitHub issue on Dexie.js</a></li>
+            <li>
+              <a href="http://stackoverflow.com/questions/ask?tags=dexie"
+                >Ask Dexie question on Stackoverflow (best chance for a
+                reply)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/dexie/Dexie.js/issues/new?labels=cloud,question"
+                >Ask Dexie Cloud question on GitHub</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/dexie/Dexie.js/issues/new"
+                >File a GitHub issue on Dexie.js</a
+              >
+            </li>
             <li role="separator" class="divider"></li>
-            <li><a href="/contact#private-support-issues">Private support</a></li>
-            <li><a href="https://betteruptime.com/report/ArgfwoqUmwYQCdwYWHRUDkdc">Report issue with Dexie Cloud service</a></li>
-            <li><a href="https://www.dexie-cloud-status.com" target="dexie-cloud-status">Dexie Cloud Status</a></li>
+            <li>
+              <a href="/contact#private-support-issues">Private support</a>
+            </li>
+            <li>
+              <a href="https://betteruptime.com/report/ArgfwoqUmwYQCdwYWHRUDkdc"
+                >Report issue with Dexie Cloud service</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.dexie-cloud-status.com"
+                target="dexie-cloud-status"
+                >Dexie Cloud Status</a
+              >
+            </li>
             <li role="separator" class="divider"></li>
             <li><a href="/contact">Contact</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Who uses Dexie? <span class="caret"></span></a>
+          <a
+            href="#"
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >Who uses Dexie? <span class="caret"></span
+          ></a>
           <ul class="dropdown-menu">
-            <li><a target="_blank" href="https://chatgpt.com/"><img class="icon" src="/assets/images/OpenAI-black-monoblossom.png"> ChatGPT</a></li>
-            <li><a target="_blank" href="https://www.whatsapp.com/"><img class="icon" src="/assets/images/whatsapp.png"> WhatsApp</a></li>
-            <li><a target="_blank" href="https://totodo.app/"><img class="icon" src="/assets/images/totodo.ico"> To To-Do - AI Integrated Life Organizer</a></li>
-            <li><a target="_blank" href="https://todo.microsoft.com/"><img class="icon" src="/assets/images/microsoft-todo.ico"> Microsoft To Do</a></li>
-            <li><a target="_blank" href="https://desktop.github.com/"><img class="icon" src="/assets/images/github-desktop-icon.svg" > GitHub Desktop</a></li>
-            <li><a target="_blank" href="https://www.flightradar24.com/"><img class="icon" src="/assets/images/flightradar24.svg"> Flightradar24 - real-time flight info</a></li>
-            <li><a target="_blank" href="https://wire.com/"><img class="icon" src="/assets/images/wire-icon.ico"> Wire - An end-to-end encrypted chat application</a></li>
-            <li><a target="_blank" href="https://github.com/dexie/Dexie.js/network/dependents?package_id=UGFja2FnZS0xMzg0ODIyOQ%3D%3D">... more than 20,000 repos on GitHub</a></li>
+            <li>
+              <a target="_blank" href="https://chatgpt.com/"
+                ><img
+                  class="icon"
+                  src="/assets/images/OpenAI-black-monoblossom.png"
+                />
+                ChatGPT</a
+              >
+            </li>
+            <li>
+              <a target="_blank" href="https://facebook.com/"
+                ><img class="icon" src="/assets/images/facebook.png" />
+                Facebook</a
+              >
+            </li>
+            <li>
+              <a target="_blank" href="https://www.whatsapp.com/"
+                ><img class="icon" src="/assets/images/whatsapp.png" />
+                WhatsApp</a
+              >
+            </li>
+            <li>
+              <a target="_blank" href="https://totodo.app/"
+                ><img class="icon" src="/assets/images/totodo.ico" /> To To-Do -
+                AI Integrated Life Organizer</a
+              >
+            </li>
+            <li>
+              <a target="_blank" href="https://todo.microsoft.com/"
+                ><img class="icon" src="/assets/images/microsoft-todo.ico" />
+                Microsoft To Do</a
+              >
+            </li>
+            <li>
+              <a target="_blank" href="https://desktop.github.com/"
+                ><img
+                  class="icon"
+                  src="/assets/images/github-desktop-icon.svg"
+                />
+                GitHub Desktop</a
+              >
+            </li>
+            <li>
+              <a target="_blank" href="https://www.flightradar24.com/"
+                ><img class="icon" src="/assets/images/flightradar24.svg" />
+                Flightradar24 - real-time flight info</a
+              >
+            </li>
+            <li>
+              <a target="_blank" href="https://wire.com/"
+                ><img class="icon" src="/assets/images/wire-icon.ico" /> Wire -
+                An end-to-end encrypted chat application</a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://github.com/dexie/Dexie.js/network/dependents?package_id=UGFja2FnZS0xMzg0ODIyOQ%3D%3D"
+                >... more than 20,000 repos on GitHub</a
+              >
+            </li>
           </ul>
         </li>
         <li><a href="/contact">Contact </a></li>
         {% if page.url contains '/cloud/' %}
-          <li class=""><a href="/cloud/pricing">Pricing </a></li>
+        <li class=""><a href="/cloud/pricing">Pricing </a></li>
         {% endif %}
-        <li><a href="https://github.com/dexie/Dexie.js/releases">Releases </a></li>
+        <li>
+          <a href="https://github.com/dexie/Dexie.js/releases">Releases </a>
+        </li>
         <li><a href="/roadmap/">Road Map</a></li>
-        <li><a href="/hackathon/">
-          <span class="wave-text">Global Hackathon 25</span>
-        </a></li>
-        <li><a href="https://medium.com/dexie-js" target="dexie-blog">Blog </a></li>
+        <li>
+          <a href="/hackathon/">
+            <span class="wave-text">Global Hackathon 25</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://medium.com/dexie-js" target="dexie-blog">Blog </a>
+        </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
+    <!-- /.navbar-collapse -->
 
     {% include offline-switch.html %}
-    
-  </div><!-- /.container-fluid -->
-</nav>		
+  </div>
+  <!-- /.container-fluid -->
+</nav>
 <script>
-    document.querySelectorAll('nav.navbar ul>li>a').forEach(function (a) {
-      var href = a.getAttribute('href');
-      href = href && href.split('#')[0];
-      if (href && location.pathname === href) {
-        //console.log("Selected: ", a.href);
-        a.closest('li').className += ' active';
-      }
-    });
+  document.querySelectorAll('nav.navbar ul>li>a').forEach(function (a) {
+    var href = a.getAttribute('href');
+    href = href && href.split('#')[0];
+    if (href && location.pathname === href) {
+      //console.log("Selected: ", a.href);
+      a.closest('li').className += ' active';
+    }
+  });
 </script>
