@@ -65,7 +65,7 @@ db.people
     ["foo", Dexie.maxKey])
   .toArray();
 ```
-From Dexie 3.x, compound indexes also adds virtual indexes (without actually adding them to indexedDB) acting as a representation for partial parts of the index so you can do the following query:
+Dexie also emulates plain indexes from every compound index (without actually adding them to indexedDB) acting as a representation for partial parts of the index so you can do the following query:
 
 ```js
 var db = new Dexie('dbname');
@@ -139,19 +139,6 @@ db.people.put({
 
 ```
 
-# Browser limitations
-
-Internet Explorer, non-chromium Edge and Safari < v10 does not support compound indexes or compound primary keys. You can declare compound indexes, but you'd get an error when trying to use them in a plain where('[x+y]') manner. But if passing an object to Table.where() (as samplified multiple times on this page), the query will work on all browsers and only utilize the compound index if browser supports it, otherwise fallback to using a simple index, or even just a full table scan to filter it out:
-
-```javascript
-table.where({
-   prop1: value1,
-   prop2: value2,
-   ...
-})
-```
-Dexie will find out whether it can utilize the compound index or not. If user is on IE/old Edge/old safari, it will still perform the query without utilizing compound index (just not as performant).
-
 # Using with orderBy()
 
 If an index is compound using "[firstName+lastName]", [Table.orderBy()](/docs/Table/Table.orderBy()) will sort the contents based on firstName first and lastname secondary. Reverse the order of the compound entries to sort by lastName first. The sorting does not only apply when using "orderBy()" but also when using a [WhereClause](/docs/WhereClause/WhereClause) targeting the compound index, such as:
@@ -180,7 +167,7 @@ db.version(x).stores({
       [lastName+firstName]`
 });
 
-// Since Dexie >= 3.x makes it possible to utilize parts of
+// Dexie makes it possible to utilize parts of
 // compound indexes as if they were full indexes, with the side
 // effect of sorting by the trailing property, the above
 // declaration enables the following queries:
