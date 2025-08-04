@@ -14,12 +14,12 @@ Dexie v4.x comes with the best Svelte- and Sveltekit support.
 In version 3.2 we've introduced **live queries** - queries that observe the result and make your component mirror the data in real time and in version 4.0.1-alpha.10 we improved the typing compability and SvelteKit support of liveQuery().
 
 If a change is made (by the app itself or from an external tab or worker), a binary range tree algorithm will efficiently detect whether those changes would affect your queries and if so, re-execute your callback and re-render component.
-[Here's a sample app demonstrates it](https://codesandbox.io/p/sandbox/2n8bd).
+[Here's a sample app demonstrates it](https://stackblitz.com/edit/vitejs-vite-gjzr7xhn?file=src%2FApp.svelte).
 
-[liveQuery()](/docs/liveQuery()) can be explained like this: **It observes the result of a promise-returning function that queries Dexie** *(In contrast to just execute it imperatively)*.
+[liveQuery()](</docs/liveQuery()>) can be explained like this: **It observes the result of a promise-returning function that queries Dexie** _(In contrast to just execute it imperatively)_.
 It is highly composable as you can call other functions that queries dexie compute a result based on their outcome.
 Maybe you already have some functions you wrote long time ago.
-Calling them from within the scope of the callback passed to [liveQuery()](/docs/liveQuery()) will turn your imperative async functions into an Observable, which also complies with the Svelte Store specification.
+Calling them from within the scope of the callback passed to [liveQuery()](</docs/liveQuery()>) will turn your imperative async functions into an Observable, which also complies with the Svelte Store specification.
 
 # 1. Create a Svelte project
 
@@ -43,9 +43,8 @@ import Dexie from 'dexie';
 
 export const db = new Dexie('myDatabase');
 db.version(1).stores({
-  friends: '++id, name, age', // Primary key and indexed props
+  friends: '++id, name, age' // Primary key and indexed props
 });
-
 ```
 
 ### Using Typescript?
@@ -76,13 +75,13 @@ db.version(1).stores({
 
 export type { Friend };
 export { db };
-
 ```
-*See also [issue 1560](https://github.com/dexie/Dexie.js/issues/1560) containing a solution to improve typings for `liveQuery()` in case you want a more precise typings of the '$' vars.*
+
+_See also [issue 1560](https://github.com/dexie/Dexie.js/issues/1560) containing a solution to improve typings for `liveQuery()` in case you want a more precise typings of the '$' vars._
 
 # 4. Create a component that adds some data
 
-Writing to the database can be done using [Table.add()](/docs/Table/Table.add()), [Table.put()](/docs/Table/Table.put()), [Table.update()](/docs/Table/Table.update()) and [Collection.modify()](/docs/Collection/Collection.modify()) - see Dexie's [quick reference](/docs/API-Reference#add-items) for examples. Here we're gonna create a simple Svelte component that allows the user to add friends into the database using [Table.add()](/docs/Table/Table.add()).
+Writing to the database can be done using [Table.add()](</docs/Table/Table.add()>), [Table.put()](</docs/Table/Table.put()>), [Table.update()](</docs/Table/Table.update()>) and [Collection.modify()](</docs/Collection/Collection.modify()>) - see Dexie's [quick reference](/docs/API-Reference#add-items) for examples. Here we're gonna create a simple Svelte component that allows the user to add friends into the database using [Table.add()](</docs/Table/Table.add()>).
 
 ```svelte
 <!-- FriendAdder.svelte -->
@@ -106,7 +105,7 @@ Writing to the database can be done using [Table.add()](/docs/Table/Table.add())
       });
 
       status = `Friend ${friendName} successfully added. Got id ${id}`;
-      
+
       // Reset form:
       friendName = "";
       friendAge = defaultAge;
@@ -162,7 +161,8 @@ Write a simple component that just renders all friends in the database.
 </ul>
 
 ```
-*To make more detailed queries, refer to Dexie's [quick reference for querying items](/docs/API-Reference#query-items).*
+
+_To make more detailed queries, refer to Dexie's [quick reference for querying items](/docs/API-Reference#query-items)._
 
 Notice two things here:
 
@@ -175,7 +175,7 @@ Let's improve the FriendList component and allow a parent component to pass some
 This time let's also use async / await (for pedagogical reasons only - it makes it simple to extend the function to do more queries if needed).
 
 ```svelte
-<!-- FriendList.svelte --> 
+<!-- FriendList.svelte -->
 <script>
   import { liveQuery } from "dexie";
   import { db } from "./db";
@@ -248,7 +248,7 @@ Add a new component that allows the user to specify `minAge` and `maxAge` and pa
 
 Open your app (or [the pre-cookied one](https://2n8bd.csb.app/)) in multiple new windows and watch them react to each other's changes.
 
-*NOTE: IndexedDB is tied to using same browser and same origin. Sync across different origins, browsers, clients and users is another topic and requires a sync solution. If you're interested, have a look at what's coming in [Dexie Cloud](/cloud/).*
+_NOTE: IndexedDB is tied to using same browser and same origin. Sync across different origins, browsers, clients and users is another topic and requires a sync solution. If you're interested, have a look at what's coming in [Dexie Cloud](/cloud/)._
 
 ## Observe joined data
 
@@ -257,6 +257,6 @@ Do something similar to [this sample](/docs/API-Reference#joining) and observe t
 <hr/>
 # More Samples and Resources
 
-* [Play with Dexie.js and Svelte in Codesandbox](https://codesandbox.io/s/svelte-with-dexie-livequery-2n8bd?file=/App.svelte)
-* [Read the docs for liveQuery()](/docs/liveQuery())
-* [Read the general docs for Dexie.js](/docs/).
+- [Play with Dexie.js and Svelte in Stackblitz](https://stackblitz.com/edit/vitejs-vite-gjzr7xhn?file=src%2FApp.svelte)
+- [Read the docs for liveQuery()](</docs/liveQuery()>)
+- [Read the general docs for Dexie.js](/docs/).
