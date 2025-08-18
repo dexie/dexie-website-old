@@ -299,7 +299,12 @@ interface Member {
   email?: string // The email of the requested user (for invites).
   name?: string // The name of the requested user (for invites).
   invite?: boolean
-  invited?: Date
+  invitedDate?: Date; // Set by system. Must not be set by user.
+  invitedBy?: { // Set by system. Must not be set by user.
+    name: string;
+    email: string;
+    userId: string;
+  }  
   accepted?: Date
   rejected?: Date
   roles?: string[] // Array of role names for this user.
