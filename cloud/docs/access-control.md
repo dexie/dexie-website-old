@@ -322,7 +322,7 @@ interface Member {
 
 - **realmId** - you will only have permission to specify a realm where you have permissions to add members in.
 - **userId** - you can only set this field to your own userId, or leave it undefined unless you are database owner (for example if adding members via REST interface)
-- **invited** - Managed by the system only. Cannot be set or updated by user.
+- **invitedDate** - Managed by the system only. Cannot be set or updated by user.
 - **accepted** - Managed by the system only. Cannot be set or updated by user.
 - **rejected** - Managed by the system only. Cannot be set or updated by user.
 
