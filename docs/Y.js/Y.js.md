@@ -5,7 +5,7 @@ title: 'Y.js'
 
 ## Dexie.js ❤️ Y.js
 
-Dexie supports the powerful CRDT library [Y.js](http://github.com/yjs/yjs) through its add-on [y-dexie](https://www.npmjs.com/package/y-dexie).
+Dexie supports the powerful CRDT library [Y.js](https://yjs.dev/) through the Dexie add-on [y-dexie](y-dexie).
 
 ## What is Y.js
 
@@ -13,21 +13,21 @@ Y.js is a high-performance CRDT for building collaborative applications that syn
 
 The core type in Y.js is the Y.Doc that holds CRDT data. One of the most powerful use cases of CRDT is collaborative editing of texts and images.
 
-## [y-indexeddb](https://github.com/yjs/y-indexeddb) and [y-dexie](https://github.com/dexie/Dexie.js/tree/master/addons/y-dexie)
+## [y-indexeddb](https://github.com/yjs/y-indexeddb) vs [y-dexie](https://github.com/dexie/Dexie.js/tree/master/addons/y-dexie)
 
-y-indexeddb, developed by [Kevin Jahns](https://github.com/dmonad), allows basic persistance of a single Y.Doc in indexedDB. Each document is represented by its own unique IndexedDB database. This implementation acts as a model for persisting Y.Doc updates and works well when only a single or few documents are being used.
+y-indexeddb, developed by [Kevin Jahns](https://github.com/dmonad), is a storage provider that use indexedDB. Each document is represented by its own unique IndexedDB database. This implementation acts as a role model for persisting Y.Docs. But since y-indexeddb requires one database per document, it can be hard to combine it with additional offline data or integrate it with a dexie database.
 
 y-dexie is an alternative to y-indexeddb that allows structured storage of multiple Y.Docs in a single indexedDB database. It integrates well to existing databases and Y.Docs can be places on existing
 database objects (rows) on their own properties of the objects.
 
-| Features                                                   | y-indexeddb | y-dexie |
-| ---------------------------------------------------------- | ----------- | ------- |
-| Persist single document in browser                         | [x]         | [x]     |
-| Garbage collect historical Y.js updates                    | [x]         | [x]     |
-| Perist multiple documents in the same database             | [-]         | [x]     |
-| Store documents as properties on traditional indexed items | [-]         | [x]     |
-| Sync with dexie-cloud                                      | [-]         | [x]     |
-| Optimized sync protocol for syncing multiple documents     | [-]         | [x]     |
+| Features                                                   | y-indexeddb&nbsp; | y-dexie |
+| ---------------------------------------------------------- | ----------------- | ------- |
+| Persist single document in browser                         | ✓                 | ✓       |
+| Garbage collect historical Y.js updates                    | ✓                 | ✓       |
+| Perist multiple documents in the same database             |                   | ✓       |
+| Store documents as properties on traditional indexed items |                   | ✓       |
+| Sync with dexie-cloud                                      |                   | ✓       |
+| Optimized sync protocol for syncing multiple documents     |                   | ✓       |
 
 ## The Y.js ecosystem
 
@@ -53,3 +53,11 @@ database objects (rows) on their own properties of the objects.
 ### Block / document frameworks (Yjs under the hood)
 
 - BlockSuite / AFFiNE – block editor toolkit built on Yjs
+
+## Sample Applications
+
+[Dexie Cloud Starter](https://github.com/dexie/dexie-cloud-starter)
+
+[Lkal.ma](https://lkal.ma/boards)
+
+[To To Do](https://totodo.app)
