@@ -54,6 +54,11 @@ database objects (rows) on their own properties of the objects.
 
 - BlockSuite / AFFiNE – block editor toolkit built on Yjs
 
+## Getting Started
+
+- [Learn about Y.js](https://learn.yjs.dev/)
+- [Read the y-dexie README on npm](https://www.npmjs.com/package/y-dexie).
+
 ## Sample Applications
 
 [Dexie Cloud Starter](https://github.com/dexie/dexie-cloud-starter)
