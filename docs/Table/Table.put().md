@@ -37,6 +37,10 @@ The optional second *key* argument must only be used if the table uses [outbound
 
 If the operation succeeds, then the returned Promise resolves to the key under which the object was stored in the table.
 
+### Case for autoIncremented keys
+
+In case the item's primary key is not specified and the schema specifies it to be auto-incremented, the operation will be equivalent to Table.add() and the item's resulting key will be set on the item' declared primary key property - this only apply to table.add() and table.put() but not table.bulkAdd() or table.bulkPut().
+
 ### See Also
 
 [Table.update()](/docs/Table/Table.update())
