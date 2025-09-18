@@ -5,7 +5,7 @@ title: 'Dexie Cloud Docs'
 
 This area is for documentation of Dexie Cloud APIs
 
-- [Getting started](/cloud/#getting-started)
+- [Getting started](/docs/Tutorial/Dexie-Cloud)
 - [Dexie Cloud Example App](https://github.com/dexie/Dexie.js/tree/master/samples/dexie-cloud-todo-app)
 - [Best Practices](/cloud/docs/best-practices)
 - [Authentication](/cloud/docs/authentication)
