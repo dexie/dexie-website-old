@@ -280,6 +280,8 @@ permissions to invite a group of users to a commonly shared realm of data.
 
 See [Access Control in Dexie Cloud](/cloud/docs/access-control)
 
+To share data is also a 100% local-first action. Even creating invitations to new users can be done while being offline or while being in a shaky network.
+
 ## 7. Use Dexie Cloud Manager (optional)
 
 Login to [Dexie Cloud Manager](https://manager.dexie.cloud/) to manage:
@@ -287,7 +289,7 @@ Login to [Dexie Cloud Manager](https://manager.dexie.cloud/) to manage:
 - end-users seats
 - end-user evaluation policy
 - SMTP settings
-- Free / paid subscription
+- subscription upgrades
 
 ## 8. Use `dexie-cloud` CLI
 
