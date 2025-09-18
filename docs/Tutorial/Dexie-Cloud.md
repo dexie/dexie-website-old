@@ -340,3 +340,76 @@ This file is needed when you use the CLI (`npx dexie-cloud`) to whitelist, expor
 ### Why should `dexie-cloud.json` and `dexie-cloud.key` be .gitignored?
 
 Keys shall never be committed to git (`dexie-cloud.key`). `dexie-cloud.json` does not contain any sensitive data but is still not tied to your code base - some other person might want to run the app on another database.
+
+### How can I make my webapp an installable app (PWA) on desktop and mobile?
+
+To make your webapp a Progressive Web App (PWA), you only need a few small pieces:
+
+- Create a web app manifest (`manifest.webmanifest`) with name, icons, start_url and display (standalone).
+- Add a service worker that caches your app shell and (optionally) API responses. Keep the service worker small and focused on offline/app-shell behavior.
+- Register the service worker from your client code (e.g. `navigator.serviceWorker.register('/sw.js')`).
+- Ensure your site is served over HTTPS (localhost is allowed for development).
+
+If you use Vite, there are community plugins that automate manifest generation and service-worker integration (for example `vite-plugin-pwa`). These plugins can inject the manifest, generate precache lists and wire service-worker registration for you.
+
+Quick checklist:
+
+1. Add `manifest.webmanifest` to your public folder and link it from `<head>`.
+2. Add a minimal `sw.js` (or use a plugin to generate Workbox-powered service worker).
+3. Register the service worker in your app entry file.
+4. Test using Chrome/Edge Lighthouse or `web.dev/measure` and verify installability on mobile.
+
+### How can I bundle my app as a native app for iOS and Google Play?
+
+To package your webapp as native apps you have a few solid options. The most common are:
+
+- Capacitor (Ionic) — modern, actively maintained native runtime that wraps your web app and provides native plugins. Good for both iOS and Android.
+- Electron — popular for packaging web apps as native desktop apps (macOS, Windows, Linux). Works well with PWAs and frameworks like Vite; pair with builders like `electron-builder` or `electron-forge` for installers.
+- PWABuilder / TWA (Trusted Web Activity) — generate Android APKs/AABs from a PWA; TWA is ideal if your app is already a high-quality PWA.
+- Cordova / PhoneGap — older tooling still in use for legacy projects but generally superseded by Capacitor.
+
+Recommended quick actions:
+
+1. Make sure your app is a solid PWA first (see previous section). PWAs are the best starting point for native packaging.
+2. Choose a tool:
+
+   - Capacitor: follow its setup docs to add platforms, copy the web build into the native projects and run builds with Xcode (iOS) and Android Studio (Android).
+
+   - Electron: follow its docs to wrap your web build in a desktop runtime — build the web UI, create a small main process that loads the built files, and use builders like `electron-builder` or `electron-forge` to produce installers; remember to configure signing/notarization and auto-updates.
+
+   - PWABuilder / TWA: use PWABuilder to generate an Android TWA wrapper or follow the TWA docs to create an AAB that links to your hosted PWA.
+
+3. Configure platform-specific settings: app id/package name, icons and splash screens, permissions, and any native plugins you need.
+4. Test on real devices and use platform tooling (Xcode for iOS, Android Studio / bundletool for Android) to create release builds and sign them.
+5. Follow the store submission guides to publish on App Store and Google Play (you'll need developer accounts, app listing assets, privacy policy, etc.).
+
+Useful documentation:
+
+- Capacitor: https://capacitorjs.com/docs
+- Electron: https://www.electronjs.org/docs/latest
+- PWABuilder: https://www.pwabuilder.com/
+- Trusted Web Activity (Android / Google): https://developer.chrome.com/docs/android/trusted-web-activity/
+- Apple App Store publishing: https://developer.apple.com/app-store/
+- Google Play publishing: https://developer.android.com/distribute
+
+### How do I whitelist my app when bundled as native app with Capacitor?
+
+```bash
+npx dexie-cloud whitelist capacitor://localhost
+npx dexie-cloud whitelist http://localhost
+```
+
+### How do I whitelist my app when bundled with Electron?
+
+Electron apps does not require whitelisting.
+
+### How can I get help
+
+Let the community help out on:
+
+- [Stackoverflow](http://stackoverflow.com/questions/ask?tags=dexie)
+- [Github Issues](https://github.com/dexie/Dexie.js/issues/new?labels=cloud,question)
+- [Discord](https://discord.com/channels/1328303736363421747/1339957860657926204)
+- Request private support from the dexie team: [privsupport@dexie.org](https://dexie.org/contact#private-support-issues)
+
+We prefer getting questions on stackoverflow and Github because it they will be publicly searchable for other users and creates a helps learning AI engines.
