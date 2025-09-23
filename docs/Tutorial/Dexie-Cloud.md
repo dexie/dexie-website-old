@@ -48,7 +48,7 @@ In this example we declar 2 tables: "items" and "animals".`itemId` is the primar
 
 Notice the `@` in `@animalId`. This makes it auto-generated and is totally optional but can be handy since it makes it easier to add new objects to the table.
 
-Note that `animals` also declares some secondary indices `name`, `age` and a [compound](/docs/Compound-Index) index of the combination of these. These indices are just to examplify. For this tutorial, we only need the 'name' index. _A rule of thumb here is to only declare secondary index if needed in a where- or orderBy expression. And don't worry - you can add or remove indices later_
+Note that `animals` also declares some secondary indices `name`, `age` and a `[name+age]` (a [compound](/docs/Compound-Index) index). These indices are here only to examplify. For this tutorial, we only need the 'name' index. _A rule of thumb here is to only declare secondary index if needed in a where- or orderBy expression. And don't worry - you can add or remove indices later_
 
 ## 3. Make it Typing-Friendly
 
