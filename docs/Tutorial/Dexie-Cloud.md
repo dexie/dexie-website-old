@@ -44,7 +44,7 @@ db.version(1).stores({
 });
 ```
 
-In this example we declar 2 tables: `"items"` and `"animals"`.`"itemId"` is the primary key for `"items"` and `"animalId"` for `"animals"`.
+In this example we declare 2 tables: `"items"` and `"animals"`.`"itemId"` is the primary key for `"items"` and `"animalId"` for `"animals"`.
 
 Notice the `@` in `@animalId`. This makes it auto-generated and is totally optional but can be handy since it makes it easier to add new objects to the table.
 
