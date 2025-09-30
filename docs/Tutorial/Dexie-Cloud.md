@@ -3,6 +3,11 @@ layout: docs-dexie-cloud
 title: 'Get started with Dexie Cloud'
 ---
 
+This tutorial goes through the basics on how to create a dexie cloud app. If you prefer looking at a working example:
+
+* [Vite: Dexie Cloud To-Do PWA](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/README.md)
+* [Next.js: Dexie Cloud Starter](https://github.com/dexie/dexie-cloud-starter)
+
 ## 1. Bootstrapping
 
 No matter if you create a brand new app or adjust an existing one, this tutorial will guide you through the steps.
