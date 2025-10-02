@@ -23,3 +23,6 @@ Allows app developers load indexedDB data and keep their component updated whene
 
 [usePermissions()](../dexie-react-hooks/usePermissions())
 
+[useDocument()](../dexie-react-hooks/usePermissions())
+
+
