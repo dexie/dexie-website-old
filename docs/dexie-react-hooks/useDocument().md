@@ -35,8 +35,8 @@ import type * as Y from 'yjs';
 interface Friend {
   id: string;
   name: string;
+  notes: Y.Doc;
   age: number;
-  notes: Y.Doc; // This property is an Y.Doc
 }
 
 const db = new Dexie('myDB', { addons: [yDexie] }) as Dexie & {
@@ -86,6 +86,10 @@ function MyComponent(friendId: string) {
 }
 ```
 
+\*In the sample above, NotesEditor would be your component that renders and allows editing notes using external 3rd part libraries. See our example application dexie-cloud-starter for examples.
+
 ### See Also
 
-[y-dexie](https://github.com/dexie/Dexie.js/blob/master/addons/y-dexie/README.md)
+[y-dexie](https://github.com/dexie/Dexie.js/blob/master/addons/y-dexie/README.md) - the y-dexie library
+
+[dexie-cloud-starter](https://github.com/dexie/dexie-cloud-starter) - sample application that showcases how to edit, share, sync and search documents using NextJS, dexie, y-dexie, dexie-cloud, tiptap and lunr for full-text-search.
