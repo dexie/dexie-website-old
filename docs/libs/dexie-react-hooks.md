@@ -3,12 +3,14 @@ layout: docs
 title: 'dexie-react-hooks'
 ---
 
-*For using this library, you need to install dexie@>3.1-alpha*
+_For using this library, you need to install dexie@>3.1-alpha_
 
 ```
 npm i react dexie dexie-react-hooks
 ```
+
 or
+
 ```
 yarn add react dexie dexie-react-hooks
 ```
@@ -17,12 +19,10 @@ Allows app developers load indexedDB data and keep their component updated whene
 
 # Hooks
 
-[useLiveQuery()](../dexie-react-hooks/useLiveQuery())
+[useLiveQuery()](<../dexie-react-hooks/useLiveQuery()>)
 
-[useObservable()](../dexie-react-hooks/useObservable())
+[useObservable()](<../dexie-react-hooks/useObservable()>)
 
-[usePermissions()](../dexie-react-hooks/usePermissions())
+[usePermissions()](<../dexie-react-hooks/usePermissions()>)
 
-[useDocument()](../dexie-react-hooks/usePermissions())
-
-
+[useDocument()](<../dexie-react-hooks/useDocument()>)
