@@ -33,6 +33,7 @@ database objects (rows) on their own properties of the objects.
 
 ### Rich-text & code editors
 
+- TipTap - Widely used rich-text editor with Y.js integration
 - ProseMirror (base binding y-prosemirror) – the core binding that many others sit on.
 - Remirror – first-class Yjs extension (@remirror/extension-yjs)
 - Slate – via slate-yjs (actively maintained).
