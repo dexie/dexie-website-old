@@ -87,7 +87,7 @@ function MyComponent(friendId: string) {
 }
 ```
 
-\*In the sample above, NotesEditor would be your component that renders and allows editing notes using external 3rd part libraries. See our example application dexie-cloud-starter for examples.
+_In the sample above, NotesEditor would be your component that renders and allows editing notes using external 3rd part libraries. See our example application dexie-cloud-starter for examples._
 
 ### See Also
 
