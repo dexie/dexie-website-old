@@ -10,13 +10,10 @@ Consume an Y.Doc in your component.
 # Dependencies
 
 ```
-npm i react dexie y-dexie dexie-react-hooks
-```
-
-or
-
-```
-yarn add react dexie y-dexie dexie-react-hooks
+npm install react
+npm install dexie
+npm install y-dexie
+npm install dexie-react-hooks
 ```
 
 # Syntax
