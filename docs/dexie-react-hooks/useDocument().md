@@ -68,7 +68,7 @@ function MyComponent(friendId: string) {
 The return value of useDocument() is an Y.js provider DexieYProvider that can be passed to child components.
 The plain provider handles document loading and updating.
 
-If dexie-cloud-addon is used and a [Dexie Cloud](https://dexie.org/cloud/) database is configured, the provider also supports sync and awareness, which seamlessly integrates with existing ecosystem of text editors with Y.js support.
+If dexie-cloud-addon is used and a [Dexie Cloud](https://dexie.org/cloud/) database is configured, the provider also supports sync and awareness, which seamlessly integrates with existing [ecosystem](/docs/Y.js/Y.js#the-yjs-ecosystem) of text editors with Y.js support.
 
 ```ts
 import { useLiveQuery, useDocument } from 'dexie-react-hooks';
