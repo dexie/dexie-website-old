@@ -10,9 +10,8 @@ Consume an Y.Doc in your component.
 # Dependencies
 
 ```
-npm install react
-npm install yjs
-npm install dexie y-dexie dexie-react-hooks
+npm install react dexie dexie-react-hooks
+npm install yjs y-dexie
 ```
 
 # Syntax
