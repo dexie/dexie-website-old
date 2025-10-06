@@ -55,7 +55,7 @@ Notice the `@` in `@animalId`. This makes it auto-generated and is totally optio
 
 Note that `animals` also declares some secondary indices `name`, `age` and a `[name+age]` (a [compound](/docs/Compound-Index) index). These indices are here only to examplify. For this tutorial, we only need the 'name' index. _A rule of thumb here is to only declare secondary index if needed in a where- or orderBy expression. And don't worry - you can add or remove indices later_
 
-## 3. Make it Typing-Friendly
+## 3. Add Types (optional)
 
 ```ts
 // Item.ts
@@ -102,7 +102,7 @@ _We're actually just casting our Dexie to force the typings to reflect the `item
 
 \_There's also the option to declare the entities as classes instead of interfaces. See [TodoList.ts](https://github.com/dexie/Dexie.js/blob/928684175024b9a00269de1a65845a1f43ec8d74/samples/dexie-cloud-todo-app/src/db/TodoList.ts), [TodoDB.ts](https://github.com/dexie/Dexie.js/blob/3fe0876df83485e6552ee823a84aabac37cfa606/samples/dexie-cloud-todo-app/src/db/TodoDB.ts) and [db.ts](https://github.com/dexie/Dexie.js/blob/d58ddee379bec306a8ba4689d20f940c700449a4/samples/dexie-cloud-todo-app/src/db/db.ts) in the dexie-cloud-todo-list example. If you find that way more appealing, that's also ok.
 
-## 4. Start Playing with it
+## 4. Play Around
 
 Create some components that renders and manipulates the database. In this example, we use React + Typescript that demonstrate basic CRUD with a Dexie Cloud `animals` table.
 
