@@ -26,7 +26,7 @@ npm install dexie-cloud-addon
 npm install dexie-react-hooks # If using react
 ```
 
-## 2. Declare a `db`
+## 2. Declare a `db` (still local only)
 
 Unless you already use Dexie (in which case you could just adjust it), create a new module `db.ts` where you declare the database.
 
