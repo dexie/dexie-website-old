@@ -205,8 +205,7 @@ function shareTodoList(todoList, ...friends) {
   return db.transaction('rw', [db.todoLists, db.realms, db.members], () => {
     // Add or update a realm, tied to the todo-list using getTiedRealmId():
     const realmId = getTiedRealmId(todoList.id)
-    db.realms.put({
-      realmId,
+    db.realms.upsert(realmId, {
       name: todoList.title,
       represents: 'a to-do list',
     })

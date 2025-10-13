@@ -96,11 +96,13 @@ function shareTodoList(todoList) {
   // When making a todo-list sharable, we need to create a realm that is 1-1 tied to the todo-list:
   const computedRealmId = getTiedRealmId(todoList.id)
   return db.transaction('rw', db.todoLists, db.realms, db.members, () => {
-    db.realms.put({
-      realmId: computedRealmId, // Use a primary key computed from the main object in the realm.
-      name: todoList.name,
-      represents: 'a to-do list',
-    })
+    db.realms.upsert(
+      computedRealmId, // Use a primary key computed from the main object in the realm.
+      {
+        name: todoList.name,
+        represents: 'a to-do list',
+      }
+    )
     db.todoLists.update(todoList.id, {
       realmId: computedRealmId, // move todo-list into new realm
     })

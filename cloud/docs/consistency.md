@@ -298,8 +298,7 @@ async function shareList(todoList: TodoList) {
     async () => {
       // Create realm (use put instead of add if other client did the same)
       const newRealmId = getTiedRealmId(todoList.id)
-      await db.realms.put({
-        realmId: newRealmId,
+      await db.realms.upsert(newRealmId, {
         name: 'A todo list',
         represents: 'a todo list',
       })
