@@ -1,7 +1,8 @@
 ---
 layout: docs-dexie-cloud
-title: "db.cloud.configure()"
+title: 'db.cloud.configure()'
 ---
+
 Configure the URL of the database to keep in sync with, along with other options.
 
 ## Syntax
@@ -28,17 +29,17 @@ See interface [DexieCloudOptions](DexieCloudOptions)
 ## Example
 
 ```ts
-import Dexie from "dexie";
-import dexieCloud from "dexie-cloud-addon";
+import Dexie from 'dexie'
+import dexieCloud from 'dexie-cloud-addon'
 
-const db = new Dexie("mydb", {addons: [dexieCloud]});
+const db = new Dexie('mydb', { addons: [dexieCloud] })
 db.version(1).stores({
-  friends: `@id, name, age`
-});
+  friends: `@id, name, age`,
+})
 
 db.cloud.configure({
-  databaseUrl: "https://xxxxxx.dexie.cloud", // Create DB: `npx dexie-cloud create`
-});
+  databaseUrl: 'https://xxxxxx.dexie.cloud', // Create DB: `npx dexie-cloud create`
+})
 ```
 
 ## Remarks
@@ -47,18 +48,19 @@ The call to db.cloud.configure() must be done before any requests are put on the
 
 ## Options
 
-| Parameter   | Type     | Explanation                                        |
-| ----------- | -------- | -------------------------------------------------- |
-| [databaseUrl](#databaseurl) | string   | The URL to your Dexie Cloud database               |
-| [requireAuth](#requireauth) | boolean  | Whether or not to require authentication initially or allow unauthorized usage with option to login when needed. A value of false enables unauthorized shopping basket example with possibility to authenticate to get the data become connected to user account. |
-| [tryUseServiceWorker](#tryuseserviceworker) | boolean | Let service worker take care of the sync job. See [tryUseServiceWorker](#tryuseserviceworker) below.  |
-| [periodicSync](#periodic-sync) | `{minInterval: number}` | The minimum interval time, in milliseconds, at which the service-worker's periodic sync should occur. See <https://github.com/WICG/background-sync/blob/main/explainers/periodicsync-explainer.md#timing-of-periodic-sync-tasks> |
-| [customLoginGui](#customlogingui) | boolean | Disable default login GUI and replace it with your own by subscribing to the `db.cloud.userInteraction` observable and render its emitted data. |
-| unsyncedTables | string[] | Array of table names that should be considered local-only and not be synced with Dexie Cloud |
-| nameSuffix | boolean | See [nameSuffix](<#namesuffix>) below |
-| disableWebSocket | boolean | Disable websocket connection. This will disable listening of server changes and only sync when there is a client change. You can manually call `db.cloud.sync({purpose: 'pull'})` periodically as an alternative to using the WebSocket connection. |
-| disableEagerSync | boolean | When set, local changes will not trigger a sync towards the server. |
-| fetchTokens | Callback | Provide JWT tokens customly. Enables custom authentication. See [full client- and server example here](#example-integrate-custom-authentication).
+| Parameter                                   | Type                              | Explanation                                                                                                                                                                                                                                                       |
+| ------------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [databaseUrl](#databaseurl)                 | string                            | The URL to your Dexie Cloud database                                                                                                                                                                                                                              |
+| [requireAuth](#requireauth)                 | boolean                           | Whether or not to require authentication initially or allow unauthorized usage with option to login when needed. A value of false enables unauthorized shopping basket example with possibility to authenticate to get the data become connected to user account. |
+| [tryUseServiceWorker](#tryuseserviceworker) | boolean                           |  Let service worker take care of the sync job. See [tryUseServiceWorker](#tryuseserviceworker) below.                                                                                                                                                             |
+| [periodicSync](#periodic-sync)              | `{minInterval: number}`           | The minimum interval time, in milliseconds, at which the service-worker's periodic sync should occur. See <https://github.com/WICG/background-sync/blob/main/explainers/periodicsync-explainer.md#timing-of-periodic-sync-tasks>                                  |
+| [customLoginGui](#customlogingui)           | boolean                           | Disable default login GUI and replace it with your own by subscribing to the `db.cloud.userInteraction` observable and render its emitted data.                                                                                                                   |
+| unsyncedTables                              | string[]                          | Array of table names that should be considered local-only and not be synced with Dexie Cloud                                                                                                                                                                      |
+| unsyncedProperties                          | `{[tableName: string]: string[]}` | Array of properties (per table) that should be considered local-only and be synced.                                                                                                                                                                               |
+| nameSuffix                                  | boolean                           | See [nameSuffix](#namesuffix) below                                                                                                                                                                                                                               |
+| disableWebSocket                            | boolean                           | Disable websocket connection. This will disable listening of server changes and only sync when there is a client change. You can manually call `db.cloud.sync({purpose: 'pull'})` periodically as an alternative to using the WebSocket connection.               |
+| disableEagerSync                            | boolean                           | When set, local changes will not trigger a sync towards the server.                                                                                                                                                                                               |
+| fetchTokens                                 | Callback                          | Provide JWT tokens customly. Enables custom authentication. See [full client- and server example here](#example-integrate-custom-authentication).                                                                                                                 |
 
 See the Typescript definition of this parametered object argument to get the typing details: [DexieCloudOptions](DexieCloudOptions).
 
@@ -97,7 +99,7 @@ Service Worker enables Background Sync and Periodic Sync (and a bunch of other f
 Create your own service worker JS file. It can be a simple file named 'sw.js' and let it import dexie-cloud's service worker code:
 
 ```js
-importScripts ('<path to...>/dexie-cloud-addon/dist/umd/service-worker.js');
+importScripts('<path to...>/dexie-cloud-addon/dist/umd/service-worker.js')
 ```
 
 You can then extend your sw.js service worker for other purposes as well, such as caching etc, but for dexie-cloud to use it for sync, only the above single line will be needed.
@@ -118,7 +120,7 @@ For those who use [create-react-app](https://create-react-app.dev/docs/making-a-
 
 ```ts
 // Import Dexie Cloud Service Worker
-import "dexie-cloud-addon/dist/umd/service-worker";
+import 'dexie-cloud-addon/dist/umd/service-worker'
 ```
 
 Also, in `index.jsx` / `index.tsx`, change the line `serviceWorkerRegistration.unregister();` to `serviceWorkerRegistration.register();` as described by [the docs from create-react-app](https://create-react-app.dev/docs/making-a-progressive-web-app/).
@@ -129,7 +131,7 @@ Service workers are great for production but can be confusing while developing a
 
 ### customLoginGui
 
-Enable this option and subscribe to [db.cloud.userInteraction](db.cloud.userInteraction) to provide your own user interface for the built-in OTP authentication. Enabling this option will silence the built-in GUI of login dialogs and instead allow you to render a component that displays your preferred style of login dialogs. See [this react example](/cloud/docs/authentication#customizing-login-gui) on how to implement custom login GUI. 
+Enable this option and subscribe to [db.cloud.userInteraction](db.cloud.userInteraction) to provide your own user interface for the built-in OTP authentication. Enabling this option will silence the built-in GUI of login dialogs and instead allow you to render a component that displays your preferred style of login dialogs. See [this react example](/cloud/docs/authentication#customizing-login-gui) on how to implement custom login GUI.
 
 If you rather want to replace the authentication solution from email OTP to your own or a 3rd part solution, see [Example: Integrate Custom Authentication](#example-integrate-custom-authentication)
 
@@ -139,6 +141,7 @@ By default Dexie Cloud will append part of the given `databaseURL` to your Index
 
 The `nameSuffix` option is considered `true` by default, so in order to disable it, you must explicitly set `nameSuffix` option to `false`.
 By specifying `{nameSuffix: false}`, Dexie will name the database without appending a suffix - the same way as it does in plain Dexie.js.
+
 ### fetchTokens
 
 Specify a callback here if you want to implement your own way of retrieving the JWT tokens. By default, these tokens will be generated by Dexie Cloud server.
@@ -152,17 +155,17 @@ Dexie Cloud comes with zero-config email OTP authentication but if you need to r
 
 **Node.js server endpoint**
 
-The code below exemplifies how to generate tokens if your authentication solution is based on Node.js and [Passport](http://www.passportjs.org){:target="_blank"}. If you have another server-side platform or language for your existing authentication, you would need to translate this example to that language and platform. Note that the authentication platform (Passport or other) can use whatever mechanism to authenticate the user - integrate with OpenIDConnect, Google, GitHub, facebook etc. For guides for doing so, we refer to other guides on the internet
-that covers this. If you are starting from a white paper and just need a way to get going, we recommend the guides from [auth0](https://auth0.com){:target="_blank"} or [Passport](http://www.passportjs.org){:target="_blank"} but remember that Dexie Cloud comes with zero config authentication based on one-time-passwords over email, so setting up custom authentication is just an optional next-step. Make sure to get up running Dexie Cloud with zero config authentication first.
+The code below exemplifies how to generate tokens if your authentication solution is based on Node.js and [Passport](http://www.passportjs.org){:target="\_blank"}. If you have another server-side platform or language for your existing authentication, you would need to translate this example to that language and platform. Note that the authentication platform (Passport or other) can use whatever mechanism to authenticate the user - integrate with OpenIDConnect, Google, GitHub, facebook etc. For guides for doing so, we refer to other guides on the internet
+that covers this. If you are starting from a white paper and just need a way to get going, we recommend the guides from [auth0](https://auth0.com){:target="\_blank"} or [Passport](http://www.passportjs.org){:target="\_blank"} but remember that Dexie Cloud comes with zero config authentication based on one-time-passwords over email, so setting up custom authentication is just an optional next-step. Make sure to get up running Dexie Cloud with zero config authentication first.
 
-```js 
+```js
 // ...other express / passport imports and setup...
 
-const nodeFetch = require("node-fetch");
+const nodeFetch = require('node-fetch')
 
-const DB_URL = process.env.DEXIE_CLOUD_DB_URL;
-const CLIENT_ID = process.env.DEXIE_CLOUD_CLIENT_ID;
-const CLIENT_SECRET = process.env.DEXIE_CLOUD_CLIENT_SECRET;
+const DB_URL = process.env.DEXIE_CLOUD_DB_URL
+const CLIENT_ID = process.env.DEXIE_CLOUD_CLIENT_ID
+const CLIENT_SECRET = process.env.DEXIE_CLOUD_CLIENT_SECRET
 
 // ...other express / passport endpoints here...
 
@@ -171,43 +174,43 @@ app.post('/dexie-cloud-tokens', bodyParser.json(), async (req, res, next) => {
   try {
     // Parameters that you provide:
     // Assume you've configured passport to store user on request:
-    const user = req.user; // See http://www.passportjs.org/docs/configure/
-    
+    const user = req.user // See http://www.passportjs.org/docs/configure/
+
     // Parameters that dexie-cloud client will provide via fetchTokens option.
-    const public_key = req.body.public_key; // For refresh token authentication
-    
+    const public_key = req.body.public_key // For refresh token authentication
+
     // Request token from your Dexie Cloud database:
     const tokenResponse = await nodeFetch(`${DB_URL}/token`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
       },
       body: JSON.stringify({
-        grant_type: "client_credentials",
-        scopes: ["ACCESS_DB"],
+        grant_type: 'client_credentials',
+        scopes: ['ACCESS_DB'],
         public_key,
         client_id: CLIENT_ID,
         client_secret: CLIENT_SECRET,
         claims: {
           sub: user.userId, // or user.email. Your framework must provide this.
           email: user.email, // optional but nice.
-          name: user.name // optional but nice.
-        }
-      })
-    });
+          name: user.name, // optional but nice.
+        },
+      }),
+    })
     if (!tokenResponse.ok) {
-      throw new Error(`Failed to retrieve token from Dexie Cloud.`);
+      throw new Error(`Failed to retrieve token from Dexie Cloud.`)
     }
 
     // Forward token response to your client:
-    const tokenBody = await tokenResponse.json();
-    res.set('Cache-Control', 'no-store');
-    res.json(tokenBody);
+    const tokenBody = await tokenResponse.json()
+    res.set('Cache-Control', 'no-store')
+    res.json(tokenBody)
   } catch (error) {
-    return next(error);
+    return next(error)
   }
-});
+})
 ```
 
 **fetchTokens implementation in your client code**
@@ -217,14 +220,14 @@ the client code to integrate it will be:
 
 ```js
 db.cloud.configure({
-  databaseUrl: "<database URL>",
+  databaseUrl: '<database URL>',
   requireAuth: true,
-  fetchTokens: (tokenParams) => fetch("/dexie-cloud-tokens", {
-    method: "post",
-    credentials: "same-origin",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(tokenParams)
-  }).then(res => res.json())
-});
+  fetchTokens: (tokenParams) =>
+    fetch('/dexie-cloud-tokens', {
+      method: 'post',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(tokenParams),
+    }).then((res) => res.json()),
+})
 ```
-
