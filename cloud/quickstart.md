@@ -12,7 +12,7 @@ title: 'Dexie Cloud Quick-Start'
 
 ## Steps
 
-1. [Download our sample app](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fdexie%2FDexie.js%2Ftree%2Fmaster%2Fsamples%2Fdexie-cloud-todo-app&filename=dexie-cloud-todo-app) and unzip it
+1. <a href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fdexie%2FDexie.js%2Ftree%2Fmaster%2Fsamples%2Fdexie-cloud-todo-app&filename=dexie-cloud-todo-app" target="_blank">Download our sample app</a> and unzip it
 
 2. Start a Terminal or Git Bash Console and `cd` to the extracted zip (~/Downloads/dexie-cloud-todo-app) and install dependencies
 
