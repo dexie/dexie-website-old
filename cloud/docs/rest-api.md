@@ -360,7 +360,7 @@ Authorization: Bearer <token from /token endpoint (with GLOBAL_READ, GLOBAL_WRIT
 
 ### /users endpoint
 
-The /users endpoint can be used to list, get, update and delete application users from your database. You can use the API to upgrade users from evaluation accounts to production accounts or vice versa. This API does supports sorting and paging results.
+The /users endpoint can be used to list, get, create, update and delete application users in your database. You can use the API to upgrade users from evaluation accounts to production accounts or vice versa. This API does support sorting and paging results.
 
 #### List users
 
