@@ -1,6 +1,6 @@
 ---
 layout: docs-dexie-cloud
-title: 'Dexie Cloud Quick-Start'
+title: 'Dexie Cloud Quickstart'
 ---
 
 ## Prerequisits
@@ -35,28 +35,67 @@ title: 'Dexie Cloud Quick-Start'
    npm start
    ```
 
+## Deploy the PWA using Github Pages
+
+The app is easily deployed to any static hosting provider. After running `npm run build`, the deployable PWA is all in the `build` folder. If you already have a GitHub account, here are the steps to deploy the app on GitHub Pages:
+
+1. Initialize a new Git repository in your project folder:
+
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   ```
+
+2. Create a new repository on GitHub:
+
+   - Go to [github.com](https://github.com) and sign in
+   - Click the "+" icon in the top right corner
+   - Select "New repository"
+   - Name your repository (e.g., "my-dexie-cloud-app")
+   - Don't initialize with README, .gitignore, or license (since you already have files)
+
+3. Connect your local repository to GitHub:
+
+   ```bash
+   git remote add origin https://github.com/<yourusername>/<your-repo-name>.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+4. Deploy using GitHub Pages:
+
+   ```bash
+   # Deploy the PWA to GitHub Pages:
+   npm run deploy
+   # White-list the origin:
+   npx dexie-cloud whitelist https://<yourusername>.github.io
+   ```
+
+   Your PWA will be available at https://<b>&lt;yourusername&gt;</b>.github.io/<b>&lt;your-repo-name&gt;</b>/dexie-cloud-todo-app/
+
 ## See Sync in Action
 
-1. Start two browser windows (with different profiles to showcase two different users) to [http://localhost:3000](http://localhost:3000) and have both visible at the same time
-2. Log in both using one of the password-free demo users or a real user.
-3. See how everything is instantly synced between the two.
-4. Turn WiFi off to test offline. Play around. Turn it on again and see it sync. Try different scenarios such as one offline client deletes a list while the other one adds a new item to it - and then let them sync their actions.
+1. Install the PWA on your phone by navigating to _https://<b>&lt;yourusername&gt;</b>.github.io/<b>&lt;your-repo-name&gt;</b>/dexie-cloud-todo-app/_ on your phone browser
+2. Select "save to home screen" and choose to install it as an app.
+3. Navigate to the app on your computer as well. Install it as a Desktop app (optionally)
+4. Login as Alice on computer and Bob on the phone.
+5. Let Alice create a Todo-list and share it to Bob.
+6. See how everything is instantly synced between the two.
+7. Turn WiFi off to test offline. Play around. Turn it on again and see it sync. Try different scenarios such as one offline client deletes a list while the other one adds a new item to it - and then let them sync their actions.
 
-### Guide to the Source Code
+## Guide to the Source Code
 
-#### Data Layer
+### Data Layer
 
-[db.ts](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/db.ts) exports the singleton Dexie instance.
+- [db.ts](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/db.ts) exports the singleton [TodoDB](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoDB.ts) instance.
+- [TodoDB](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoDB.ts) - a sub class of Dexie that contains database declaration and sync configuration.
+- [TodoItem](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoItem.ts) - the shape of a to-do item, declared as a simple typescript interface.
+- [TodoList](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoList.ts) - the shape and logic of a to-do list - declared as a class with methods for sharing, deleting etc - operations that involves transactions and logic, perfectly encapsulated in class! Please look at its methods to learn how realms, members, sharing and deletion should be done in order to [preserve consistency](/cloud/docs/consistency) across various offline use cases.
 
-[TodoDB.ts](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoDB.ts) declares its tables, primary keys and indexes.
+Whether to encapsulate logic in a class as we do with [TodoList](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoList.ts) is only a question of taste. It could equally well have been a pure interface just like we did with [TodoItem](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoItem.ts). However, having the consistency logic close to the model is a way to encourage correct usage of the model.
 
-[TodoItem](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoItem.ts) - declared as a simple typescript interface
-
-[TodoList](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoList.ts) - declared as a class with methods for sharing, deleting etc - operations that involves transactions and logic, perfectly encapsulated in class! Please look at its methods to learn how realms, members, sharing and deletion should be done in order to [preserve consistency](/cloud/docs/consistency) across various offline use cases.
-
-Whether to declare simple interfaces or Entity classes is only a question of taste. A service or a function based module could equally well have contained the data logic for TodoList.
-
-#### Components
+### Visual Components
 
 - [TodoLists](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/components/TodoLists.tsx) - a very simple example useLiveQuery()
 - [TodoListView](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/components/TodoListView.tsx) - showcases the `usePermissions()` hook and how limited user access can disable certain actions. Also how to edit the name inline without any complex state management.
@@ -64,7 +103,12 @@ Whether to declare simple interfaces or Entity classes is only a question of tas
 - [SyncStatusIcon](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/components/navbar/SyncStatusIcon.tsx) - showcases `useObservable()` and how to reflect the current offline state to the user.
 - [Invites](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/components/access-control/Invites.tsx) - showcases in-app presentation of invites.
 
-#### Roles and Access Control
+### Roles and Access Control
 
 - [roles.json](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/data/roles.json) - defining a set of permission per role.
 - [configureApp.sh](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/configure-app.sh) - Showcases how to use the `dexie-cloud` CLI to import roles and demoUsers as well as white-listing the application URLs. It also creates an .env.local file with the database URL.
+
+### PWA stuff
+
+- [vite.config.ts](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/vite.config.ts) - configures the PWA to make the app installable. It generates a web manifest with app icons, name, URL and screenshots.
+- [sw.ts](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/sw.ts) - The minimal Service Worker that just caches assets for offline use as well as activates Dexie Cloud's background sync.
