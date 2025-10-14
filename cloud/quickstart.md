@@ -3,6 +3,19 @@ layout: docs-dexie-cloud
 title: 'Dexie Cloud Quickstart'
 ---
 
+### Get up and running in a minute!
+
+This guide gives you...
+
+- [x] ...your own database.
+- [x] ...your own deployment of an installable PWA
+- [x] ...some best-practice examples of how to do work with local-first content consistently
+- [x] ...a baseline to start from, and extend to something awesome that only you can do!
+
+This app is an educational PWA with focus on clean, minimalistic and correct code. _For a more fun app, have a look at [Dexie Cloud Starter](https://github.com/dexie/dexie-cloud-starter)._
+
+_The original app is also deployed on [https://dexie.github.io/Dexie.js/dexie-cloud-todo-app/](https://dexie.github.io/Dexie.js/dexie-cloud-todo-app/)._
+
 ## Prerequisits
 
 |      |                                                                     |
@@ -28,11 +41,16 @@ title: 'Dexie Cloud Quickstart'
 
    _It will send you a one-time password. Fill it in to proceed with database creation._
 
-4. Now, run our little script that configures your app and database for this sample and then start the application and a browser window will navigate to the application in dev mode:
+4. Now, run our little script that configures your app and database for this sample
+
    ```bash
    chmod +x ./configure-app.sh
    ./configure-app.sh
-   npm start
+   ```
+
+5. Start the app in dev mode:
+   ```bash
+   npm run dev
    ```
 
 ## Deploy the PWA using Github Pages
@@ -66,6 +84,7 @@ The app is easily deployed to any static hosting provider. After running `npm ru
 4. Deploy using GitHub Pages:
 
    ```bash
+   npm run build
    # Deploy the PWA to GitHub Pages:
    npm run deploy
    # White-list the origin:
@@ -112,3 +131,11 @@ Whether to encapsulate logic in a class as we do with [TodoList](https://github.
 
 - [vite.config.ts](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/vite.config.ts) - configures the PWA to make the app installable. It generates a web manifest with app icons, name, URL and screenshots.
 - [sw.ts](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/sw.ts) - The minimal Service Worker that just caches assets for offline use as well as activates Dexie Cloud's background sync.
+
+### Other Resources
+
+- [Dexie Cloud Tutorial](/docs/Tutorial/Dexie-Cloud) - a step-by-step guide (without any pre-baked sample app)
+- [Dexie Cloud Starter](https://github.com/dexie/dexie-cloud-starter) - a nextjs based app with additional features:
+  - Social login
+  - Collaborative Text Editing with Tiptap and Y.js
+  - Full-text search with Lunr + Dexie

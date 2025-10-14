@@ -38,7 +38,7 @@ Email: [sales@awarica.com](mailto:sales@awarica.com)
 
 <a href="https://github.com/dexie/Dexie.js/issues/new?labels=cloud,question" target="github">Ask Dexie Cloud question on GitHub</a>
 
-<a href="https://discord.com/channels/1328303736363421747/1339957860657926204" target="discord">Chat on Discord</a>
+<a href="https://discord.gg/huhre7MHBF" target="discord">Chat on Discord</a>
 
 ## File Issue
 

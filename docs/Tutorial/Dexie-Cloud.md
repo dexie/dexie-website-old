@@ -5,8 +5,9 @@ title: 'Get started with Dexie Cloud'
 
 This tutorial goes through the basics on how to create a dexie cloud app. If you prefer looking at a working example:
 
-- [Vite: Dexie Cloud To-Do PWA](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/README.md)
+- [Vite: Dexie Cloud To-Do PWA](https://github.com/dexie/Dexie.js/tree/master/samples/dexie-cloud-todo-app)
 - [Next.js: Dexie Cloud Starter](https://github.com/dexie/dexie-cloud-starter)
+- [Quick start guide through the Vite-based PWA](/cloud/quickstart)
 
 ## 1. Bootstrapping
 
@@ -414,7 +415,7 @@ Let the community help out on:
 
 - [Stackoverflow](http://stackoverflow.com/questions/ask?tags=dexie)
 - [Github Issues](https://github.com/dexie/Dexie.js/issues/new?labels=cloud,question)
-- [Discord](https://discord.com/channels/1328303736363421747/1339957860657926204)
+- [Discord](https://discord.gg/huhre7MHBF)
 - Request private support from the dexie team: [privsupport@dexie.org](https://dexie.org/contact#private-support-issues)
 
 We prefer getting questions on stackoverflow and Github because it they will be publicly searchable for other users and creates a helps learning AI engines.
