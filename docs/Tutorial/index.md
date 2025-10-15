@@ -2,7 +2,10 @@
 layout: docs
 title: 'Tutorial'
 ---
+
 [Getting started](/docs/Tutorial/Getting-started)
+
+[Getting started with Dexie-Cloud](Dexie-Cloud)
 
 [Samples](/docs/Samples)
 
@@ -10,7 +13,7 @@ title: 'Tutorial'
 
 [Migrating existing DB to Dexie](/docs/Tutorial/Migrating-existing-DB-to-Dexie)
 
-[Schema Definition Syntax](/docs/Version/Version.stores())
+[Schema Definition Syntax](</docs/Version/Version.stores()>)
 
 [Using Dexie with Typescript](/docs/Typescript)
 
