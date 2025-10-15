@@ -1,25 +1,15 @@
 #!/bin/bash
 
-# Script to apply MD file changes to dexie-web-mui repository
-# Usage: ./apply-md-changes.sh <start-commit-hash>
+# Script to apply all MD file changes from diffs/ directory to dexie-web-mui repository
+# Usage: ./apply-md-changes.sh
 
 set -e
 
-# Check if commit hash is provided
-if [ $# -eq 0 ]; then
-    echo "Usage: $0 <start-commit-hash>"
-    echo "Example: $0 abc123def"
-    echo "This will apply all MD changes from abc123def to HEAD"
-    exit 1
-fi
-
-START_COMMIT="$1"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DIFFS_DIR="$SCRIPT_DIR/diffs"
 TARGET_REPO_DIR="$SCRIPT_DIR/../dexie-web-mui"
-RANGE_NAME="${START_COMMIT:0:7}_to_HEAD"
 
-echo "Applying MD file changes for commit range: $START_COMMIT to HEAD"
+echo "Applying all MD file changes from diffs/ directory"
 
 # Check if target repository exists
 if [ ! -d "$TARGET_REPO_DIR" ]; then
@@ -28,34 +18,41 @@ if [ ! -d "$TARGET_REPO_DIR" ]; then
     exit 1
 fi
 
-# Check if manifest file exists
-manifest_file="$DIFFS_DIR/${RANGE_NAME}_manifest.json"
-if [ ! -f "$manifest_file" ]; then
-    echo "Error: Manifest file not found: $manifest_file"
-    echo "Please run ./extract-md-changes.sh $START_COMMIT first"
+# Check if diffs directory exists
+if [ ! -d "$DIFFS_DIR" ]; then
+    echo "Error: Diffs directory not found at $DIFFS_DIR"
+    echo "Please run ./extract-md-changes.sh <commit-hash> first"
     exit 1
 fi
 
-# Read manifest information
-if command -v jq >/dev/null 2>&1; then
-    start_commit_message=$(jq -r '.start_commit_message' "$manifest_file")
-    head_commit_message=$(jq -r '.head_commit_message' "$manifest_file")
-    patch_count=$(jq -r '.patch_count' "$manifest_file")
-    commit_count=$(jq -r '.commit_count' "$manifest_file")
-    head_commit=$(jq -r '.head_commit' "$manifest_file")
-else
-    # Fallback parsing without jq
-    start_commit_message=$(grep '"start_commit_message"' "$manifest_file" | cut -d'"' -f4)
-    head_commit_message=$(grep '"head_commit_message"' "$manifest_file" | cut -d'"' -f4)
-    patch_count=$(grep '"patch_count"' "$manifest_file" | cut -d':' -f2 | tr -d ' ,')
-    commit_count=$(grep '"commit_count"' "$manifest_file" | cut -d':' -f2 | tr -d ' ,')
-    head_commit=$(grep '"head_commit"' "$manifest_file" | cut -d'"' -f4)
+# Find all patch files in diffs directory
+PATCH_FILES=("$DIFFS_DIR"/*.patch)
+if [ ! -f "${PATCH_FILES[0]}" ]; then
+    echo "No patch files found in $DIFFS_DIR"
+    echo "Please run ./extract-md-changes.sh <commit-hash> first"
+    exit 1
 fi
 
-echo "Start commit: $START_COMMIT ($start_commit_message)"
-echo "Head commit: $head_commit ($head_commit_message)"
-echo "Commits in range: $commit_count"
-echo "Patches to apply: $patch_count"
+# Find manifest files to get metadata (there might be multiple)
+MANIFEST_FILES=("$DIFFS_DIR"/*_manifest.json)
+if [ -f "${MANIFEST_FILES[0]}" ]; then
+    # Use the first manifest file for metadata
+    manifest_file="${MANIFEST_FILES[0]}"
+    echo "Using manifest: $(basename "$manifest_file")"
+    
+    # Read manifest information if jq is available
+    if command -v jq >/dev/null 2>&1; then
+        start_commit=$(jq -r '.start_commit // "unknown"' "$manifest_file")
+        head_commit=$(jq -r '.head_commit // "unknown"' "$manifest_file")
+        commit_count=$(jq -r '.commit_count // 0' "$manifest_file")
+        echo "Commit range: $start_commit to $head_commit"
+        echo "Commits in range: $commit_count"
+    fi
+else
+    echo "No manifest file found, proceeding with patch application"
+fi
+
+echo "Found ${#PATCH_FILES[@]} patch files to process"
 echo "Target directory: $TARGET_REPO_DIR"
 echo ""
 
@@ -74,13 +71,20 @@ FAILED_PATCHES=()
 DELETED_FILES=()
 ADDED_FILES=()
 
-# Find all patch files for this commit range
-for patch_file in "$DIFFS_DIR/${RANGE_NAME}_"*.patch; do
-    if [ -f "$patch_file" ]; then
+# Find all patch files and process them
+for patch_file in "${PATCH_FILES[@]}"; do
+    if [ -f "$patch_file" ] && [[ "$patch_file" == *.patch ]]; then
         # Extract original filename from patch filename
         base_patch_name=$(basename "$patch_file")
-        # Remove range name and .patch extension, then convert _ back to /
-        original_file=$(echo "$base_patch_name" | sed "s/^${RANGE_NAME}_//" | sed 's/\.patch$//' | tr '_' '/')
+        # Remove any range prefix and .patch extension, then convert _ back to /
+        # Handle both old format (commit_file.patch) and new format (range_file.patch)
+        if [[ "$base_patch_name" == *"_to_HEAD_"* ]]; then
+            # New format: range_to_HEAD_filename.patch
+            original_file=$(echo "$base_patch_name" | sed 's/^.*_to_HEAD_//' | sed 's/\.patch$//' | tr '_' '/')
+        else
+            # Old format or simple format: prefix_filename.patch
+            original_file=$(echo "$base_patch_name" | sed 's/^[^_]*_//' | sed 's/\.patch$//' | tr '_' '/')
+        fi
         
         echo "Processing: $original_file"
         
@@ -172,12 +176,11 @@ done
 # Commit changes if any were applied
 total_changes=$((${#APPLIED_PATCHES[@]} + ${#ADDED_FILES[@]} + ${#DELETED_FILES[@]}))
 if [ $total_changes -gt 0 ]; then
-    # Create commit message
-    commit_msg="Sync MD files from dexie-website
+    # Create commit message with available information
+    if [ -n "$start_commit" ] && [ -n "$head_commit" ]; then
+        commit_msg="Sync MD files from dexie-website
 
-Commit range: $START_COMMIT to $head_commit
-Start message: $start_commit_message
-Head message: $head_commit_message
+Commit range: $start_commit to $head_commit
 Commits in range: $commit_count
 
 Changes:
@@ -185,11 +188,22 @@ Changes:
 - Added files: ${#ADDED_FILES[@]}
 - Deleted files: ${#DELETED_FILES[@]}
 - Failed patches: ${#FAILED_PATCHES[@]}"
+    else
+        commit_msg="Sync MD files from dexie-website
+
+Applied patches from diffs/ directory
+
+Changes:
+- Applied patches: ${#APPLIED_PATCHES[@]}
+- Added files: ${#ADDED_FILES[@]}
+- Deleted files: ${#DELETED_FILES[@]}
+- Failed patches: ${#FAILED_PATCHES[@]}"
+    fi
 
     git commit -m "$commit_msg"
     echo ""
     echo "✓ Changes committed successfully!"
-    echo "Commit message includes original commit range information."
+    echo "Commit message includes available metadata."
     
     # Show what would be pushed
     echo ""
