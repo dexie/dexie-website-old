@@ -5,12 +5,13 @@ title: 'Dexie Cloud Quickstart'
 
 ### Get up and running in a minute!
 
-This guide gives you...
+This guide will help you:
 
-- [x] ...your own database.
-- [x] ...your own deployment of an installable PWA
-- [x] ...some best-practice examples of how to do work with local-first content consistently
-- [x] ...a baseline to start from, and extend to something awesome that only you can do!
+1.  Create a simple **offline-first app** with **storage and sync**
+2.  **Deploy it** to your own free static hosting on GitHub
+3.  **Install** it on mobile
+4.  See it **sync** between mobile and desktop
+5.  Go through **the code** to learn the details.
 
 This app is an educational PWA with focus on clean, minimalistic and correct code. _For a more fun app, have a look at [Dexie Cloud Starter](https://github.com/dexie/dexie-cloud-starter)._
 
