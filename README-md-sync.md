@@ -50,7 +50,7 @@ These scripts allow you to extract and apply MD file changes from a commit range
 - Applies them to the corresponding files in `../dexie-web-mui/`
 - Handles file additions, modifications, and deletions
 - Uses 3-way merge as fallback for conflicts
-- Creates a commit with detailed metadata about the changes
+- Automatically commits changes with detailed metadata
 
 ## Features
 
@@ -82,7 +82,7 @@ git log --oneline --name-only | grep -B1 '\.md$'
 # 2. Extract all changes from that commit to HEAD
 ./extract-md-changes.sh f4a7b2c
 
-# 3. Apply all the patches to target repository
+# 3. Apply all the patches and commit automatically
 ./apply-md-changes.sh
 
 # 4. Push changes to target repository (if desired)

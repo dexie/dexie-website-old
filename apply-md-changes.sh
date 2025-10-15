@@ -203,9 +203,10 @@ Changes:
     git commit -m "$commit_msg"
     echo ""
     echo "✓ Changes committed successfully!"
-    echo "Commit message includes available metadata."
-    
-    # Show what would be pushed
+    echo "Applied patches: ${#APPLIED_PATCHES[@]}"
+    echo "Added files: ${#ADDED_FILES[@]}"
+    echo "Deleted files: ${#DELETED_FILES[@]}"
+    echo "Failed patches: ${#FAILED_PATCHES[@]}"
     echo ""
     echo "To push changes, run: cd $TARGET_REPO_DIR && git push"
 else
