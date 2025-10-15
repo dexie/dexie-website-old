@@ -24,7 +24,7 @@ Make sure to have dexie-related dependencies installed:
 ```bash
 npm install dexie
 npm install dexie-cloud-addon
-npm install dexie-react-hooks # If using react
+npm install dexie-react-hooks # If you are using react
 ```
 
 ## 2. Declare a `db` (still local only)
