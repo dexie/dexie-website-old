@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
       $('#applyBetaBtn').click();
     }
   });
-  $('.sign-up-beta-btn').on("click", ()=>{
+  /*$('.sign-up-beta-btn').on("click", ()=>{
     $('#signup-form').slideDown(()=>$('#emailAddressInput').focus());
     if (typeof ga !== "undefined") ga('send', 'event', 'buttons', 'click', 'sign-up-beta-btn');
-  });
+  });*/
   $('.applyBetaBtn').on('click', ()=>{
     $('.sign-up-beta-btn').prop("disabled", true);
     $('.applyBetaBtn').prop("disabled", true);
