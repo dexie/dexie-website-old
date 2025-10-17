@@ -13,9 +13,7 @@ This guide will help you:
 4.  See it **sync** between mobile and desktop
 5.  Go through **the code** to learn the details.
 
-This app is an educational PWA with focus on clean, minimalistic and correct code. _For a more fun app, have a look at [Dexie Cloud Starter](https://github.com/dexie/dexie-cloud-starter)._
-
-_The original app is also deployed on [https://dexie.github.io/Dexie.js/dexie-cloud-todo-app/](https://dexie.github.io/Dexie.js/dexie-cloud-todo-app/)._
+This app is an educational PWA with focus on clean, minimalistic and correct code.
 
 ## Prerequisits
 
@@ -53,6 +51,8 @@ _The original app is also deployed on [https://dexie.github.io/Dexie.js/dexie-cl
    ```bash
    npm run dev
    ```
+
+_The original app is also deployed on [https://dexie.github.io/Dexie.js/dexie-cloud-todo-app/](https://dexie.github.io/Dexie.js/dexie-cloud-todo-app/)._
 
 ## Deploy the PWA using Github Pages
 
