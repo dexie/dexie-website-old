@@ -52,8 +52,6 @@ This app is an educational PWA with focus on clean, minimalistic and correct cod
    npm run dev
    ```
 
-_The original app is also deployed on [https://dexie.github.io/Dexie.js/dexie-cloud-todo-app/](https://dexie.github.io/Dexie.js/dexie-cloud-todo-app/)._
-
 ## Deploy the PWA using Github Pages
 
 The app is easily deployed to any static hosting provider. After running `npm run build`, the deployable PWA is all in the `build` folder. If you already have a GitHub account, here are the steps to deploy the app on GitHub Pages:
@@ -92,7 +90,9 @@ The app is easily deployed to any static hosting provider. After running `npm ru
    npx dexie-cloud whitelist https://<yourusername>.github.io
    ```
 
-   Your PWA will be available at https://<b>&lt;yourusername&gt;</b>.github.io/<b>&lt;your-repo-name&gt;</b>/dexie-cloud-todo-app/
+   Your PWA will be available at https://<b>&lt;yourusername&gt;</b>.github.io/<b>&lt;your-repo-name&gt;</b>/dexie-cloud-todo-app/.
+      
+   _For reference: The original app is deployed on https://<b>dexie</b>.github.io/<b>Dexie.js</b>/dexie-cloud-todo-app/_ <a href="https://dexie.github.io/Dexie.js/dexie-cloud-todo-app/" target="_blank">(open &#8599;)</a>
 
 ## See Sync in Action
 
