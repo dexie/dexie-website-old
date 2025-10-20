@@ -64,7 +64,7 @@ The app is easily deployed to any static hosting provider. After running `npm ru
    git commit -m "Initial commit"
    ```
 
-2. Create a new repository on GitHub:
+2. Create a new repository on GitHub (for your source but also the static hosting):
 
    - Go to [github.com](https://github.com) and sign in
    - Click the "+" icon in the top right corner
