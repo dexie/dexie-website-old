@@ -91,7 +91,7 @@ The app is easily deployed to any static hosting provider. After running `npm ru
    ```
 
    Your PWA will be available at https://<b>&lt;yourusername&gt;</b>.github.io/<b>&lt;your-repo-name&gt;</b>/dexie-cloud-todo-app/.
-      
+
    _For reference: The original app is deployed on https://<b>dexie</b>.github.io/<b>Dexie.js</b>/dexie-cloud-todo-app/_ <a href="https://dexie.github.io/Dexie.js/dexie-cloud-todo-app/" target="_blank">(open &#8599;)</a>
 
 ## See Sync in Action
@@ -113,7 +113,7 @@ The app is easily deployed to any static hosting provider. After running `npm ru
 - [TodoItem](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoItem.ts) - the shape of a to-do item, declared as a simple typescript interface.
 - [TodoList](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoList.ts) - the shape and logic of a to-do list - declared as a class with methods for sharing, deleting etc - operations that involves transactions and logic, perfectly encapsulated in class! Please look at its methods to learn how realms, members, sharing and deletion should be done in order to [preserve consistency](/cloud/docs/consistency) across various offline use cases.
 
-Whether to encapsulate logic in a class as we do with [TodoList](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoList.ts) is only a question of taste. It could equally well have been a pure interface just like we did with [TodoItem](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoItem.ts). However, having the consistency logic close to the model is a way to encourage correct usage of the model.
+Whether to encapsulate logic in a class as we do with [TodoList](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoList.ts) is only a question of taste. It could equally well have been a pure interface just like we did with [TodoItem](https://github.com/dexie/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoItem.ts). However, having the consistency logic close to the model is a way to encourage correct usage of the model. _If you declare your models this way, make sure to also bind the dexie table to the model using `mapToClass()` like we do on [line 23 in TodoDB](https://github.com/dexie/Dexie.js/blob/v4.2.0/samples/dexie-cloud-todo-app/src/db/TodoDB.ts#L23)_.
 
 ### Visual Components
 
