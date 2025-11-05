@@ -3,10 +3,6 @@ layout: docs
 title: 'Collection.desc()'
 ---
 
-### Deprecated
-
-Method is replaced with the [reverse()](/docs/Collection/Collection.reverse()) method but will remain a few versions ahead.
-
 ### Syntax
 
     collection.desc()
