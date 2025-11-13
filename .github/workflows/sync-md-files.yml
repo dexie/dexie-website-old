@@ -1,12 +1,13 @@
 name: Sync MD Files to dexie-web-mui
 
-on:
+on:  
   push:
     branches: [gh-pages]
     paths: ['**/*.md']
 
 jobs:
   sync-md-files:
+    if: false  # Workflow disabled
     runs-on: ubuntu-latest
 
     steps:
