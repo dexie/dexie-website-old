@@ -43,8 +43,6 @@ export interface DexieCloudOptions {
   // without a suffix.
   nameSuffix?: boolean;
 
-  // test comment 3
-
   // Disable websocket connection - don't listen to remote changes - effectively disabling eager sync from remote to local.
   disableWebSocket?: boolean;
 
