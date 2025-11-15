@@ -16,7 +16,7 @@ npm install dexie-cloud-addon@latest
 
 #### Create a cloud database to sync with
 
-Use [dexie-cloud](/cloud/docs/cli) (another package) to create a database in the cloud, so that dexie-cloud-addon will have a database URL to sync with. Dexie Cloud has a [forever free edition](/cloud/pricing#free) for 3 production users, unlimited devices and unlimited evaluation users.
+Use [dexie-cloud](/cloud/docs/cli) (another package) to create a database in the cloud, so that dexie-cloud-addon will have a database URL to sync with. Dexie Cloud has a [forever free edition](/pricing) for 3 production users, unlimited devices and unlimited evaluation users.
 
 ```
 npx dexie-cloud create
@@ -25,21 +25,21 @@ npx dexie-cloud create
 ## Usage
 
 ```tsx
-import Dexie from 'dexie';
-import dexieCloud from 'dexie-cloud-addon'; // Import the addon
+import Dexie from 'dexie'
+import dexieCloud from 'dexie-cloud-addon' // Import the addon
 
 const db = new Dexie('mydb', {
-  addons: [dexieCloud] // Include addon in your Dexie instance
-});
+  addons: [dexieCloud], // Include addon in your Dexie instance
+})
 
 db.version(1).stores({
-  myTable: '@myId, myIndex1, myIndex2, ...'
-});
+  myTable: '@myId, myIndex1, myIndex2, ...',
+})
 
 db.cloud.configure({
   databaseUrl: 'https://xxxxxxx.dexie.cloud', // URL from `npx dexie-cloud create`
-  ...otherOptions
-});
+  ...otherOptions,
+})
 ```
 
 ## API
@@ -83,12 +83,12 @@ Observables can be consumed in any GUI framework and we give two samples below.
 ### Example (React)
 
 ```tsx
-import { useObservable } from 'dexie-react-hooks';
-import { db } from './db.js';
+import { useObservable } from 'dexie-react-hooks'
+import { db } from './db.js'
 
 function MyComponent() {
   // db.cloud.invites is an Observable of Invite[] array.
-  const invites = useObservable(db.cloud.invites);
+  const invites = useObservable(db.cloud.invites)
 
   return (
     <>
@@ -104,7 +104,7 @@ function MyComponent() {
         ))}
       </ul>
     </>
-  );
+  )
 }
 ```
 
