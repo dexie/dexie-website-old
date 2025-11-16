@@ -3,9 +3,9 @@ layout: docs
 title: 'Road Map: Dexie 5.0'
 ---
 
-Some of the features presented here were moved from the road map for dexie@4 in January 2024 when dexie@4 went into release candidate.
+This is a living document and some of the APIs presented here might have changed since you watched last time.
 
-The goal for Dexie 5.0 will be a better experience for web developers to declare and query their data. What we'll be focusing on will be to query richness, paging and performance using some RAM-sparse caching. The goal is an intuitive and easy-to-use db API that performs well in large apps without sacrificing device resource usage.
+*The goal for Dexie 5.0 will be a better experience for web developers to declare and query their data. What we'll be focusing on will be to query richness, paging and performance using some RAM-sparse caching. The goal is an intuitive and easy-to-use db API that performs well in large apps without sacrificing device resource usage.*
 
 We don't have a any dedicated time schedule of when dexie 5 will be in alpha, beta or feature complete. This road map may also be updated and modified along the way.
 
