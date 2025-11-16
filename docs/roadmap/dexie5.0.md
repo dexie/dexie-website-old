@@ -116,7 +116,7 @@ const db = new Dexie('appDB').stores({
 });
 ```
 
-Subclassing Dexie isn't required anymore for typings but it is still useful the declared class extends the `Entity` helper because it will have the properties `db` and `table` so that methods can perform operations on the database:
+Subclassing Dexie isn't required anymore for typings but it is still useful the declared class extends the new `Model<T>` helper (same as `Entity<T>` in dexie@4) because it will have the properties `db` and `table` so that methods can perform operations on the database:
 
 ```ts
 class Friend extends Model<AppDB> {
@@ -130,10 +130,6 @@ class Friend extends Model<AppDB> {
   }
 }
 ```
-
-Notice that versions aren't needed for schema changes anymore. Here we diverge from native IndexedDB that require this. As already introduced in dexie@4, we work around it letting the declared version and the native version diverge. And when they do, we store the virtual version in a meta table on the database. This table will only be created on-demand, if a schema upgrade on same given version was needed. Basically, we continue working like before, unless the db has the $meta table - in which case the info there will be respected instead of the native one.
-
-Also, any methods in the type will be omitted from the insert type so that if you have a class with methods that backs the model of your table, you will continously be able to add items using plain objects (with methods omitted).
 
 ## Migrations
 
