@@ -13,7 +13,7 @@ This guide will help you:
 4.  See it **sync** between mobile and desktop
 5.  Go through **the code** to learn the details.
 
-This app is an educational PWA with focus on clean, minimalistic and correct code.
+This app is an educational PWA with focus on clean, minimalistic and correct code! (*not super-fancy-advanced because the purpose is to understand the code*).
 
 ## Prerequisits
 
