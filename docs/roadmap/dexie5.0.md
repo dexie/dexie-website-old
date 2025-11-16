@@ -146,28 +146,37 @@ The only situations where you need a new version number in dexie@5 will be in on
 
 ### New Migration Methods for Rename
 
-Three new methods exists that can be used in migrations instead of update(). These are declarative and revertable, which is much better canary use cases where you might have to downgrade the database without deleting it.
-
-This new bidirectional framework is also compatible with Dexie Cloud since it allows for multiple clients sharing the same data of in different versions and still be able to sync it.
+Two new methods exists that can be used in migrations instead of update(). These are declarative and revertable, which is much better canary use cases where you might have to downgrade the database without deleting it.
 
 - renameTable()
 - renameProperty()
-- refactor()
 
 #### Example: You want to rename a table or property or both:
 
 You want to rename table "friends" to "contacts". You also want to rename a property on that model from "name" to "displayName":
 
 ```ts
-const db = new Dexie('dbName').version(2).stores({
+const db = new Dexie('dbName').version(5).stores({
   contacts: Table<Contact>`
     ++id
     displayName
     age
   `
-}).renameTable({friends: 'contacts'})
-  .renameProperty({contacts: {name: 'displayName'}}); // renaming prop "name" to "displayName"
+}).upgrade({
+  renameTable: {friends: 'contacts'},
+  renameProperty: {contacts: {name: 'displayName'}}
+}); // renaming prop "name" to "displayName"
+
+db.version(4).stores({
+  friends: `
+    ++id
+    name
+    age
+  `
+});
+
 ```
+In this sample, we keep the version 4 around but it's actually not needed unless version 4 had an upgrader attached to it. Just want to show how to keep old versions around: No need for typings using the `Table` tag. Old versions without upgraders can be skrapped (this has been true ever since dexie@4).
 
 #### object-wise upgrade()
 
@@ -176,13 +185,14 @@ We add a new object-wise upgrade. In contrast to the generic `upgrade()` callbac
 If you are on Dexie Cloud, only object-wise upgrades are permitted.
 
 ```ts
-const db = new Dexie('dbName').version(3).stores({
+const db = new Dexie('dbName').version(6).stores({
   contacts: Table<Contact>`
     ++id
     [lastName+firstName]
     age
     `
 }).upgrade({
+  migrate: {
   contacts: (contactV2: ContactV2) => {
     // Split displayName into firstName and lastName:
     const [firstName, ...lastNames] = contactV2.displayName?.split(' ') ?? [];
@@ -193,13 +203,36 @@ const db = new Dexie('dbName').version(3).stores({
     };
     return contact;
   }
+  }
 });
 
-
 // Keep the refactoring history of earlier versions in separate expression declared later:
-db.version(2)
-  .renameTable({friends: 'contacts'})
-  .renameProperty({contacts: {name: 'displayName'}});
+db.version(5).stores({
+  contacts: `
+    ++id
+    displayName
+    age
+  `
+}).upgrade({
+  renameTable: {friends: 'contacts'},
+  renameProperty: {contacts: {name: 'displayName'}}
+});
+
+db.version(4).stores({
+  friends: `
+    ++id
+    name
+    age
+  `
+});
+```
+
+# Instruct to delete / recreated database if version is too old
+
+```ts
+db.version(3).upgrade({
+  recreate: true
+});
 ```
 
 # Richer Queries
