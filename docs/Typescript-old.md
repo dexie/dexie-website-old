@@ -3,7 +3,7 @@ layout: docs
 title: 'Typescript (old)'
 ---
 
-See [Typescript](an updated doc) on how to use dexie with Typescript. Both ways are valid.
+See [an updated doc](Typescript) on how to use dexie with Typescript. Both ways are valid.
 
 This is a guide on how to use Dexie with Typescript.
 
