@@ -3,6 +3,8 @@ layout: docs
 title: 'Typescript (old)'
 ---
 
+See [Typescript](an updated doc) on how to use dexie with Typescript. Both ways are valid.
+
 This is a guide on how to use Dexie with Typescript.
 
 **[To see it in action, watch this stackblitz sample!](https://stackblitz.com/edit/typescript-dexie-appdemo?file=index.ts)**
