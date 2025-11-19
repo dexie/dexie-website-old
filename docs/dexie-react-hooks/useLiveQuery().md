@@ -227,7 +227,9 @@ function MyComponent(id) {
   
 ```
 
+# Catching errors in useLiveQuery
 
+Use an [error boundary](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) to catch and inspect any errors happening in useLiveQuery.
 
 # Playgrounds
 
