@@ -274,4 +274,4 @@ Already since Dexie 3.0, it has been possible to import { Dexie } as a named exp
 
 ## More to come
 
-Dexie has been pretty much backward compatible between major versions so far and the plan is to continue being backward compatible as much as possible. But there might be additional breaking changes to come and they will be listed here. This is a living document. Subscribe to our [github discussions](https://github.com/dexie/Dexie.js) or to the [blog](https://medium.com/dexie-js) if you want to get notified on updates.
+Dexie has been pretty much backward compatible between major versions so far and the plan is to continue being backward compatible as much as possible. But there might be additional breaking changes to come and they will be listed here. This is a living document. Subscribe to our [github discussions](https://github.com/dexie/Dexie.js) or to the [blog](/blog) if you want to get notified on updates.
