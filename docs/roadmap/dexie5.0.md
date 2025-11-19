@@ -189,11 +189,11 @@ const db = new Dexie('dbName').version(6).stores({
     `
 }).upgrade({
   migrate: {
-  contacts: (contactV2: ContactV2) => {
-    // Split displayName into firstName and lastName:
+    contacts: (contactV5: ContactV5) => {
+      // Migrate object from version 5 to version 6
     const [firstName, ...lastNames] = contactV2.displayName?.split(' ') ?? [];
     const contact: Contact = {
-      ...contactV2,
+        ...contactV5,
       firstName,
       lastName: lastNames?.join(' ')
     };
