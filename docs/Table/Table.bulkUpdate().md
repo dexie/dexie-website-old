@@ -197,7 +197,7 @@ If some operations fail, `bulkUpdate()` will return a rejected Promise with a
 
 [Table.update()](</docs/Table/Table.update()>)
 
-[Table.bulkDelete()](</docs/Table/Table.bulkPut()>)
+[Table.bulkPut()](</docs/Table/Table.bulkPut()>)
 
 [Table.bulkGet()](</docs/Table/Table.bulkGet()>)
 
