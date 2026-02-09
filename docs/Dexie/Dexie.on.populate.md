@@ -44,90 +44,55 @@ If your aim is to populate the database from an ajax- or other asynchronous requ
 This sample shows how to populate your database from an ajax call. Note that on('populate') is not suitable for that and instead we are using on('ready'):
 
 ```javascript
-var db = new Dexie('someDB');
-db.version(1).stores({
-    someTable: "++id, someIndex"
-});
+    import Dexie from 'https://cdn.jsdelivr.net/npm/dexie@4.0.1/+esm';
+    var db = new Dexie('someDB');
+    // uncomment this to force the database to be reloaded
+    // db.delete().then (()=>db.open()); 
 
-// Populate from AJAX:
-db.on('ready', function (db) {
-    // on('ready') event will fire when database is open but 
-    // before any other queued operations start executing.
-    // By returning a Promise from this event,
-    // the framework will wait until promise completes before
-    // resuming any queued database operations.
-    // Let's start by using the count() method to detect if 
-    // database has already been populated.
-    return db.someTable.count(function (count) {
-        if (count > 0) {
-            console.log("Already populated");
-        } else {
-            console.log("Database is empty. Populating from ajax call...");
-            // We want framework to continue waiting, so we encapsulate
-            // the ajax call in a Promise that we return here.
-            return new Promise(function (resolve, reject) {
-                $.ajax(url, {
-                    type: 'get',
-                    dataType: 'json',
-                    error: function (xhr, textStatus) {
-                        // Rejecting promise to make db.open() fail.
-                        reject(textStatus);
-                    },
-                    success: function (data) {
-                        // Resolving Promise will launch then() below.
-                        resolve(data);
-                    }
-                });
-            }).then(function (data) {
-                console.log("Got ajax response. We'll now add the objects.");
-                // By returning the a promise, framework will keep
-                // waiting for this promise to complete before resuming other
-                // db-operations.
-                console.log("Calling bulkAdd() to insert objects...");
-                return db.someTable.bulkAdd(data.someInitArrayOfObjects);
-            }).then(function () {
-                console.log ("Done populating.");
-            });
-        }
+    db.version(1).stores({
+      productTable: "++id,price,brand,category"
     });
-});
+    db.on('ready', async vipDB => {
+      const count = await vipDB.productTable.count();
+      if (count > 0) {
+        console.log(`productTable is already populated with ${count} rows`);
+      } else {
+        const data = await loadData();
+        await vipDB.productTable.bulkAdd(data);
+        console.warn(`populating productTable with ${data.length} rows`);
+      }
+    });
 
-// Following operation will be queued until we're finished populating data:
-db.someTable.each(function (obj) {
-    // When we come here, data is fully populated and we can log all objects.
-    console.log("Found object: " + JSON.stringify(obj));
-}).then(function () {
-    console.log("Finished.");
-}).catch(function (error) {
-    // In our each() callback above fails, OR db.open() fails due to any reason,
-    // including our ajax call failed, this operation will fail and we will get
-    // the error here!
-    console.error(error.stack || error);
-    // Note that we could also have caught it on db.open() but in this sample,
-    // we show it here.
-});
+    db.open(); // open the database to trigger 'ready'
+
+    // Following operation will be queued until we're finished populating data:
+    db.productTable.each( (product) =>  {
+      // When we come here, data is fully populated and we can log all objects.
+      console.log("Found object: " + product.title);
+    }).then(function () {
+      console.log("Finished.");
+    }).catch(function (error) {
+      // In our each() callback above fails, OR db.open() fails due to any reason,
+      // including our ajax call failed, this operation will fail and we will get
+      // the error here!
+      console.error(error.stack || error);
+      // Note that we could also have caught it on db.open() but in this sample,
+      // we show it here.
+    });
+
+    async function loadData() {
+      let url = 'https://dummyjson.com/products?limit=3';
+      const response = await fetch(url);
+      return await response.json().then(data => data.products)
+    }
 ```
 
 Console Output on first run:
-
-```
-Database is empty. Populating from ajax call...
-Got ajax response. We'll now add the objects.
-Calling bulkAdd() to insert objects...
-Done populating.
-Found object: {"someIndex":"item1","id":1}
-Found object: {"someIndex":"item2","id":2}
-Finished.
-```
+![image](https://github.com/dexie/dexie-website/assets/619585/4b929f62-9e7b-49a9-be5e-48684b66173c)
 
 Console Output when data is already populated:
 
-```
-Already populated
-Found object: {"someIndex":"item1","id":1}
-Found object: {"someIndex":"item2","id":2}
-Finished.
-```
+![image](https://github.com/dexie/dexie-website/assets/619585/2b5f3115-37c1-4887-88d3-63ed276e0f9c)
 
 ### See Also
 
